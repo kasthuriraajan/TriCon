@@ -21,5 +21,10 @@ public class indexController {
 		return "index";
 	}
 
+	@RequestMapping("/weeklyreport")
+	public String weeklyreport(Map<String, Object> model) {
+		model.put("message", this.message);
+		return "weeklyreport";
+	}
 }
 
