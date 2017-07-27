@@ -20,33 +20,8 @@
 </head>
 <body>
 <div id="wrapper">
-	<nav class="navbar navbar-default navbar-fixed-top" >
-		<div class="navbar-header">
-			<a class="navbar-brand" style="color: white; font-size: 32px;" href="index.html">TriCon</a>
-			<form class="navbar-form navbar-left" role="search">
-				<div class="input-group">
-					<input class="customform-control" type="text" placeholder="Search"/>
-					<span class="input-group-addon"><i class="fa fa-search  fa-1x"></i></span>
-				</div>
-			</form>
+	<div th:replace="fragments/header :: header">
 		</div>
-		<div class="iconsty">
-			<a style="color: white;" href="weeklyreport.html">
-				<i class="fa fa-home fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Home"></i></a>
-			<a style="color: white;" href="weeklyreport.html">
-				<i class="fa fa-bell fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Notification"></i></a>
-			<a style="color: white;" href="weeklyreport.html">
-				<i class="fa fa-file fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Commited Students"></i></a>
-			<a style="color: white;" href="chat.html">
-				<i class="fa fa-comments fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Chat"></i></a>
-			<a style="color: white;" href="forum.html">
-				<i class="fa fa-group fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Forum"></i></a>
-			<a style="color: white;" href="index.html">
-				<i class="fa fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Romi">
-					<img src="../img/1.png" class="img user-image-top img-responsive"/></i></a>
-		</div>
-
-	</nav>
 	<div class="row">
 		<div class="col-xs-12 col-md-3">
 			<div class="panel panel-default">
