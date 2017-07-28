@@ -20,6 +20,11 @@ public class indexController {
 		model.put("message", this.message);
 		return "index";
 	}
+	@RequestMapping("/inspectnew")
+	public String welcome(Map<String, Object> model) {
+		model.put("message", this.message);
+		return "";
+	}
 
 }
 
