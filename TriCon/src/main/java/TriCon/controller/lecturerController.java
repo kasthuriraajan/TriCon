@@ -39,4 +39,19 @@ public class lecturerController {
     {
         return "lecturer/pastrecords";
     }
+    @RequestMapping("/lec/forum")
+    public String forum(Map<String, Object> model)
+    {
+        return "lecturer/forum";
+    }
+    @RequestMapping("/lec/chatt")
+    public String chatt(Map<String, Object> model)
+    {
+        return "lecturer/chat";
+    }
+    @RequestMapping("/lec/progressreport")
+    public String progress(Map<String, Object> model)
+    {
+        return "lecturer/progressreport";
+    }
 }
