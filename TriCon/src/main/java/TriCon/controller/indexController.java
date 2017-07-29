@@ -11,45 +11,50 @@ import java.util.Map;
 @Controller
 public class indexController {
 
-	// inject via application.properties
-	@Value("${index.message:test}")
-	private String message = "Hello World";
+    // inject via application.properties
+    @Value("${index.message:test}")
+    private String message = "Hello World";
 
-	@RequestMapping("/")
-	public String welcome(Map<String, Object> model) {
-		model.put("message", this.message);
-		return "fragments/index";
-	}
+    @RequestMapping("/")
+    public String welcome(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "fragments/index";
+    }
 
-	@RequestMapping("/weeklyreport")
-	public String weeklyreport(Map<String, Object> model) {
-		model.put("message", this.message);
-		return "weeklyreport";
-	}
-	@RequestMapping("/header")
-	public String header(Map<String, Object> model) {
-		model.put("message", this.message);
-		return "fragments/header";
-	}
-	@RequestMapping("/footer")
-	public String footer(Map<String, Object> model) {
+    @RequestMapping("/weeklyreport")
+    public String weeklyreport(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "weeklyreport";
+    }
 
-		return "fragments/footer";
-	}
-	@RequestMapping("/profile")
-	public String profile(Map<String, Object> model) {
+    @RequestMapping("/header")
+    public String header(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "fragments/header";
+    }
 
-		return "fragments/profile";
-	}
-	@RequestMapping("/userlist")
-	public String userlist(Map<String, Object> model) {
+    @RequestMapping("/footer")
+    public String footer(Map<String, Object> model) {
 
-		return "fragments/userlist";
-	}
-	@RequestMapping("/sidebar")
-	public String sidebar(Map<String, Object> model) {
+        return "fragments/footer";
+    }
 
-		return "fragments/sidebar";
-	}
+    @RequestMapping("/profile")
+    public String profile(Map<String, Object> model) {
+
+        return "fragments/profile";
+    }
+
+    @RequestMapping("/userlist")
+    public String userlist(Map<String, Object> model) {
+
+        return "fragments/userlist";
+    }
+
+    @RequestMapping("/sidebar")
+    public String sidebar(Map<String, Object> model) {
+
+        return "fragments/sidebar";
+    }
 }
 
