@@ -49,6 +49,7 @@ public class studentController
     {
         return "student/summary";
     }
+<<<<<<< HEAD
 
     @RequestMapping("/stu/finalreport")
     public String finalreport(Map<String, Object> model)
@@ -67,4 +68,6 @@ public class studentController
     {
         return "student/inspectreport";
     }
+=======
+>>>>>>> origin/Student
 }
