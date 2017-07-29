@@ -48,6 +48,7 @@ public class industrialistController {
         return "industrialist/weeklyreport";
     }
 
+
     @RequestMapping("/ind/profileupdate")
     public String profileupdate(Map<String, Object> model) {
         return "industrialist/profileupdate";

@@ -27,6 +27,30 @@ public class indexController {
         return "weeklyreport";
     }
 
+    @RequestMapping("/student")
+    public String student(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "student";
+    }
+
+    @RequestMapping("/lecturer")
+    public String lecturer(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "lecturer";
+    }
+
+    @RequestMapping("/industrialist")
+    public String industrialist(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "industrialist";
+    }
+
+    @RequestMapping("/user")
+    public String user(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "user";
+    }
+
     @RequestMapping("/header")
     public String header(Map<String, Object> model) {
         model.put("message", this.message);
