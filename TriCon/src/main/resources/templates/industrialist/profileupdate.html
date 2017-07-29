@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="shortcut icon" href="../img/logo1.png"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+
+
+</head>
+<body>
+<div id="wrapper">
+    <div th:replace="fragments/header :: header">
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="profile.html">
+                        <h3 class="custompanel-title">Romi</h3>
+                        <img src="../img/1.png" class="img-circle user-image img-responsive"/>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <h3>Social Media</h3>
+                    <form action="" method="get">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm1"><i class="fa fa-linkedin"></i> </span>
+                            <input type="text" class="form-control" placeholder="LinkedIn" aria-describedby="sm1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm2"><i class="fa fa-twitter"></i> </span>
+                            <input type="text" class="form-control" placeholder="Twitter" aria-describedby="sm1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm3"><i class="fa fa-github"></i> </span>
+                            <input type="text" class="form-control" placeholder="Github" aria-describedby="sm1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm4"><i class="fa fa-facebook"></i> </span>
+                            <input type="text" class="form-control" placeholder="Facebook" aria-describedby="sm1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm5"><i class="fa fa-globe"></i> </span>
+                            <input type="text" class="form-control" placeholder="Blog address" aria-describedby="sm1"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading customheading">
+                    Personal Details
+                </div>
+                <div class="panel-body">
+                    <form action="" method="get">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="pd1">First Name </span>
+                            <input type="text" class="form-control" placeholder="Eg: Kannan" aria-describedby="pd1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="pd2">Last Name </span>
+                            <input type="text" class="form-control" placeholder="Eg: Ravi" aria-describedby="pd2"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="pd3">E-Mail ID</span>
+                            <input type="text" class="form-control" placeholder="Eg: ravi@gmail.com"
+                                   aria-describedby="pd3"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="pd4">Mobile No </span>
+                            <input type="text" class="form-control" placeholder="Eg: +94770562348"
+                                   aria-describedby="pd4"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="pd5">T.P Number</span>
+                            <input type="text" class="form-control" placeholder="Eg: 021 456 2365"
+                                   aria-describedby="pd5"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="pd6">Address</span>
+                            <input type="text" class="form-control" placeholder="Eg: No5,park avenue,Main Street,Jaffna"
+                                   aria-describedby="pd6"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading customheading">
+                    Professional Details
+                </div>
+                <div class="panel-body">
+                    <form action="" method="get">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="prod1">Company  </span>
+                            <input type="text" class="form-control" placeholder="Eg: SenzMate" aria-describedby="prod1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="prod2">Designation</span>
+                            <input type="text" class="form-control" placeholder="Eg: Software Engineer" aria-describedby="prod2"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="prod3">Address</span>
+                            <input type="text" class="form-control"
+                                   placeholder="Eg: 81/5, Gregory's Rd,Colombo 07,SriLanka" aria-describedby="prod3"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading customheading">
+                   Skills
+                </div>
+                <div class="panel-body">
+                    <form action="" method="get">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="prod1">Company  </span>
+                            <input type="text" class="form-control" placeholder="Eg: SenzMate" aria-describedby="prod1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="prod2">Designation</span>
+                            <input type="text" class="form-control" placeholder="Eg: Software Engineer" aria-describedby="prod2"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="prod3">Address</span>
+                            <input type="text" class="form-control"
+                                   placeholder="Eg: 81/5, Gregory's Rd,Colombo 07,SriLanka" aria-describedby="prod3"/>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+<div th:replace="fragments/footer :: footer">
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

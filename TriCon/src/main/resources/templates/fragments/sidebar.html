@@ -2,47 +2,58 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>TriCon</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <link rel="shortcut icon" href="../img/logo1.png" />
+    <link rel="shortcut icon" href="../img/logo1.png"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/custom.css" />
+          href="../../css/custom.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/font-awesome.css" />
+          href="../../css/font-awesome.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.min.css" />
+          href="../../css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.css" />
+          href="../../css/bootstrap.css"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../../css/main.css" />
+          href="../../css/main.css"/>
 
 
 </head>
 <body>
 
 <div class="col-xs-12 col-md-3" th:fragment="sidebar">
-    <div class="customuserpanel row"><div class="col-xs-16 col-md-6" >
-        <img src="../img/1.png" class="img-responsive img-circle" alt="Responsive image"/></div>
-        <div class="col-xs-16 col-md-6 usertext"><ul class="nav"><li>Name</li><li>Reg.No</li><li>University</li></ul></div></div>
+
     <nav class="custompanel" role="navigation">
 
         <div class="sidebar-collapse">
 
             <ul class="nav" id="main-menu">
                 <li>
-                    <a class="active-menu"  href="index.html"><i class="fa fa-edit fa-2x"></i> Weekly Report</a>
+                    <div class="custompanel row">
+                        <div class="col-xs-16 col-md-6">
+                            <img src="../img/1.png" class="img-responsive img-circle" alt="Responsive image"/></div>
+                        <div class="col-xs-16 col-md-6 usertext">
+                            <ul class="nav">
+                                <li>Name</li>
+                                <li>Reg.No</li>
+                                <li>University</li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
                 <li>
-                    <a  href="ui.html"><i class="fa fa-file-o fa-2x"></i> Progress Report</a>
+                    <a class="active-menu" href="index.html"><i class="fa fa-edit fa-2x"></i> Weekly Report</a>
                 </li>
                 <li>
-                    <a  href="tab-panel.html"><i class="fa fa-file-text-o fa-2x"></i> Inspection Report</a>
+                    <a href="ui.html"><i class="fa fa-file-o fa-2x"></i> Progress Report</a>
                 </li>
-                <li  >
-                    <a   href="chart.html"><i class="fa fa-folder-o fa-2x"></i>Final Report</a>
+                <li>
+                    <a href="tab-panel.html"><i class="fa fa-file-text-o fa-2x"></i> Inspection Report</a>
                 </li>
-                <li  >
-                    <a  href="table.html"><i class="fa fa-table fa-2x"></i> Novation</a>
+                <li>
+                    <a href="chart.html"><i class="fa fa-folder-o fa-2x"></i>Final Report</a>
+                </li>
+                <li>
+                    <a href="table.html"><i class="fa fa-table fa-2x"></i> Novation</a>
                 </li>
             </ul>
 
