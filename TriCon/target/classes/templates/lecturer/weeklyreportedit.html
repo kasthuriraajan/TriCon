@@ -20,73 +20,65 @@
 </head>
 <body>
 <div id="wrapper">
-    <div th:replace="fragments/header :: header">
+    <div th:replace="fragments/header :: lecheader">
     </div>
     <div class="row">
-        <div th:replace="fragments/sidebar :: sidebar">
+        <div th:replace="fragments/sidebar :: lecsidebar">
         </div>
         <div class="col-xs-12 col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Mr.X journal</h3>
-                </div>
+                <div class="panel-heading"><div class="row">
+                    <div class="col-xs-12 col-md-6 customheading">
+                        Weekly Report
+                    </div>
+                    <div class="col-xs-12 col-md-3">
+            <span><label>From</label>
+            <label>:12/09/2015</label></span>
+                    </div>
+                    <div class="col-xs-12 col-md-3">
+             <span><label>To</label>
+            <label>:12/12/2017</label></span>
+                    </div>
+                </div></div>
                 <div class="panel-body">
-                    <form class="form-horizontal">
+              <span>
+                <label class="col-xs-6 col-md-2">Monday</label>
+                <label class="showarea col-xs-6 col-md-9">hii</label>
+              </span>
+                    <span>
+                <label class="col-xs-6 col-md-2">Tuesday</label>
+                <label class="showarea col-xs-6 col-md-9">hii</label>
+              </span>
+                    <span>
+                <label class="col-xs-6 col-md-2">Wednesday</label>
+                <label class="showarea col-xs-6 col-md-9">hii</label>
+              </span>
+                    <span>
+                <label class="col-xs-6 col-md-2">Thursday</label>
+                <label class="showarea col-xs-6 col-md-9">hii</label>
+              </span>
+                    <span>
+                <label class="col-xs-6 col-md-2">Friday</label>
+                <label class="showarea col-xs-6 col-md-9">hii</label>
+              </span>
+                    <span>
+                <label class="col-xs-6 col-md-2">Saturday</label>
+                <label class="showarea col-xs-6 col-md-9">hii</label>
+              </span>
+                    <span>
+                <label class="col-xs-6 col-md-2">Sunday</label>
+                <label class="showarea col-xs-6 col-md-9">hii</label>
+              </span>
 
-
-
-
-
-                        <div class="form-group">
-                            <center><h4><b>From 7th marc 2016 to 14th march 2016</b></h4></center>
-
-                            <label for="monday" class="col-sm-2 control-label">Monday</label>
-                            <div class="col-sm-9">
-
-                                <textarea class="form-control" rows="2"></textarea>
-
-                            </div>
-
-                            <label for="tuesday" class="col-sm-2 control-label">Tuesday</label>
-                            <div class="col-sm-9">
-
-                                <textarea class="form-control" rows="2"></textarea>
-                            </div>
-
-                            <label for="wednesday" class="col-sm-2 control-label">Wednesday</label>
-                            <div class="col-sm-9">
-
-                                <textarea class="form-control" rows="2"></textarea>
-                            </div>
-
-                            <label for="thursday" class="col-sm-2 control-label">Thursday</label>
-                            <div class="col-sm-9">
-
-                                <textarea class="form-control" rows="2"></textarea>
-                            </div>
-
-                            <label for="friday" class="col-sm-2 control-label">Friday</label>
-                            <div class="col-sm-9">
-
-                                <textarea class="form-control" rows="2"></textarea>
-
-                            </div>
-                            <label for="wednesday" class="col-sm-2 control-label"><b>Feedback</b></label>
-                            <div class="col-sm-10">
-
-                                <textarea class="form-control" rows="4"></textarea>
-                            </div>
-
-
-                        </div>
-
-
-                    </form>
-
-
-
+                    <h3>Summary</h3>
+                    <label class="showarea col-xs-12 col-md-12">hii</label>
+                    <h3>Remarks</h3>
+                    <label class="showarea col-xs-12 col-md-12">hii</label>
+                    <h3>Feedback</h3>
+                    <textarea class="form-control" rows="4"></textarea>
 
                 </div>
+
                 <form>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">

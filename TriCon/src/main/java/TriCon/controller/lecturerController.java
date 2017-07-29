@@ -34,6 +34,10 @@ public class lecturerController {
     public String inspectreportedit(Map<String, Object> model) {
         return "lecturer/inspectreportedit";
     }
+    @RequestMapping("/lec/finalreport")
+    public String finalreport(Map<String, Object> model) {
+        return "lecturer/finalreport";
+    }
 
     @RequestMapping("/lec/pastrecords")
     public String pastrecords(Map<String, Object> model) {
@@ -44,7 +48,7 @@ public class lecturerController {
     {
         return "lecturer/forum";
     }
-    @RequestMapping("/lec/chatt")
+    @RequestMapping("/lec/chat")
     public String chatt(Map<String, Object> model)
     {
         return "lecturer/chat";

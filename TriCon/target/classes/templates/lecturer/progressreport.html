@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="shortcut icon" href="../img/logo1.png" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css" />
+
+
+</head>
+<body>
+<div id="wrapper">
+    <div th:replace="fragments/header :: lecheader">
+    </div>
+    <div class="row">
+        <div th:replace="fragments/sidebar :: lecsidebar">
+        </div>
+        <div class="col-xs-12 col-md-9 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 customheading">
+                            Progress Report
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <center>
+                            <font><b>PROGRESS REPORT OF AN ESTABLISHMENT ON TRAINNING PERFORMANCE</b></font>
+                        </center><br></br>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Name of Establishment</label>
+                                <div class="col-sm-10 col-md-8">
+                                    <label class="showarea col-xs-6 col-md-9">University of jaffna</label>
+                                </div>
+                            </div>
+                            <b>Period of trainning</b>
+                            <br></br>
+                            <center>
+                            <div class="col-xs-6 col-md-6">
+                                <label>From </label>
+                                <label>12/07/2017 </label>
+                            </div>
+                            <div class="col-xs-5 col-md-6">
+                                <label>To </label>
+                                <label>12/07/2017 </label>
+                            </div>
+                            </center>
+                            <br></br><br></br>
+
+                            <center><b>Comments of trainning</b></center>
+                            <div class="form-group">
+                                <label  class="col-sm-2 control-label">Conduct</label>
+                                <div class="col-sm-10">
+                                    <label class="showarea col-xs-6 col-md-9">afafsfsafaffa</label>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div class="form-group">
+                                <label  class="col-sm-2 control-label">Attitude to work</label>
+                                <div class="col-md-10">
+                                    <label class="showarea col-xm-6 col-md-9">hiidfdafadfad</label>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div class="form-group">
+                                <label  class="col-sm-2 control-label">Attendance</label>
+                                <div class="col-sm-10">
+                                    <label class="showarea col-xs-6 col-md-9">hii</label>
+                                </div>
+                            </div>
+                            <br></br>
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>No.Of Days Leave Taken</th>
+                                        <th>Authorized</th>
+                                        <th>Unauthorized</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody><tr><td>............</td><td>..........</td><td>.................</td></tr></tbody>
+                                </table>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label  class="col-sm-2 control-label">Officer's Signature</label>
+                                <div class="col-sm-10">
+                                    <lable>...................</lable>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-2 control-label">Signature</label>
+                                <div class="col-sm-10">
+                                    <input type="text"></input>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
