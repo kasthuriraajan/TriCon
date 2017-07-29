@@ -1,8 +1,18 @@
 body { padding-top: 70px; }
+body.bg
+{
+    background:  url(../img/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.spacediv
+{
+height:120px;
+}
 .navstyle
 {
     background:#000;
 }
+
 .custombtn
 {
   display: inline-block;
@@ -30,8 +40,8 @@ body { padding-top: 70px; }
 .showarea{
   display: inline-block;
   max-width: 100%;
-  min-height: 75px;
-  margin-bottom: 5px;
+  height: 75px;
+  margin-bottom:15px;
  border-radius: 5px;
    color:#000;
   background:#fff;
@@ -42,7 +52,8 @@ body { padding-top: 70px; }
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-
+  background: #ddd;
+  margin-left: 5px;
 }
 .customuserpanel {
   padding: 10px 15px;

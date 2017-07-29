@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="shortcut icon" href="../img/logo1.png" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css" />
+
+
+</head>
+<body>
+<div id="wrapper">
+    <div th:replace="fragments/header :: header">
+    </div>
+    <div class="row">
+        <div th:replace="fragments/sidebar :: sidebar">
+        </div>
+        <div class="col-xs-12 col-md-9 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Mr.X journal</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <div><button class="btn" type="submit">Date  <input type="date"/></button>
+                        </div>
+
+                        <div class="form-group">
+                            <br></br>
+                            <center><h4><b>Inspect No-3</b></h4></center>
+                            <div class="spacer"></div> <div class="col-sm-12"><textarea class="form-control" rows="8"></textarea></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <center> <label>
+                                        <input type="checkbox"/> The above informations are filled by me.
+                                    </label></center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <br></br>
+                            <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-xs-5 col-sm-4 col-md-5">
+
+                                <button type="submit" class="btn btn-info" >- Save -</button>
+                            </div>
+
+                            <div class="col-xs-5 col-sm-4 col-md-2">
+                                <button type="submit" class="btn btn-info">Signature</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
