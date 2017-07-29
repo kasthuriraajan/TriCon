@@ -51,7 +51,7 @@ height:120px;
   border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-
+  background: #ddd;
 }
 .customuserpanel {
   padding: 10px 15px;
