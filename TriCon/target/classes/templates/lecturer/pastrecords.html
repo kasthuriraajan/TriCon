@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>TriCon</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <link rel="shortcut icon" href="../img/logo1.png"/>
+    <link rel="shortcut icon" href="../img/logo1.png" />
     <link rel="stylesheet" type="text/css"
-          href="../../css/custom.css"/>
+          href="../../css/custom.css" />
     <link rel="stylesheet" type="text/css"
-          href="../../css/font-awesome.css"/>
+          href="../../css/font-awesome.css" />
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.min.css"/>
+          href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.css"/>
+          href="../../css/bootstrap.css" />
     <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../../css/main.css"/>
+          href="../../css/main.css" />
 
 
 </head>
@@ -23,24 +23,28 @@
     <div th:replace="fragments/header :: header">
     </div>
     <div class="row">
-        <div th:replace="fragments/profile :: profile">
+        <div th:replace="fragments/sidebar :: sidebar">
         </div>
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-9 col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title customheading">Commited students</h3>
+                    <h3>Past Records Of Student</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="input-group">
-                            <input class="customform-control" type="text" placeholder="Search"/>
-                            <span class="input-group-addon"><i class="fa fa-search  fa-1x"></i></span>
-                        </div>
-                    </form>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr class="active">
+                                <th>Date</th>
+                                <th>Student Reg NO</th>
+                                <th>Gmail Address</th>
+                                <th>Report</th>
+
+                            </tr>
+                        </table>
+                    </div>
+
                 </div>
             </div>
-        </div>
-        <div th:replace="fragments/userlist :: userlist">
         </div>
     </div>
 </div>
