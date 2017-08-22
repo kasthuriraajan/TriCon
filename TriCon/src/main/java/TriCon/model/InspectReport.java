@@ -1,6 +1,6 @@
 package TriCon.model;
 
-public class InspectionReport
+public class InspectReport
 {   private String InspectId;
     private String JournalId;
     private String LectId;
