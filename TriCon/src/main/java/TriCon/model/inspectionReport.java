@@ -1,60 +1,69 @@
 package TriCon.model;
 
-public class inspectionReport
-{
-    private String inspectionlId;
-    private String journalId;
-    private String lecturerId;
-    private String date;
-    private String review ;
-    private String lecturerSignature;
+public class InspectionReport
+{   private String InspectId;
+    private String JournalId;
+    private String LectId;
+    private String Date;
+    private String Review ;
+    private String LectSign;
+
+    public String getInspectId() {
+        return InspectId;
+    }
+
+    public void setInspectId(String inspectId) {
+        InspectId = inspectId;
+    }
 
     public String getJournalId() {
-        return journalId;
+        return JournalId;
     }
 
     public void setJournalId(String journalId) {
-        this.journalId = journalId;
+        JournalId = journalId;
     }
 
-    public String getLecturerId() {
-        return lecturerId;
+
+
+    public String getLectId() {
+        return LectId;
     }
 
-    public void setLecturerId(String lecturerId) {
-        this.lecturerId = lecturerId;
+    public void setLectId(String lectId) {
+        LectId = lectId;
     }
+
 
     public String getDate() {
-        return date;
+        return Date;
     }
 
     public void setDate(String date) {
-        this.date = date;
+        Date = date;
     }
 
 
-    public String getInspectionlId() {
-        return inspectionlId;
-    }
-
-    public void setInspectionlId(String inspectionlId) {
-        this.inspectionlId = inspectionlId;
-    }
-
-    public String getLecturerSignature() {
-        return lecturerSignature;
-    }
-
-    public void setLecturerSignature(String lecturerSignature) {
-        this.lecturerSignature = lecturerSignature;
-    }
 
     public String getReview() {
-        return review;
+        return Review;
     }
 
     public void setReview(String review) {
-        this.review = review;
+        Review = review;
     }
+
+
+
+    public String getLectSign() {
+        return LectSign;
+    }
+
+    public void setLectSign(String lectSign) {
+        LectSign = lectSign;
+    }
+
+
+
+
 }
