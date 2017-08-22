@@ -1,167 +1,143 @@
 package TriCon.model;
-
+import org.springframework.data.annotation.Id;
 /**
  * Created by hp on 8/11/2017.
  */
-public class lecturer
+public class Lecturer
 {
 
-
-
-    private String lecturerId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String address;
-    private String university;
-    private String departmentId;
-    private String linkedin;
-    private String twitter;
-    private String github;
-    private String facebook;
-    private String blog;
-    private int mobileNo;
-    private int telephoneNo;
-    private String lecturerSignature;
-
-    public lecturer()
-    {
-
-    }
-    public lecturer(String firstName, String lastName,
-                    String email, String address,
-
-                    String university,
-                    String username, String password)
-    {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.address = address;
-        this.university = university;
-
-    }
+    private String lectId;
+    private String LastName;
+    private String Email;
+    private String Address;
+    private String University;
+    private String DeptId;
+    private String Linkedin;
+    private String Twitter;
+    private String Github;
+    private String Facebook;
+    private String Blog;
+    private int MobileNo;
+    private int TeleNo;
+    private String LectSign;
+    private String FirstName;
 
 
     public String getFirstName() {
-        return firstName;
+        return FirstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLecturerId() {
-        return lecturerId;
-    }
-
-    public void setLecturerId(String lecturerId) {
-        this.lecturerId = lecturerId;
+        FirstName = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return LastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        LastName = lastName;
+    }
+    public String getLectId() {
+        return lectId;
     }
 
+    public void setLectId(String lectId) {
+        this.lectId = lectId;
+    }
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        Address = address;
     }
 
-
     public String getUniversity() {
-        return university;
+        return University;
     }
 
     public void setUniversity(String university) {
-        this.university = university;
+        University = university;
     }
 
-    public String getDepartmentId() {
-        return departmentId;
+    public String getDeptId() {
+        return DeptId;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    public void setDeptId(String deptId) {
+        DeptId = deptId;
     }
-
 
     public String getLinkedin() {
-        return linkedin;
+        return Linkedin;
     }
 
     public void setLinkedin(String linkedin) {
-        this.linkedin = linkedin;
+        Linkedin = linkedin;
     }
 
     public String getTwitter() {
-        return twitter;
+        return Twitter;
     }
 
     public void setTwitter(String twitter) {
-        this.twitter = twitter;
+        Twitter = twitter;
     }
 
     public String getGithub() {
-        return github;
+        return Github;
     }
 
     public void setGithub(String github) {
-        this.github = github;
+        Github = github;
     }
 
     public String getFacebook() {
-        return facebook;
+        return Facebook;
     }
 
     public void setFacebook(String facebook) {
-        this.facebook = facebook;
+        Facebook = facebook;
     }
 
     public String getBlog() {
-        return blog;
+        return Blog;
     }
 
     public void setBlog(String blog) {
-        this.blog = blog;
+        Blog = blog;
     }
 
     public int getMobileNo() {
-        return mobileNo;
+        return MobileNo;
     }
 
     public void setMobileNo(int mobileNo) {
-        this.mobileNo = mobileNo;
+        MobileNo = mobileNo;
     }
 
-    public int getTelephoneNo() {
-        return telephoneNo;
+    public int getTeleNo() {
+        return TeleNo;
     }
 
-    public void setTelephoneNo(int telephoneNo) {
-        this.telephoneNo = telephoneNo;
+    public void setTeleNo(int teleNo) {
+        TeleNo = teleNo;
     }
 
-    public String getLecturerSignature() {
-        return lecturerSignature;
+    public String getLectSign() {
+        return LectSign;
     }
 
-    public void setLecturerSignature(String lecturerSignature) {
-        this.lecturerSignature = lecturerSignature;
+    public void setLectSign(String lectSign) {
+        LectSign = lectSign;
     }
 }
