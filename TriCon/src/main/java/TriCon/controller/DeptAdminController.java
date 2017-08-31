@@ -29,6 +29,11 @@ public class DeptAdminController {
         s1.setId(Id);
         s1.setFirstName(FirstName);
         s1.setLastName(LastName );
+        s1.setFirstName(RegNo);
+        s1.setLastName(DeptNo );
+        s1.setFirstName(DeptName);
+        s1.setLastName(University );
+        s1.setLastName(Email );
 
         studentRepository.save(s1);
         return "DeptAdmin/student";
