@@ -2,9 +2,6 @@ package TriCon.model;
 
 import org.springframework.data.annotation.Id;
 
-/**
- * Created by hp on 8/28/2017.
- */
 public class Lecturer
 {
     @Id
