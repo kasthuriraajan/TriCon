@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="shortcut icon" href="../img/logo1.png" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css" />
+
+
+</head>
+<body>
+<div id="wrapper">
+    <div th:replace="fragments/header :: stuheader">
+    </div>
+    <div class="row">
+        <div th:replace="fragments/profile :: profile">
+        </div>
+        <div class="col-xs-12 col-md-6">
+                    <form class="regform" action="" method ="get">
+                        <fieldset id="first">
+                            <h2 class="title">Personal Details</h2>
+                            <label for="exampleInputEmail1">First Name</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg:John"></input>
+
+                            <label for="exampleInputPassword1">Last Name</label>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="eg:Peter"></input>
+
+                            <label for="exampleInputPassword1">Designation</label>
+                            <input type="text" class="form-control" id="exampleInputPosition1" placeholder="Your position"></input>
+
+                            <label for="exampleInputPassword1">Company</label>
+                            <input type="text" class="form-control" id="exampleInputCompany1" placeholder="Current company"></input>
+
+                            <label for="exampleInputPassword1">Country</label>
+
+                            <select class="form-control ">
+                                <option value ="">Select a country</option>
+                                <option value ="1">SriLanka</option>
+                                <option value ="2">Canada</option>
+                                <option value ="3">London</option>
+                                <option value ="4">Singapore</option>
+                            </select>
+
+                            <label for="exampleInputPassword1">Blog</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="your blog address"></input>
+                            <input type="button" name="next" class="next_btn" value="Next" ></input>
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="title">Academic Details</h2>
+                            <label for="exampleInputEmail1">High School</label>
+                            <input type="text" class="form-control" placeholder="Name of School"></input>
+                            <input type="text" class="form-control" placeholder="Year of Study"></input>
+                            <label for="exampleInputPassword1">University/Colleges</label>
+                            <input type="text" class="text_field" name="univ" placeholder="University"></input>
+                            <input type="text" class="form-control" placeholder="Heading"></input>
+                            <input type="text" class="form-control" placeholder="Year of Study"></input>
+                            <input type="button" name="previous" class="pre_btn" value="Previous" ></input>
+                            <input type="button" name="next" class="next_btn" value="Next" ></input>
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="title">Professional Details</h2>
+                            <label for="exampleInputPassword1">Achievement</label>
+                            <textarea name="achievement" placeholder="achievement"></textarea>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Experience</label>
+                                <form class="form-inline">
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control" placeholder="Company Name"></input>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input type="text" class="form-control" placeholder="Post"></input>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input type="text" class="form-control" placeholder="year of work"></input>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <input type="button" class="pre_btn" value="Previous" ></input>
+                            <input type="submit" class="submit_btn" value="Submit" ></input>
+                        </fieldset>
+                    </form>
+        </div>
+        <div th:replace="fragments/userlist :: userlist">
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="multi_step_form.js"></script>
+
+</body>
+</html>

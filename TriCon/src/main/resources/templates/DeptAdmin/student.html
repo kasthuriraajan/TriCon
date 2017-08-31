@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="shortcut icon" href="../img/logo1.png"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+
+
+</head>
+<body>
+<div id="wrapper">
+    <div th:replace="fragments/header :: header">
+    </div>
+    <div class="row">
+        <div th:replace="fragments/sidebar :: sidebar">
+        </div>
+        <div class="col-xs-12 col-md-9 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 customheading">
+                            <center> ADD STUDENT DETAILS</center>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form id="StudentRegform" class="form-horizontal" role="form" method="post" action="/DeptAdmin/student">
+                    <table border="1" width="950">
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Reg.No</th>
+                            <th>Dept.No</th>
+                            <th>DeptName</th>
+                            <th>University</th>
+                            <th>Email</th>
+
+                        </tr>
+                        <tr>
+                            <td><input id="ID" type="text" class="form-control" name="Id" value=""/></td>
+                            <td><input id="FN" type="text" class="form-control" name="FirstName" value=""/></td>
+                            <td><input id="LN" type="text" class="form-control" name="LastName" value=""/></td>
+                            <td><input id="RegNo" type="text" class="form-control" name="RegNo" value=""/></td>
+                            <td><input id="DeptNo" type="text" class="form-control" name="DeptNo" value=""/></td>
+                            <td><input id="DN" type="text" class="form-control" name="DeptName" value=""/></td>
+                            <td><input id="Uni" type="text" class="form-control" name="University" value=""/></td>
+                            <td><input id="Email" type="text" class="form-control" name="Email" value=""/></td>
+
+                        </tr>
+
+                    </table>
+                        <button type="submit" id="btn-login" class="btn btn-success">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

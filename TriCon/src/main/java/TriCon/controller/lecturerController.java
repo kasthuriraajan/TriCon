@@ -14,29 +14,37 @@ public class lecturerController {
     {
         return "lecturer/index";
     }
+
     @RequestMapping("/lec/inspectreport")
-    public String inspectreport(Map<String, Object> model)
-    {
+    public String inspectreport(Map<String, Object> model) {
         return "lecturer/inspectreport";
     }
+
     @RequestMapping("/lec/weeklyreport")
-    public String weeklyreport(Map<String, Object> model)
-    {
+    public String weeklyreport(Map<String, Object> model) {
         return "lecturer/weeklyreport";
     }
+
+    @RequestMapping("/lec/inspectsign")
+    public String inspectsign(Map<String, Object> model) {
+        return "lecturer/inspectsign";
+    }
     @RequestMapping("/lec/weeklyreportedit")
-    public String weeklyreportedit(Map<String, Object> model)
-    {
+    public String weeklyreportedit(Map<String, Object> model) {
         return "lecturer/weeklyreportedit";
     }
+
     @RequestMapping("/lec/inspectreportedit")
-    public String inspectreportedit(Map<String, Object> model)
-    {
+    public String inspectreportedit(Map<String, Object> model) {
         return "lecturer/inspectreportedit";
     }
+    @RequestMapping("/lec/finalreport")
+    public String finalreport(Map<String, Object> model) {
+        return "lecturer/finalreport";
+    }
+
     @RequestMapping("/lec/pastrecords")
-    public String pastrecords(Map<String, Object> model)
-    {
+    public String pastrecords(Map<String, Object> model) {
         return "lecturer/pastrecords";
     }
     @RequestMapping("/lec/forum")
@@ -44,7 +52,7 @@ public class lecturerController {
     {
         return "lecturer/forum";
     }
-    @RequestMapping("/lec/chatt")
+    @RequestMapping("/lec/chat")
     public String chatt(Map<String, Object> model)
     {
         return "lecturer/chat";

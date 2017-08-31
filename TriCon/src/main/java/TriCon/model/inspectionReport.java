@@ -1,7 +1,11 @@
 package TriCon.model;
 
+import org.springframework.data.annotation.Id;
+
 public class InspectionReport
-{   private String InspectId;
+
+{  @Id
+    private String InspectId;
     private String JournalId;
     private String LectId;
     private String Date;
