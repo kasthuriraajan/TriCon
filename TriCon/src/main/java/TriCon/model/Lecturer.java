@@ -5,11 +5,13 @@ import org.springframework.data.annotation.Id;
 public class Lecturer
 {
     @Id
+    private String Id;
     private String LectId;
     private String LastName;
     private String Email;
     private String Address;
     private String University;
+    private String DeptName;
     private String DeptId;
     private String Linkedin;
     private String Twitter;
@@ -140,5 +142,21 @@ public class Lecturer
 
     public void setLectId(String lectId) {
         LectId = lectId;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getDeptName() {
+        return DeptName;
+    }
+
+    public void setDeptName(String deptName) {
+        DeptName = deptName;
     }
 }

@@ -27,11 +27,11 @@ public class industrialistController {
         System.out.println("Username " + username);
         System.out.println("Password " + password);
 
-        Student s1 = new Student();
+      /*  Student s1 = new Student();
         s1.setFirstName("Kasthuri");
         s1.setLastName("Rajan");
         studentRepository.save(s1);
-        System.out.println("Saved success");
+        System.out.println("Saved success");*/
         return "industrialist/index";
     }
 

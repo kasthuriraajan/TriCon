@@ -1,9 +1,12 @@
 package TriCon.model;
 
-public class industrialist {
+import org.springframework.data.annotation.Id;
+
+public class Industrialist {
 
 
-
+@Id
+    private String Id;
     private String IndId;
     private String LastName;
     private String Email;
@@ -149,5 +152,13 @@ public class industrialist {
 
     public void setDesignation(String designation) {
         Designation = designation;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 }
