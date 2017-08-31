@@ -53,7 +53,11 @@
             <artifactId>spring-data-commons</artifactId>
             <version>1.12.5.RELEASE</version>
         </dependency>
-
+<!--Mail-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
         <!--Mongo DB-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

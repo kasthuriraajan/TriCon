@@ -12,6 +12,7 @@ public class User {
     private String UserName;
     private String Password;
     private String Email;
+    private String RegNo;
     private String Type;
     private String University;
     private String Department;
@@ -71,5 +72,13 @@ public class User {
 
     public void setDepartment(String department) {
         Department = department;
+    }
+
+    public String getRegNo() {
+        return RegNo;
+    }
+
+    public void setRegNo(String regNo) {
+        RegNo = regNo;
     }
 }
