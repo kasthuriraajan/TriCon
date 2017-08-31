@@ -1,7 +1,7 @@
 package TriCon.model;
 
 /**
- * Created by hp on 8/11/2017.
+ * Created by hp on 8/28/2017.
  */
 public class ProgressReport {
     private String IndId;
@@ -78,3 +78,4 @@ public class ProgressReport {
         IndSign = indSign;
     }
 }
+

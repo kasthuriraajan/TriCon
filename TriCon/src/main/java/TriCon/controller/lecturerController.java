@@ -25,6 +25,10 @@ public class lecturerController {
         return "lecturer/weeklyreport";
     }
 
+    @RequestMapping("/lec/inspectsign")
+    public String inspectsign(Map<String, Object> model) {
+        return "lecturer/inspectsign";
+    }
     @RequestMapping("/lec/weeklyreportedit")
     public String weeklyreportedit(Map<String, Object> model) {
         return "lecturer/weeklyreportedit";
