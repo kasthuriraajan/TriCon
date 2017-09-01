@@ -53,4 +53,20 @@ public class industrialistController {
     public String profileupdate(Map<String, Object> model) {
         return "industrialist/profileupdate";
     }
+    @RequestMapping("/ind/progressreport")
+    public String progressreport(Map<String, Object> model) {
+        return "industrialist/progressreport";
+    }
+    @RequestMapping("/ind/novation")
+    public String novation(Map<String, Object> model) {
+        return "industrialist/novation";
+    }
+    @RequestMapping("/ind/finalreport")
+    public String finalreport(Map<String, Object> model) {
+        return "industrialist/finalreport";
+    }
+    @RequestMapping("/ind/inspectionreport")
+    public String inspectionreport(Map<String, Object> model) {
+        return "industrialist/inspectionreport";
+    }
 }

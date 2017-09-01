@@ -2,13 +2,10 @@ package TriCon.model;
 
 import org.springframework.data.annotation.Id;
 
-/**
- * Created by hp on 8/28/2017.
- */
 public class Lecturer
 {
     @Id
-    private String lectId;
+    private String LectId;
     private String LastName;
     private String Email;
     private String Address;
@@ -40,13 +37,7 @@ public class Lecturer
     public void setLastName(String lastName) {
         LastName = lastName;
     }
-    public String getLectId() {
-        return lectId;
-    }
 
-    public void setLectId(String lectId) {
-        this.lectId = lectId;
-    }
     public String getEmail() {
         return Email;
     }
@@ -141,5 +132,13 @@ public class Lecturer
 
     public void setLectSign(String lectSign) {
         LectSign = lectSign;
+    }
+
+    public String getLectId() {
+        return LectId;
+    }
+
+    public void setLectId(String lectId) {
+        LectId = lectId;
     }
 }

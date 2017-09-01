@@ -1,174 +1,169 @@
 package TriCon.model;
 
-import org.hibernate.validator.constraints.Email;
+import org.springframework.data.annotation.Id;
 
-public class Student
-{
-    @Email
-    private String email;
-    private String studentId;
-    private String departmentNo;
-    private String registrationNo;
-    private String firstName;
-    private String lastName;
-    private int mobileNo;
-    private int telephoneNo;
-    private String address;
-    private String linkedin;
-    private String twitter;
-    private String github;
-    private String facebook;
-    private String blog;
-    private String notificationId;
-    private String studentSignature;
+public class Student {
+    @Id
+    private String Id;
+    private String FirstName;
+    private String LastName;
+    private String RegNo;
+    private String DeptNo;
+    private String DeptName;
+    private String University;
+    private String Email;
+    private String MobileNo;
+    private String TPNo;
+    private String Address;
+    private String LinkedIn;
+    private String Twitter;
+    private String GitHub;
+    private String Facebook;
+    private String Blog;
+    private String NotificationId;
+    private String StuSign;
 
-    public String getId()
-    {
-        return email;
+    public String getId() {
+        return Id;
     }
 
-    public void setId(String email)
-    {
-        this.email = email;
+    public void setId(String id) {
+        Id = id;
     }
 
-    public String getFirstName()
-    {
-        return firstName;
+    public String getFirstName() {
+        return FirstName;
     }
 
-    public void setFirstName(String firstName)
-    {
-        this.firstName = firstName;
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
     }
 
-    public String getLastName()
-    {
-        return lastName;
+    public String getLastName() {
+        return LastName;
     }
 
-    public void setLastName(String lastName)
-    {
-        this.lastName = lastName;
+    public void setLastName(String lastName) {
+        LastName = lastName;
     }
 
-    public int getMobileNo()
-    {
-        return mobileNo;
+    public String getRegNo() {
+        return RegNo;
     }
 
-    public void setMobileNo(int mobileNo)
-    {
-        this.mobileNo = mobileNo;
+    public void setRegNo(String regNo) {
+        RegNo = regNo;
     }
 
-    public int getTelephoneNo()
-    {
-        return telephoneNo;
+    public String getDeptNo() {
+        return DeptNo;
     }
 
-    public void setTelephoneNo(int telephoneNo)
-    {
-        this.telephoneNo = telephoneNo;
+    public void setDeptNo(String deptNo) {
+        DeptNo = deptNo;
     }
 
-    public String getAddress()
-    {
-        return address;
+    public String getDeptName() {
+        return DeptName;
     }
 
-    public void setAddress(String address)
-    {
-        this.address = address;
+    public void setDeptName(String deptName) {
+        DeptName = deptName;
     }
 
-    public String getLinkedin()
-    {
-        return linkedin;
+    public String getUniversity() {
+        return University;
     }
 
-    public void setLinkedin(String linkedin)
-    {
-        this.linkedin = linkedin;
+    public void setUniversity(String university) {
+        University = university;
     }
 
-    public String getTwitter()
-    {
-        return twitter;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setTwitter(String twitter)
-    {
-        this.twitter = twitter;
+    public void setEmail(String email) {
+        Email = email;
     }
 
-    public String getGithub()
-    {
-        return github;
+    public String getMobileNo() {
+        return MobileNo;
     }
 
-    public void setGithub(String github)
-    {
-        this.github = github;
+    public void setMobileNo(String mobileNo) {
+        MobileNo = mobileNo;
     }
 
-    public String getFacebook()
-    {
-        return facebook;
+    public String getTPNo() {
+        return TPNo;
     }
 
-    public void setFacebook(String facebook)
-    {
-        this.facebook = facebook;
+    public void setTPNo(String TPNo) {
+        this.TPNo = TPNo;
     }
 
-    public String getBlog()
-    {
-        return blog;
+    public String getAddress() {
+        return Address;
     }
 
-    public void setBlog(String blog)
-    {
-        this.blog = blog;
+    public void setAddress(String address) {
+        Address = address;
     }
 
-    public String getStudentId() {
-        return studentId;
+    public String getTwitter() {
+        return Twitter;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
+    public void setTwitter(String twitter) {
+        Twitter = twitter;
     }
 
-    public String getStudentSignature() {
-        return studentSignature;
+    public String getGitHub() {
+        return GitHub;
     }
 
-    public void setStudentSignature(String studentSignature) {
-        this.studentSignature = studentSignature;
+    public void setGitHub(String gitHub) {
+        GitHub = gitHub;
     }
 
-    public String getDepartmentNo() {
-        return departmentNo;
+    public String getLinkedIn() {
+        return LinkedIn;
     }
 
-    public void setDepartmentNo(String departmentNo) {
-        this.departmentNo = departmentNo;
+    public void setLinkedIn(String linkedIn) {
+        LinkedIn = linkedIn;
     }
 
-    public String getRegistrationNo() {
-        return registrationNo;
+    public String getFacebook() {
+        return Facebook;
     }
 
-    public void setRegistrationNo(String registrationNo) {
-        this.registrationNo = registrationNo;
+    public void setFacebook(String facebook) {
+        Facebook = facebook;
+    }
+
+    public String getBlog() {
+        return Blog;
+    }
+
+    public void setBlog(String blog) {
+        Blog = blog;
     }
 
     public String getNotificationId() {
-        return notificationId;
+        return NotificationId;
     }
 
     public void setNotificationId(String notificationId) {
-        this.notificationId = notificationId;
+        NotificationId = notificationId;
+    }
+
+    public String getStuSign() {
+        return StuSign;
+    }
+
+    public void setStuSign(String stuSign) {
+        StuSign = stuSign;
     }
 }

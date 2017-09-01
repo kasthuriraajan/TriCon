@@ -1,16 +1,14 @@
 package TriCon.model;
 
-import org.springframework.data.annotation.Id;
+public class industrialist {
 
-public class Lecturer
-{
-    @Id
-    private String LectId;
+
+
+    private String IndId;
     private String LastName;
     private String Email;
     private String Address;
-    private String University;
-    private String DeptId;
+
     private String Linkedin;
     private String Twitter;
     private String Github;
@@ -18,16 +16,19 @@ public class Lecturer
     private String Blog;
     private int MobileNo;
     private int TeleNo;
-    private String LectSign;
+    private String IndSign;
     private String FirstName;
+    private String Company;
+    private String CompanyAddress;
+    private String Designation;
 
 
-    public String getFirstName() {
-        return FirstName;
+    public String getIndId() {
+        return IndId;
     }
 
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
+    public void setIndId(String indId) {
+        IndId = indId;
     }
 
     public String getLastName() {
@@ -52,22 +53,6 @@ public class Lecturer
 
     public void setAddress(String address) {
         Address = address;
-    }
-
-    public String getUniversity() {
-        return University;
-    }
-
-    public void setUniversity(String university) {
-        University = university;
-    }
-
-    public String getDeptId() {
-        return DeptId;
-    }
-
-    public void setDeptId(String deptId) {
-        DeptId = deptId;
     }
 
     public String getLinkedin() {
@@ -126,19 +111,43 @@ public class Lecturer
         TeleNo = teleNo;
     }
 
-    public String getLectSign() {
-        return LectSign;
+    public String getIndSign() {
+        return IndSign;
     }
 
-    public void setLectSign(String lectSign) {
-        LectSign = lectSign;
+    public void setIndSign(String indSign) {
+        IndSign = indSign;
     }
 
-    public String getLectId() {
-        return LectId;
+    public String getFirstName() {
+        return FirstName;
     }
 
-    public void setLectId(String lectId) {
-        LectId = lectId;
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public String getCompany() {
+        return Company;
+    }
+
+    public void setCompany(String company) {
+        Company = company;
+    }
+
+    public String getCompanyAddress() {
+        return CompanyAddress;
+    }
+
+    public void setCompanyAddress(String companyAddress) {
+        CompanyAddress = companyAddress;
+    }
+
+    public String getDesignation() {
+        return Designation;
+    }
+
+    public void setDesignation(String designation) {
+        Designation = designation;
     }
 }
