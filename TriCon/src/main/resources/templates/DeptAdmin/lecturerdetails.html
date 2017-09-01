@@ -30,33 +30,33 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 customheading">
-                            <center>             STUDENT DETAILS</center>
+                            <center>             LECTURERS DETAILS</center>
                         </div>
 
                     </div>
                 </div>
-                <div class="panel-body" th:if="${not #lists.isEmpty(student)}">
+                <div class="panel-body" th:if="${not #lists.isEmpty(lecturer)}">
                     <table border="1" width="950">
                         <tr>
                             <th>ID</th>
-                            <th>FIRST NAME</th>
-                            <th>LAST NAME</th>
-                            <th>REG NO</th>
-                            <th>DEPT NO</th>
+                            <th>FIRSTNAME</th>
+                            <th>LASTNAME</th>
+                            <th>LECTURER ID</th>
+                            <th>DEPT ID</th>
                             <th>DEPT NAME</th>
                             <th>UNIVERSITY</th>
                             <th>E-MAIL</th>
 
                         </tr>
-                        <tr th:each="student : ${student}">
-                            <td th:text="${student.Id}"></td>
-                            <td th:text="${student.FirstName}"></td>
-                            <td th:text="${student.LastName}"></td>
-                            <td th:text="${student.RegNo}"></td>
-                            <td th:text="${student.DeptNo}"></td>
-                            <td th:text="${student.DeptName}"></td>
-                            <td th:text="${student.University}"></td>
-                            <td th:text="${student.Email}"></td>
+                        <tr th:each="lecturer : ${lecturer}">
+                            <td th:text="${lecturer.Id}"></td>
+                            <td th:text="${lecturer.FirstName}"></td>
+                            <td th:text="${lecturer.LastName}"></td>
+                            <td th:text="${lecturer.LectId}"></td>
+                            <td th:text="${lecturer.DeptId}"></td>
+                            <td th:text="${lecturer.DeptName}"></td>
+                            <td th:text="${lecturer.University}"></td>
+                            <td th:text="${lecturer.Email}"></td>
 
                         </tr>
 

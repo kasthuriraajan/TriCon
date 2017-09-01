@@ -23,8 +23,6 @@
     <orderEntry type="library" name="Maven: org.mongodb:bson:3.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb:1.9.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.3.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:4.3.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-thymeleaf:1.4.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:1.4.2.RELEASE" level="project" />
@@ -58,5 +56,11 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.21" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-mail:1.4.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:4.3.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.3.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:4.3.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.6" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
   </component>
 </module>

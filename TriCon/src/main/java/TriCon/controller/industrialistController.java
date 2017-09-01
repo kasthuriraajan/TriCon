@@ -27,11 +27,11 @@ public class industrialistController {
         System.out.println("Username " + username);
         System.out.println("Password " + password);
 
-        Student s1 = new Student();
+      /*  Student s1 = new Student();
         s1.setFirstName("Kasthuri");
         s1.setLastName("Rajan");
         studentRepository.save(s1);
-        System.out.println("Saved success");
+        System.out.println("Saved success");*/
         return "industrialist/index";
     }
 
@@ -52,21 +52,5 @@ public class industrialistController {
     @RequestMapping("/ind/profileupdate")
     public String profileupdate(Map<String, Object> model) {
         return "industrialist/profileupdate";
-    }
-    @RequestMapping("/ind/progressreport")
-    public String progressreport(Map<String, Object> model) {
-        return "industrialist/progressreport";
-    }
-    @RequestMapping("/ind/novation")
-    public String novation(Map<String, Object> model) {
-        return "industrialist/novation";
-    }
-    @RequestMapping("/ind/finalreport")
-    public String finalreport(Map<String, Object> model) {
-        return "industrialist/finalreport";
-    }
-    @RequestMapping("/ind/inspectionreport")
-    public String inspectionreport(Map<String, Object> model) {
-        return "industrialist/inspectionreport";
     }
 }
