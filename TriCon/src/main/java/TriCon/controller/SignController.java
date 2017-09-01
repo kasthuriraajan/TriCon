@@ -23,10 +23,10 @@ public class SignController {
     @Autowired
     private KeytableRepository keyRepository;
 
-    @RequestMapping("/")
+    @RequestMapping("/ss")
     public String user()
     {
-        return "fragments/index";
+        return "fragments/indexs";
     }
 
     @RequestMapping(value="/", method = RequestMethod.POST)
@@ -64,19 +64,14 @@ public class SignController {
         return "fragments/verification";
     }
 
-    @RequestMapping("/user")
-    public String user(Map<String, Object> model)
-    {
-        return "user";
-    }
 
-    @RequestMapping("/header")
+    @RequestMapping("/headers")
     public String header(Map<String, Object> model)
     {
         return "fragments/header";
     }
 
-    @RequestMapping("/footer")
+    @RequestMapping("/footers")
     public String footer(Map<String, Object> model)
     {
 
