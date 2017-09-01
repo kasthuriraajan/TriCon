@@ -15,7 +15,7 @@
           href="../../css/bootstrap.css"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"
           href="../../css/main.css"/>
-
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 
 </head>
 <body class="bg">
@@ -30,15 +30,126 @@
                 </div>
             </form>
         </div>
-        <div class="iconsty">
-            <a style="color: white;" href="weeklyreport.html">
-                <i class="fa fa-users fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom"
-                   title="sign up here!"></i></a>
-            <a style="color: white;" href="weeklyreport.html">
+
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            SignUp
+        </button>
+
+
+            <a style="color: white;" href="deptregister.html">
                 <i class="fa fa-pencil fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom"
-                   title="Register your institute here!"></i></a>
-        </div>
+                   title="Register your institute here!">
+                </i></a>
     </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/register" method="post">
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+					            <span class="input-group-addon">
+						            <span class="fa fa-user"></span>
+                                </span>
+                                <input type="text" class="form-control" name="UserName"  id="username" placeholder="User name"/>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">
+		                            <span class="fa fa-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" name="Email"  id="email12" placeholder="Email"/>
+                            </div>
+                        </div>
+
+                        <!--<div class="form-group">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input type="password" class="form-control" name="pass"  id="pass123" placeholder="Password"/>
+                            </div>
+                            <span id="pwdMeter" class="neutral"></span>
+                        </div>-->
+
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+					            <span class="input-group-addon">
+						            <span class="fa fa-book"></span>
+                                </span>
+                                <input type="text" class="form-control" name="RegNo" id="RegNo"  placeholder="Registration No"/>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+					            <span class="input-group-addon">
+						            <span class="fa fa-user"></span>
+                                </span>
+                                <select class="form-control" name="Uni"  id="Uni" >
+                                    <option value="">Select University</option>
+                                    <option value="1">University of Jaffna</option>
+                                    <option value="2">University of Moratuwa</option>
+                                    <option value="3">University of Colombo</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+					            <span class="input-group-addon">
+						            <span class="fa fa-user"></span>
+                                </span>
+                                <select class="form-control" name="Dept"  id="Dept">
+                                    <option value="">Select Department</option>
+                                    <option value="1">Computer Science</option>
+                                    <option value="2">Architecture</option>
+                                    <option value="3">Civil Engineering</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+					            <span class="input-group-addon">
+						            <span class="fa fa-user"></span>
+                                </span>
+                                <select class="form-control" name="Type"  id="UserType">
+                                    <option value="">Select User</option>
+                                    <option value="1">Student</option>
+                                    <option value="2">Lecturer</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="controls controls-row">
+                            <!--<form method="POST" >-->
+                            <div class="controls controls-group">
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="container-fluid">
             <div class="row">
@@ -61,7 +172,7 @@
                             <form id="loginform" class="form-horizontal" role="form" method="post" action="/ind/index">
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="username" type="text" class="form-control" name="username" value="" placeholder="username or email"/>
+                                    <input id="uname" type="text" class="form-control" name="username" value="" placeholder="username or email"/>
                                 </div>
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
