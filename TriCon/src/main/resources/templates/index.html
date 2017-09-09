@@ -6,7 +6,7 @@
 
     <link rel="shortcut icon" href="../img/logo1.png"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/custom.css"/>
+          href="../css/custom.css"/>
     <link rel="stylesheet" type="text/css"
           href="../../css/font-awesome.css"/>
     <link rel="stylesheet" type="text/css"
@@ -22,7 +22,7 @@
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-header">
-            <a class="navbar-brand" style="color: white; font-size: 32px;" href="index.html">TriCon</a>
+            <a class="navbar-brand"  href="index.html">TriCon</a>
             <form class="navbar-form navbar-left" role="search">
                 <div class="input-group">
                     <input class="customform-control" type="text" placeholder="Search"/>
@@ -32,26 +32,28 @@
         </div>
 
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            SignUp
-        </button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
-            Registor
-        </button>
 
 
-            <a style="color: white;" href="deptregister.html">
+
+        <div class="iconsty">
+            <!-- Button trigger modal to register form-->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UserRegister">
+                <i class="fa fa-users fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom"
+                   title="sign up here!"></i>
+
+            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DeptRegister">
                 <i class="fa fa-pencil fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom"
-                   title="Register your institute here!">
-                </i></a>
+                   title="Register your institute here!"></i>
+            </button>
+        </div>
     </nav>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="UserRegister" tabindex="-1" role="dialog" aria-labelledby="UserRegisterLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h3 class="modal-title" id="UserRegisterLabel">Register your details here!</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -63,36 +65,23 @@
 					            <span class="input-group-addon">
 						            <span class="fa fa-user"></span>
                                 </span>
-                                <input type="text" class="form-control" name="UserName"  id="username" placeholder="User name"/>
+                                <input type="text" class="form-control" name="UserName"   id="username" placeholder="User name" th:required="required"/>
                             </div>
                         </div>
-
-
                         <div class="form-group">
                             <div class="input-group input-group-sm">
                                 <span class="input-group-addon">
 		                            <span class="fa fa-envelope"></span>
                                 </span>
-                                <input type="email" class="form-control" name="Email"  id="email12" placeholder="Email"/>
+                                <input type="email" class="form-control" name="Email"  id="email12" placeholder="Email" th:required="required"/>
                             </div>
                         </div>
-
-                        <!--<div class="form-group">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-lock"></span>
-                                </span>
-                                <input type="password" class="form-control" name="pass"  id="pass123" placeholder="Password"/>
-                            </div>
-                            <span id="pwdMeter" class="neutral"></span>
-                        </div>-->
-
                         <div class="form-group">
                             <div class="input-group input-group-sm">
 					            <span class="input-group-addon">
 						            <span class="fa fa-book"></span>
                                 </span>
-                                <input type="text" class="form-control" name="RegNo" id="RegNo"  placeholder="Registration No"/>
+                                <input type="text" class="form-control" name="RegNo" id="RegNo"  placeholder="Registration No" th:required="required"/>
                             </div>
                         </div>
 
@@ -100,28 +89,26 @@
                         <div class="form-group">
                             <div class="input-group input-group-sm">
 					            <span class="input-group-addon">
-						            <span class="fa fa-user"></span>
+						            <span class="fa fa-home"></span>
                                 </span>
-                                <select class="form-control" name="Uni"  id="Uni" >
+                                <select class="form-control" name="Uni"  id="Uni" th:required="required">
                                     <option value="">Select University</option>
-                                    <option value="1">University of Jaffna</option>
-                                    <option value="2">University of Moratuwa</option>
-                                    <option value="3">University of Colombo</option>
+                                    <option value="University of Jaffna">University of Jaffna</option>
+                                    <option value="University of Moratuwa">University of Moratuwa</option>
+                                    <option value="University of Colombo">University of Colombo</option>
                                 </select>
                             </div>
                         </div>
-
-
                         <div class="form-group">
                             <div class="input-group input-group-sm">
 					            <span class="input-group-addon">
-						            <span class="fa fa-user"></span>
+						            <span class="fa fa-home"></span>
                                 </span>
-                                <select class="form-control" name="Dept"  id="Dept">
+                                <select class="form-control" name="Dept"  id="Dept" th:required="required">
                                     <option value="">Select Department</option>
-                                    <option value="1">Computer Science</option>
-                                    <option value="2">Architecture</option>
-                                    <option value="3">Civil Engineering</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Architecture">Architecture</option>
+                                    <option value="Civil Engineering">Civil Engineering</option>
                                 </select>
                             </div>
                         </div>
@@ -129,109 +116,83 @@
                         <div class="form-group">
                             <div class="input-group input-group-sm">
 					            <span class="input-group-addon">
-						            <span class="fa fa-user"></span>
+						            <span class="fa fa-users"></span>
                                 </span>
-                                <select class="form-control" name="Type"  id="UserType">
+                                <select class="form-control" name="Type"  id="UserType" th:required="required">
                                     <option value="">Select User</option>
-                                    <option value="1">Student</option>
-                                    <option value="2">Lecturer</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Lecturer">Lecturer</option>
+                                    <option value="Industrialist">Industrialist</option>
                                 </select>
                             </div>
                         </div>
-
-
                         <div class="controls controls-row">
-                            <!--<form method="POST" >-->
                             <div class="controls controls-group">
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">SignUp</button>
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="DeptRegister" tabindex="-1" role="dialog" aria-labelledby="DeptRegisterLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">Register Here</h5>
+                    <h3 class="modal-title" id="DeptRegisterLabel">Register your Department Here</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form action="/registerDept" method="post">
+
                         <div class="form-group">
                             <div class="input-group input-group-sm">
 					            <span class="input-group-addon">
-						            <span class="fa fa-user"></span>
+						            <span class="fa fa-home"></span>
                                 </span>
-                                <input type="text" class="form-control" name="UserName2"  id="username2" placeholder="User name"/>
+                                <select class="form-control" name="Univ"  id="Univ" th:required="required">
+                                    <option value="">Select University</option>
+                                    <option value="University of Jaffna">University of Jaffna</option>
+                                    <option value="University of Moratuwa">University of Moratuwa</option>
+                                    <option value="University of Colombo">University of Colombo</option>
+                                </select>
                             </div>
                         </div>
-
-
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+					            <span class="input-group-addon">
+						            <span class="fa fa-home"></span>
+                                </span>
+                                <input type="text" class="form-control" name="DeptName"  id="Department" placeholder="Department name" th:required="required"/>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="input-group input-group-sm">
                                 <span class="input-group-addon">
 		                            <span class="fa fa-envelope"></span>
                                 </span>
-                                <input type="email" class="form-control" name="Email2"  id="email2" placeholder="Email"/>
+                                <input type="email" class="form-control" name="mail"  id="email2" placeholder="Email" th:required="required"/>
                             </div>
                         </div>
-
-                        <!--<div class="form-group">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-lock"></span>
-                                </span>
-                                <input type="password" class="form-control" name="pass"  id="pass123" placeholder="Password"/>
-                            </div>
-                            <span id="pwdMeter" class="neutral"></span>
-                        </div>-->
-
                         <div class="form-group">
                             <div class="input-group input-group-sm">
 					            <span class="input-group-addon">
-						            <span class="fa fa-book"></span>
+						            <span class="fa fa-phone"></span>
                                 </span>
-                                <input type="text" class="form-control" name="DeptName" id="DeptName"  placeholder="Department Name"/>
+                                <input type="text" class="form-control" name="Phone" id="Phone"  placeholder="Phone number" th:required="required"/>
                             </div>
                         </div>
-
-
-
-                        <div class="form-group">
-                            <div class="input-group input-group-sm">
-					            <span class="input-group-addon">
-						            <span class="fa fa-user"></span>
-                                </span>
-                                <select class="form-control" name="Uni2"  id="Uni2" >
-                                    <option value="">Select University</option>
-                                    <option value="1">University of Jaffna</option>
-                                    <option value="2">University of Moratuwa</option>
-                                    <option value="3">University of Colombo</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-
-
-
-
-
                         <div class="controls controls-row">
-                            <!--<form method="POST" >-->
                             <div class="controls controls-group">
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Register</button>
                         </div>
                     </form>
                 </div>

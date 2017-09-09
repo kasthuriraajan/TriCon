@@ -1,7 +1,9 @@
 package TriCon.controller;
 
 
+import TriCon.model.Department;
 import TriCon.model.User;
+import TriCon.repo.DepartmentRepository;
 import TriCon.repo.UserRepository;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,76 +20,15 @@ import java.util.Map;
 public class indexController {
 @Autowired
 private UserRepository userRepository;
-    // inject via application.properties
-    @Value("${index.message:test}")
-    private String message = "Hello World";
+@Autowired
+private DepartmentRepository departmentRepository;
 
     @RequestMapping("/")
-    public String welcome(Map<String, Object> model) {
-        model.put("message", this.message);
-        return "fragments/index";
+    public String welcome() {
+
+        return "index";
     }
-
-    @RequestMapping("/weeklyreport")
-    public String weeklyreport(Map<String, Object> model) {
-        model.put("message", this.message);
-        return "weeklyreport";
-    }
-
-    @RequestMapping("/student")
-    public String student(Map<String, Object> model) {
-        model.put("message", this.message);
-        return "student";
-    }
-
-    @RequestMapping("/lecturer")
-    public String lecturer(Map<String, Object> model) {
-        model.put("message", this.message);
-        return "lecturer";
-    }
-
-    @RequestMapping("/industrialist")
-    public String industrialist(Map<String, Object> model) {
-        model.put("message", this.message);
-        return "industrialist";
-    }
-
-    @RequestMapping("/user")
-    public String user(Map<String, Object> model) {
-        model.put("message", this.message);
-        return "user";
-    }
-
-    @RequestMapping("/header")
-    public String header(Map<String, Object> model) {
-        model.put("message", this.message);
-        return "fragments/header";
-    }
-
-    @RequestMapping("/footer")
-    public String footer(Map<String, Object> model) {
-
-        return "fragments/footer";
-    }
-
-    @RequestMapping("/profile")
-    public String profile(Map<String, Object> model) {
-
-        return "fragments/profile";
-    }
-
-    @RequestMapping("/userlist")
-    public String userlist(Map<String, Object> model) {
-
-        return "fragments/userlist";
-    }
-
-    @RequestMapping("/sidebar")
-    public String sidebar(Map<String, Object> model) {
-
-        return "fragments/sidebar";
-    }
-
+// user registration
     @RequestMapping(value="/register", method = RequestMethod.POST)
     public String welcome(HttpServletRequest request)
     {
@@ -99,7 +40,7 @@ private UserRepository userRepository;
         String Type =request.getParameter("Type");
 
         User u1=new User();
-        u1.setId("0023");
+        u1.setId("00245");
         u1.setEmail(Email);
         u1.setRegNo(RegNo);
         u1.setUniversity(University);
@@ -107,7 +48,7 @@ private UserRepository userRepository;
         u1.setType(Type);
         u1.setUserName(UserName);
         userRepository.save(u1);
-        List<User> user1=userRepository.findAll();
+        /*List<User> user1=userRepository.findAll();
         for(int i=0; i<user1.size();i++)
         {
             System.out.println(user1.get(i).getId());
@@ -117,18 +58,67 @@ private UserRepository userRepository;
             System.out.println(user1.get(i).getEmail());
             System.out.println(user1.get(i).getUserName());
             System.out.println(user1.get(i).getType());
-        }
+        }*/
         //System.out.println(UserName);
-        return "fragments/register";
+
+        return "index";
+    }
+@RequestMapping(value = "/registerDept", method = RequestMethod.POST)
+    public String registerDept(HttpServletRequest request){
+
+
+    String UnivName=request.getParameter("Univ");
+    String DeptName=request.getParameter("DeptName");
+    String Email=request.getParameter("mail");
+    String Phone=request.getParameter("Phone");
+
+    Department dept1=new Department();
+
+
+    dept1.setEmail(Email);
+    dept1.setUniId("03");
+    dept1.setUniversity(UnivName);
+    dept1.setDeptId("001");
+    dept1.setDepartment(DeptName);
+    dept1.setContactNo(Phone);
+    dept1.setAuthKey("!2QwAsZx");
+
+    departmentRepository.save(dept1);
+        return "index";
+}
+
+    /*@RequestMapping("/header")
+    public String header() {
+
+        return "fragments/header";
     }
 
-    @RequestMapping ("/register")
-    public String register(Map<String, Object>model){
-        return "fragments/register";
+    @RequestMapping("/footer")
+    public String footer() {
+
+        return "fragments/footer";
     }
-    @RequestMapping ("/model")
-    public String register(){
-        return "samplemodel";
+
+    @RequestMapping("/profile")
+    public String profile() {
+
+        return "fragments/profile";
     }
+
+    @RequestMapping("/userlist")
+    public String userlist() {
+
+        return "fragments/userlist";
+    }
+
+    @RequestMapping("/sidebar")
+    public String sidebar() {
+
+        return "fragments/sidebar";
+    }
+*/
+
+
+
 }
 
