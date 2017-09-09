@@ -14,7 +14,12 @@ public class lecturerController {
     {
         return "lecturer/index";
     }
+    @RequestMapping("/lec/commitedstudents")
+    public String commitedstudents(Map<String, Object> model)
 
+    {
+        return "lecturer/commitedstudents";
+    }
     @RequestMapping("/lec/inspectreport")
     public String inspectreport(Map<String, Object> model) {
         return "lecturer/inspectreport";
