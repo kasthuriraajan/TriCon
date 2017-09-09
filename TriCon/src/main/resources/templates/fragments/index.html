@@ -36,6 +36,9 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             SignUp
         </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+            Registor
+        </button>
 
 
             <a style="color: white;" href="deptregister.html">
@@ -150,6 +153,93 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Register Here</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/registerDept" method="post">
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+					            <span class="input-group-addon">
+						            <span class="fa fa-user"></span>
+                                </span>
+                                <input type="text" class="form-control" name="UserName2"  id="username2" placeholder="User name"/>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">
+		                            <span class="fa fa-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" name="Email2"  id="email2" placeholder="Email"/>
+                            </div>
+                        </div>
+
+                        <!--<div class="form-group">
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input type="password" class="form-control" name="pass"  id="pass123" placeholder="Password"/>
+                            </div>
+                            <span id="pwdMeter" class="neutral"></span>
+                        </div>-->
+
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+					            <span class="input-group-addon">
+						            <span class="fa fa-book"></span>
+                                </span>
+                                <input type="text" class="form-control" name="DeptName" id="DeptName"  placeholder="Department Name"/>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+					            <span class="input-group-addon">
+						            <span class="fa fa-user"></span>
+                                </span>
+                                <select class="form-control" name="Uni2"  id="Uni2" >
+                                    <option value="">Select University</option>
+                                    <option value="1">University of Jaffna</option>
+                                    <option value="2">University of Moratuwa</option>
+                                    <option value="3">University of Colombo</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="controls controls-row">
+                            <!--<form method="POST" >-->
+                            <div class="controls controls-group">
+                            </div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="container-fluid">
             <div class="row">
