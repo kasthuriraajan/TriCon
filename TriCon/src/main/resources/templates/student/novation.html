@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="shortcut icon" href="../img/logo1.png" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css" />
+
+
+</head>
+<body>
+<div id="wrapper">
+    <div th:replace="fragments/header :: stuheader">
+    </div>
+    <div class="row">
+        <div th:replace="fragments/sidebar :: stusidebar">
+        </div>
+        <div class="col-xs-12 col-md-9 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 customheading">
+                            Novation Report
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <span>
+                    <a href="../novation.pdf" download="novation.pdf"> Click here to download Novation Form</a>
+                    </span>
+
+
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <br></br>
+                            <br></br>
+                            <label>Scan your novation form and upload here</label>
+                        </div>
+                        <div class="controls">
+                            <input type="file" name="file" id="file" class="input-large" />
+                        </div>
+                    </div>
+
+                    <br></br>
+                    <br></br>
+                    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
