@@ -78,4 +78,10 @@ public class studentController
         return "student/inspectreport";
     }
 
+    @RequestMapping("/stu/novation")
+    public String novation(Map<String, Object> model)
+    {
+        return "student/novation";
+    }
+
 }
