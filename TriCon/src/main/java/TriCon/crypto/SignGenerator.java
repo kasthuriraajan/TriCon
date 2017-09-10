@@ -4,7 +4,7 @@ import java.io.File;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
-public class SignGenerator
+public class  SignGenerator
 {
     public static byte[] generateDigitalSignature(String secretInfoStr, String privateKeyPath)
     {

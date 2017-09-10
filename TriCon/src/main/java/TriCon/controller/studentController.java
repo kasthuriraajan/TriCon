@@ -1,6 +1,8 @@
 package TriCon.controller;
 
+import TriCon.repo.StudentRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
@@ -8,6 +10,7 @@ import java.util.Map;
 @Controller
 public class studentController
 {
+    private StudentRepository studentRepository;
     @RequestMapping("/stu/index")
     public String index(Map<String, Object> model)
     {
@@ -30,6 +33,13 @@ public class studentController
     public String profile(Map<String, Object> model)
     {
         return "student/profile";
+    }
+
+    @RequestMapping("/stu/profileupdate")
+    public String profileupdate()
+    {
+
+        return "student/profileupdate";
     }
 
     @RequestMapping("/stu/editprofile")

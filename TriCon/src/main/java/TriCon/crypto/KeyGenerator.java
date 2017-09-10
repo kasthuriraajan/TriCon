@@ -1,5 +1,9 @@
 package TriCon.crypto;
 
+import TriCon.model.Keytable;
+import TriCon.repo.KeytableRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,6 +23,7 @@ public class KeyGenerator {
 	 *
 	 * @return the key pair
 	 */
+
 	private KeyPair generateKeyPairs() {
 
 		KeyPair keyPair = null;
@@ -42,12 +47,24 @@ public class KeyGenerator {
 	 * @param dirPath
 	 *            the dir path
 	 */
-	public void storeKeyPairs(String dirPath) {
+	@Autowired
+	private KeytableRepository keytableRepository;
+	public void storeKeyPairs() {
+
 		KeyPair keyPair = generateKeyPairs();
 		PrivateKey privateKey = keyPair.getPrivate();
 		PublicKey publicKey = keyPair.getPublic();
-		storeKeys(dirPath + File.separator + "publickey.key", publicKey);
-		storeKeys(dirPath + File.separator + "privatekey.key", privateKey);
+		storeKeys("kk","12");
+		/*storeKeys(dirPath + File.separator + "publickey.key", publicKey);
+		storeKeys(dirPath + File.separator + "privatekey.key", privateKey);*/
+	}
+	private void storeKeys(String UserName, String UserId/*,Key pubkey,Key prikey*/){
+		Keytable key1=new Keytable();
+		key1.setId(UserId);
+		key1.setUserName(UserName);
+		/*key1.setPublicKey(pubkey);
+		key1.setPrivateKey(prikey);*/
+		keytableRepository.save(key1);
 	}
 
 	/**
@@ -58,7 +75,7 @@ public class KeyGenerator {
 	 * @param key
 	 *            the key
 	 */
-	private void storeKeys(String filePath, Key key) {
+/*	private void storeKeys(String filePath, Key key) {
 		byte[] keyBytes = key.getEncoded();
 		OutputStream out = null;
 		try {
@@ -74,6 +91,6 @@ public class KeyGenerator {
 					e.printStackTrace();
 				}
 		}
-	}
+	}*/
 
 }

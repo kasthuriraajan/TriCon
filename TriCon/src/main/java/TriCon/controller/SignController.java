@@ -3,6 +3,7 @@ package TriCon.controller;
 
 import TriCon.crypto.KeyGenerator;
 import TriCon.crypto.SignGenerator;
+import TriCon.model.Keytable;
 import TriCon.repo.KeytableRepository;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,19 +27,24 @@ public class SignController {
     @RequestMapping("/ss")
     public String user()
     {
-        return "fragments/indexs";
+        return "home";
     }
 
-    @RequestMapping(value="/", method = RequestMethod.POST)
+    @RequestMapping(value="/ss", method = RequestMethod.POST)
     public String welcome(HttpServletRequest request)
     {
+
         KeyGenerator keygen1=new KeyGenerator();
        String UserName=request.getParameter("username");
-       String Code =request.getParameter("code");
-        //System.out.println(UserName);
-        keygen1.storeKeyPairs("keys");
+       String Code =request.getParameter("password");
+       String Id="0001";
+       System.out.println(UserName+"'"+Id);
+        /* String publickey=keygen1.
+        System.out.println(publickey);
+        System.out.println(privatekey);*/
+        keygen1.storeKeyPairs();
         System.out.println("Private key and Public Keys generated successfully...");
-        return "fragments/index";
+        return "home";
     }
 
     @RequestMapping("/verify")
@@ -63,7 +69,6 @@ public class SignController {
 
         return "fragments/verification";
     }
-
 
     @RequestMapping("/headers")
     public String header(Map<String, Object> model)
