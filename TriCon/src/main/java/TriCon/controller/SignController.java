@@ -42,8 +42,7 @@ public class SignController {
         /* String publickey=keygen1.
         System.out.println(publickey);
         System.out.println(privatekey);*/
-        keygen1.storeKeyPairs();
-        System.out.println("Private key and Public Keys generated successfully...");
+         System.out.println("Private key and Public Keys generated successfully...");
         return "home";
     }
 

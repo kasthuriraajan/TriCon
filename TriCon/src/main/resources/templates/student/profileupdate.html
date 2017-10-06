@@ -31,12 +31,12 @@
                         <img src="../img/1.png" class="img-circle user-image img-responsive"/>
                     </a>
                 </div>
-                <div class="panel-body" >
+                <div class="panel-body">
                     <h3>Social Media</h3>
                     <form action="" method="get">
                         <div class="input-group">
                             <span class="input-group-addon" id="sm1"><i class="fa fa-linkedin"></i> </span>
-                            <input type="text" class="form-control" th:value="" placeholder="LinkedIn" aria-describedby="sm1"/>
+                            <input type="text" class="form-control" th:value="Kasr" placeholder="LinkedIn" aria-describedby="sm1"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="sm2"><i class="fa fa-twitter"></i> </span>
@@ -63,19 +63,19 @@
                 <div class="panel-heading customheading">
                     Personal Details
                 </div>
-                <div class="panel-body" >
-                    <form action="" method="get">
+                <div class="panel-body" th:if="${not #lists.isEmpty(student)}">
+                    <form action="" method="get"  th:each="student : ${student}">
                         <div class="input-group">
-                            <span class="input-group-addon" id="pd1">First Name </span>
-                            <input type="text" class="form-control"  placeholder="Eg: Kannan" aria-describedby="pd1"/>
+                            <span class="input-group-addon" name="FirstName" id="pd1">First Name </span>
+                            <input type="text" class="form-control" th:value="${student.FirstName}" placeholder="Eg: Kannan" aria-describedby="pd1"/>
                         </div>
                         <div class="input-group">
-                            <span class="input-group-addon" id="pd2">Last Name </span>
-                            <input type="text" class="form-control" placeholder="Eg: Ravi" aria-describedby="pd2"/>
+                            <span class="input-group-addon" name="LastName" id="pd2">Last Name </span>
+                            <input type="text" class="form-control" th:value="${student.LastName}" placeholder="Eg: Ravi" aria-describedby="pd2"/>
                         </div>
                         <div class="input-group">
-                            <span class="input-group-addon" id="pd3">E-Mail ID</span>
-                            <input type="text" class="form-control" placeholder="Eg: ravi@gmail.com"
+                            <span class="input-group-addon" name="Email" id="pd3">E-Mail ID</span>
+                            <input type="text" class="form-control" th:value="${student.Email}" placeholder="Eg: ravi@gmail.com"
                                    aria-describedby="pd3"/>
                         </div>
                         <div class="input-group">
@@ -98,22 +98,22 @@
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading customheading">
-                    Professional Details
+                   Educational Details
                 </div>
                 <div class="panel-body">
                     <form action="" method="get">
                         <div class="input-group">
-                            <span class="input-group-addon" name="uni">University  </span>
-                            <input type="text" class="form-control" placeholder="Eg: University of Jaffna" aria-describedby="prod1"/>
+                            <span class="input-group-addon" id="prod1">University  </span>
+                            <input type="text" class="form-control" th:value="${student.University}" placeholder="Eg: SenzMate" aria-describedby="prod1"/>
                         </div>
                         <div class="input-group">
-                            <span class="input-group-addon" name="DeptNo">DepartmentNo</span>
-                            <input type="text" class="form-control" placeholder="Eg:001" aria-describedby="prod2"/>
+                            <span class="input-group-addon" id="prod2">Department</span>
+                            <input type="text" class="form-control" th:value="${student.DeptName}" placeholder="Eg: Software Engineer" aria-describedby="prod2"/>
                         </div>
                         <div class="input-group">
-                            <span class="input-group-addon" name="Dept">Department</span>
+                            <span class="input-group-addon" id="prod3">Address</span>
                             <input type="text" class="form-control"
-                                   placeholder="Eg: ComputerScience" aria-describedby="prod3"/>
+                                   placeholder="Eg: 81/5, Gregory's Rd,Colombo 07,SriLanka" aria-describedby="prod3"/>
                         </div>
                     </form>
                 </div>
@@ -122,12 +122,12 @@
         <div class="col-xs-12 col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading customheading">
-                   Skills
+                    Skills
                 </div>
 
+            </div>
         </div>
     </div>
-</div>
 </div>
 <div th:replace="fragments/footer :: footer">
 </div>

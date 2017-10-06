@@ -65,6 +65,14 @@
                         <button type="submit" id="btn-login" class="btn btn-success">Save</button>
                     </form>
                 </div>
+                <form method="POST" action="/DeptAdmin/studentbulk" enctype="multipart/form-data">
+                    <div class="controls">
+                        <input type="file" name="file" id="file" class="input-large" value="Select a csv file to bulk add"/>
+                    </div>
+                    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

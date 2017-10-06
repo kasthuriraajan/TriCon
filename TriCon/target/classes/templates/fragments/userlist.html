@@ -28,20 +28,29 @@
                         <li role="presentation"><a href="#">Industry</a></li>
                     </ul>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body"  th:if="${not #lists.isEmpty(student)}"><!-- th:if="${not #lists.isEmpty(student)}">-->
                     <form class="navbar-form navbar-left" role="search">
                         <div class="input-group">
                             <input class="customform-control" type="text" placeholder="Search"/>
                             <span class="input-group-addon"><i class="fa fa-search  fa-1x"></i></span>
                         </div>
                     </form>
-                    <ul class="list-unstyled">
+                    <!--<ul class="list-unstyled" th:each="student : ${student}">
                         <li><img src="../img/1.png" class="img user-image-top img-responsive"/>Ratnasingam Kasthuriraajan</li>
                         <li><img src="../img/1.png" class="img user-image-top img-responsive"/>Ratnasingam Kasthuriraajan</li>
                         <li><img src="../img/1.png" class="img user-image-top img-responsive"/>Ratnasingam Kasthuriraajan</li>
                         <li><img src="../img/1.png" class="img user-image-top img-responsive"/>Ratnasingam Kasthuriraajan</li>
                         <li><img src="../img/1.png" class="img user-image-top img-responsive"/>Ratnasingam Kasthuriraajan</li>
-                    </ul>
+                    </ul>-->
+                    <table >
+
+                        <tr th:each="student : ${student}">
+                            <td ><img src="../img/1.png" class="img user-image-top img-responsive"/></td>
+                            <td th:text="${student.FirstName}"></td>
+                            <td th:text="${student.LastName}"></td>
+                        </tr>
+
+                    </table>
                 </div>
             </div>
         </div>

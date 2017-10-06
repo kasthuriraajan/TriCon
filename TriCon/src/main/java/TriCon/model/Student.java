@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 
 public class Student {
     @Id
-    private String Id;
+    private String id;
     private String FirstName;
     private String LastName;
     private String RegNo;
@@ -23,13 +23,7 @@ public class Student {
     private String NotificationId;
     private String StuSign;
 
-    public String getId() {
-        return Id;
-    }
 
-    public void setId(String id) {
-        Id = id;
-    }
 
     public String getFirstName() {
         return FirstName;
@@ -165,5 +159,13 @@ public class Student {
 
     public void setStuSign(String stuSign) {
         StuSign = stuSign;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
