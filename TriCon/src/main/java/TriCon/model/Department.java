@@ -3,30 +3,21 @@ package TriCon.model;
 import org.springframework.data.annotation.Id;
 
 public class Department {
+
     @Id
-    private String Id;
-    private String Email;
+    private String id;
     private String UniId;
-    private String University;
-    private String DeptId;
-    private String Department;
-    private String AuthKey;
+    private String DeptName;
+    private String Email;
     private String ContactNo;
+    private String AuthKey;
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
+        this.id = id;
     }
 
     public String getUniId() {
@@ -37,36 +28,20 @@ public class Department {
         UniId = uniId;
     }
 
-    public String getUniversity() {
-        return University;
+    public String getDeptName() {
+        return DeptName;
     }
 
-    public void setUniversity(String university) {
-        University = university;
+    public void setDeptName(String deptName) {
+        DeptName = deptName;
     }
 
-    public String getDeptId() {
-        return DeptId;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setDeptId(String deptId) {
-        DeptId = deptId;
-    }
-
-    public String getDepartment() {
-        return Department;
-    }
-
-    public void setDepartment(String department) {
-        Department = department;
-    }
-
-    public String getAuthKey() {
-        return AuthKey;
-    }
-
-    public void setAuthKey(String authKey) {
-        AuthKey = authKey;
+    public void setEmail(String email) {
+        Email = email;
     }
 
     public String getContactNo() {
@@ -75,5 +50,13 @@ public class Department {
 
     public void setContactNo(String contactNo) {
         ContactNo = contactNo;
+    }
+
+    public String getAuthKey() {
+        return AuthKey;
+    }
+
+    public void setAuthKey(String authKey) {
+        AuthKey = authKey;
     }
 }

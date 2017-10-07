@@ -8,11 +8,17 @@ body.bg
 {
 height:120px;
 }
+.fileCustom{
+    margin-top: 100px;
+}
 .navstyle
 {
     background:#000;
 }
-
+.bgstyle
+{
+    background:#F9F9F9;
+}
 .custombtn
 {
   display: inline-block;

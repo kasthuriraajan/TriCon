@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="shortcut icon" href="../img/logo1.png"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+
+
+</head>
+<body class="bgstyle">
+<div id="wrapper">
+    <div th:replace="Fragments/header :: adminHeader">
+    </div>
+    <div class="row">
+        <div th:replace="Fragments/sideBar :: adminSideBar">
+        </div>
+        <div class="col-xs-12 col-md-9 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 customheading">
+                            <center> LECTURER DETAILS</center>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-body" th:if="${not #lists.isEmpty(lecturer)}">
+                    <table border="1" width="950">
+                        <tr>
+                            <th>ID</th>
+                            <th>FIRST NAME</th>
+                            <th>LAST NAME</th>
+                            <th>E-MAIL</th>
+                            <th>DEPT NAME</th>
+                            <th>UNIVERSITY</th>
+                        </tr>
+
+                        <tr th:each="lecturer : ${lecturer}">
+                            <td th:text="${lecturer.Id}"></td>
+                            <td th:text="${lecturer.FirstName}"></td>
+                            <td th:text="${lecturer.LastName}"></td>
+                            <td th:text="${lecturer.Email}"></td>
+                            <td th:each="department: ${department}" th:if="${department.Id==lecturer.DeptId}"
+                                th:text="${department.DeptName}"></td>
+                            <td th:each="university: ${university}" th:if="${university.Id==lecturer.UniId}"
+                                th:text="${university.UniName}"></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

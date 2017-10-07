@@ -144,6 +144,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="DeptRegisterLabel">Register your Department Here</h3>
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -152,15 +153,16 @@
                     <form action="/registerDept" method="post">
 
                         <div class="form-group">
-                            <div class="input-group input-group-sm">
+                            <div class="input-group input-group-sm" th:if="${not #lists.isEmpty(university)}">
 					            <span class="input-group-addon">
 						            <span class="fa fa-home"></span>
                                 </span>
-                                <select class="form-control" name="Univ"  id="Univ" th:required="required">
+                                <select class="form-control" name="UniId"  id="Univ" th:required="required">
                                     <option value="">Select University</option>
-                                    <option value="University of Jaffna">University of Jaffna</option>
+                                    <option th:each="university : ${university}" th:value="${university.Id}"  th:text="${university.UniName}"></option>
+                                    <!--<option value="University of Jaffna">University of Jaffna</option>
                                     <option value="University of Moratuwa">University of Moratuwa</option>
-                                    <option value="University of Colombo">University of Colombo</option>
+                                    <option value="University of Colombo">University of Colombo</option>-->
                                 </select>
                             </div>
                         </div>
@@ -177,7 +179,7 @@
                                 <span class="input-group-addon">
 		                            <span class="fa fa-envelope"></span>
                                 </span>
-                                <input type="email" class="form-control" name="mail"  id="email2" placeholder="Email" th:required="required"/>
+                                <input type="email" class="form-control" name="Email"  id="email2" placeholder="Email" th:required="required"/>
                             </div>
                         </div>
                         <div class="form-group">

@@ -5,33 +5,37 @@ import org.springframework.data.annotation.Id;
 public class Industrialist {
 
 
-@Id
+    @Id
     private String Id;
-    private String IndId;
+    private String FirstName;
     private String LastName;
     private String Email;
-    private String Address;
-
-    private String Linkedin;
-    private String Twitter;
-    private String Github;
-    private String Facebook;
-    private String Blog;
-    private int MobileNo;
-    private int TeleNo;
-    private String IndSign;
-    private String FirstName;
     private String Company;
     private String CompanyAddress;
     private String Designation;
+    private String MobileNo;
+    private String TPNo;
+    private String Linkedin;
+    private String Twitter;
+    private String GitHub;
+    private String Facebook;
+    private String Blog;
+    private String Signature;
 
-
-    public String getIndId() {
-        return IndId;
+    public String getId() {
+        return Id;
     }
 
-    public void setIndId(String indId) {
-        IndId = indId;
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
     }
 
     public String getLastName() {
@@ -48,86 +52,6 @@ public class Industrialist {
 
     public void setEmail(String email) {
         Email = email;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
-    }
-
-    public String getLinkedin() {
-        return Linkedin;
-    }
-
-    public void setLinkedin(String linkedin) {
-        Linkedin = linkedin;
-    }
-
-    public String getTwitter() {
-        return Twitter;
-    }
-
-    public void setTwitter(String twitter) {
-        Twitter = twitter;
-    }
-
-    public String getGithub() {
-        return Github;
-    }
-
-    public void setGithub(String github) {
-        Github = github;
-    }
-
-    public String getFacebook() {
-        return Facebook;
-    }
-
-    public void setFacebook(String facebook) {
-        Facebook = facebook;
-    }
-
-    public String getBlog() {
-        return Blog;
-    }
-
-    public void setBlog(String blog) {
-        Blog = blog;
-    }
-
-    public int getMobileNo() {
-        return MobileNo;
-    }
-
-    public void setMobileNo(int mobileNo) {
-        MobileNo = mobileNo;
-    }
-
-    public int getTeleNo() {
-        return TeleNo;
-    }
-
-    public void setTeleNo(int teleNo) {
-        TeleNo = teleNo;
-    }
-
-    public String getIndSign() {
-        return IndSign;
-    }
-
-    public void setIndSign(String indSign) {
-        IndSign = indSign;
-    }
-
-    public String getFirstName() {
-        return FirstName;
-    }
-
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
     }
 
     public String getCompany() {
@@ -154,11 +78,67 @@ public class Industrialist {
         Designation = designation;
     }
 
-    public String getId() {
-        return Id;
+    public String getMobileNo() {
+        return MobileNo;
     }
 
-    public void setId(String id) {
-        Id = id;
+    public void setMobileNo(String mobileNo) {
+        MobileNo = mobileNo;
+    }
+
+    public String getTPNo() {
+        return TPNo;
+    }
+
+    public void setTPNo(String TPNo) {
+        this.TPNo = TPNo;
+    }
+
+    public String getLinkedin() {
+        return Linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        Linkedin = linkedin;
+    }
+
+    public String getTwitter() {
+        return Twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        Twitter = twitter;
+    }
+
+    public String getGitHub() {
+        return GitHub;
+    }
+
+    public void setGitHub(String gitHub) {
+        GitHub = gitHub;
+    }
+
+    public String getFacebook() {
+        return Facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        Facebook = facebook;
+    }
+
+    public String getBlog() {
+        return Blog;
+    }
+
+    public void setBlog(String blog) {
+        Blog = blog;
+    }
+
+    public String getSignature() {
+        return Signature;
+    }
+
+    public void setSignature(String signature) {
+        Signature = signature;
     }
 }

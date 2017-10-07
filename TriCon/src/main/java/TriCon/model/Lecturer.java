@@ -2,27 +2,31 @@ package TriCon.model;
 
 import org.springframework.data.annotation.Id;
 
-public class Lecturer
-{
+public class Lecturer {
     @Id
     private String Id;
-    private String LectId;
+    private String FirstName;
     private String LastName;
     private String Email;
-    private String Address;
-    private String University;
-    private String DeptName;
     private String DeptId;
+    private String UniId;
+    private String Address;
+    private String MobileNo;
+    private String TPNo;
     private String Linkedin;
     private String Twitter;
-    private String Github;
+    private String GitHub;
     private String Facebook;
     private String Blog;
-    private int MobileNo;
-    private int TeleNo;
-    private String LectSign;
-    private String FirstName;
+    private String Signature;
 
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
 
     public String getFirstName() {
         return FirstName;
@@ -48,6 +52,22 @@ public class Lecturer
         Email = email;
     }
 
+    public String getDeptId() {
+        return DeptId;
+    }
+
+    public void setDeptId(String deptId) {
+        DeptId = deptId;
+    }
+
+    public String getUniId() {
+        return UniId;
+    }
+
+    public void setUniId(String uniId) {
+        UniId = uniId;
+    }
+
     public String getAddress() {
         return Address;
     }
@@ -56,20 +76,20 @@ public class Lecturer
         Address = address;
     }
 
-    public String getUniversity() {
-        return University;
+    public String getMobileNo() {
+        return MobileNo;
     }
 
-    public void setUniversity(String university) {
-        University = university;
+    public void setMobileNo(String mobileNo) {
+        MobileNo = mobileNo;
     }
 
-    public String getDeptId() {
-        return DeptId;
+    public String getTPNo() {
+        return TPNo;
     }
 
-    public void setDeptId(String deptId) {
-        DeptId = deptId;
+    public void setTPNo(String TPNo) {
+        this.TPNo = TPNo;
     }
 
     public String getLinkedin() {
@@ -88,12 +108,12 @@ public class Lecturer
         Twitter = twitter;
     }
 
-    public String getGithub() {
-        return Github;
+    public String getGitHub() {
+        return GitHub;
     }
 
-    public void setGithub(String github) {
-        Github = github;
+    public void setGitHub(String gitHub) {
+        GitHub = gitHub;
     }
 
     public String getFacebook() {
@@ -112,51 +132,11 @@ public class Lecturer
         Blog = blog;
     }
 
-    public int getMobileNo() {
-        return MobileNo;
+    public String getSignature() {
+        return Signature;
     }
 
-    public void setMobileNo(int mobileNo) {
-        MobileNo = mobileNo;
-    }
-
-    public int getTeleNo() {
-        return TeleNo;
-    }
-
-    public void setTeleNo(int teleNo) {
-        TeleNo = teleNo;
-    }
-
-    public String getLectSign() {
-        return LectSign;
-    }
-
-    public void setLectSign(String lectSign) {
-        LectSign = lectSign;
-    }
-
-    public String getLectId() {
-        return LectId;
-    }
-
-    public void setLectId(String lectId) {
-        LectId = lectId;
-    }
-
-    public String getId() {
-        return Id;
-    }
-
-    public void setId(String id) {
-        Id = id;
-    }
-
-    public String getDeptName() {
-        return DeptName;
-    }
-
-    public void setDeptName(String deptName) {
-        DeptName = deptName;
+    public void setSignature(String signature) {
+        Signature = signature;
     }
 }

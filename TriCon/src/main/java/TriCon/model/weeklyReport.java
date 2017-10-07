@@ -1,177 +1,180 @@
 package TriCon.model;
 
+import org.springframework.data.annotation.Id;
+
 public class weeklyReport
 {
-    private String weeklyReportId;
-    private String journalId;
-    private String from;
-    private String to;
-    private String monday;
-    private String tuesday;
-    private String wednesday;
-    private String thursday;
-    private String friday;
-    private String saturday;
-    private String sunday;
-    private String summary;
-    private String attachment;
-    private String review;
-    private String remarks;
-    private String status;
-    private String studentSignature;
-    private String lecturerSignature;
-    private String industrialistSignature;
+    @Id
 
+    private String Id;
+    private String JournalId;
+    private String From;
+    private String To;
+    private String Monday;
+    private String Tuesday;
+    private String Wednesday;
+    private String Thursday;
+    private String Friday;
+    private String Saturday;
+    private String Sunday;
+    private String Summary;
+    private String Attachment;
+    private String Review;
+    private String Remark;
+    private String Status;
+    private String StuSign;
+    private String LectSign;
+    private String IndSign;
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
 
     public String getJournalId() {
-        return journalId;
+        return JournalId;
     }
 
     public void setJournalId(String journalId) {
-        this.journalId = journalId;
+        JournalId = journalId;
     }
 
     public String getFrom() {
-        return from;
+        return From;
     }
 
     public void setFrom(String from) {
-        this.from = from;
+        From = from;
     }
 
     public String getTo() {
-        return to;
+        return To;
     }
 
     public void setTo(String to) {
-        this.to = to;
+        To = to;
     }
 
     public String getMonday() {
-        return monday;
+        return Monday;
     }
 
     public void setMonday(String monday) {
-        this.monday = monday;
+        Monday = monday;
     }
 
     public String getTuesday() {
-        return tuesday;
+        return Tuesday;
     }
 
     public void setTuesday(String tuesday) {
-        this.tuesday = tuesday;
+        Tuesday = tuesday;
     }
 
     public String getWednesday() {
-        return wednesday;
+        return Wednesday;
     }
 
     public void setWednesday(String wednesday) {
-        this.wednesday = wednesday;
+        Wednesday = wednesday;
     }
 
     public String getThursday() {
-        return thursday;
+        return Thursday;
     }
 
     public void setThursday(String thursday) {
-        this.thursday = thursday;
+        Thursday = thursday;
     }
 
     public String getFriday() {
-        return friday;
+        return Friday;
     }
 
     public void setFriday(String friday) {
-        this.friday = friday;
+        Friday = friday;
     }
 
     public String getSaturday() {
-        return saturday;
+        return Saturday;
     }
 
     public void setSaturday(String saturday) {
-        this.saturday = saturday;
+        Saturday = saturday;
     }
 
     public String getSunday() {
-        return sunday;
+        return Sunday;
     }
 
     public void setSunday(String sunday) {
-        this.sunday = sunday;
+        Sunday = sunday;
     }
 
     public String getSummary() {
-        return summary;
+        return Summary;
     }
 
     public void setSummary(String summary) {
-        this.summary = summary;
+        Summary = summary;
     }
 
     public String getAttachment() {
-        return attachment;
+        return Attachment;
     }
 
     public void setAttachment(String attachment) {
-        this.attachment = attachment;
+        Attachment = attachment;
     }
 
     public String getReview() {
-        return review;
+        return Review;
     }
 
     public void setReview(String review) {
-        this.review = review;
+        Review = review;
     }
 
-    public String getRemarks() {
-        return remarks;
+    public String getRemark() {
+        return Remark;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setRemark(String remark) {
+        Remark = remark;
     }
 
     public String getStatus() {
-        return status;
+        return Status;
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        Status = status;
     }
 
-    public String getStudentSignature() {
-        return studentSignature;
+    public String getStuSign() {
+        return StuSign;
     }
 
-    public void setStudentSignature(String studentSignature) {
-        this.studentSignature = studentSignature;
+    public void setStuSign(String stuSign) {
+        StuSign = stuSign;
     }
 
-    public String getLecturerSignature() {
-        return lecturerSignature;
+    public String getLectSign() {
+        return LectSign;
     }
 
-    public void setLecturerSignature(String lecturerSignature) {
-        this.lecturerSignature = lecturerSignature;
+    public void setLectSign(String lectSign) {
+        LectSign = lectSign;
     }
 
-    public String getIndustrialistSignature() {
-        return industrialistSignature;
+    public String getIndSign() {
+        return IndSign;
     }
 
-    public void setIndustrialistSignature(String industrialistSignature) {
-        this.industrialistSignature = industrialistSignature;
-    }
-
-    public String getWeeklyReportId() {
-        return weeklyReportId;
-    }
-
-    public void setWeeklyReportId(String weeklyReportId) {
-        this.weeklyReportId = weeklyReportId;
+    public void setIndSign(String indSign) {
+        IndSign = indSign;
     }
 }

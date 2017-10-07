@@ -4,14 +4,13 @@ import org.springframework.data.annotation.Id;
 
 public class Student {
     @Id
-    private String id;
+    private String Id;
     private String FirstName;
     private String LastName;
     private String RegNo;
-    private String DeptNo;
-    private String DeptName;
-    private String University;
     private String Email;
+    private String DeptId;
+    private String UniId;
     private String MobileNo;
     private String TPNo;
     private String Address;
@@ -20,10 +19,15 @@ public class Student {
     private String GitHub;
     private String Facebook;
     private String Blog;
-    private String NotificationId;
-    private String StuSign;
+    private String Signature;
 
+    public String getId() {
+        return Id;
+    }
 
+    public void setId(String id) {
+        Id = id;
+    }
 
     public String getFirstName() {
         return FirstName;
@@ -49,36 +53,28 @@ public class Student {
         RegNo = regNo;
     }
 
-    public String getDeptNo() {
-        return DeptNo;
-    }
-
-    public void setDeptNo(String deptNo) {
-        DeptNo = deptNo;
-    }
-
-    public String getDeptName() {
-        return DeptName;
-    }
-
-    public void setDeptName(String deptName) {
-        DeptName = deptName;
-    }
-
-    public String getUniversity() {
-        return University;
-    }
-
-    public void setUniversity(String university) {
-        University = university;
-    }
-
     public String getEmail() {
         return Email;
     }
 
     public void setEmail(String email) {
         Email = email;
+    }
+
+    public String getDeptId() {
+        return DeptId;
+    }
+
+    public void setDeptId(String deptId) {
+        DeptId = deptId;
+    }
+
+    public String getUniId() {
+        return UniId;
+    }
+
+    public void setUniId(String uniId) {
+        UniId = uniId;
     }
 
     public String getMobileNo() {
@@ -105,6 +101,14 @@ public class Student {
         Address = address;
     }
 
+    public String getLinkedIn() {
+        return LinkedIn;
+    }
+
+    public void setLinkedIn(String linkedIn) {
+        LinkedIn = linkedIn;
+    }
+
     public String getTwitter() {
         return Twitter;
     }
@@ -119,14 +123,6 @@ public class Student {
 
     public void setGitHub(String gitHub) {
         GitHub = gitHub;
-    }
-
-    public String getLinkedIn() {
-        return LinkedIn;
-    }
-
-    public void setLinkedIn(String linkedIn) {
-        LinkedIn = linkedIn;
     }
 
     public String getFacebook() {
@@ -145,27 +141,11 @@ public class Student {
         Blog = blog;
     }
 
-    public String getNotificationId() {
-        return NotificationId;
+    public String getSignature() {
+        return Signature;
     }
 
-    public void setNotificationId(String notificationId) {
-        NotificationId = notificationId;
-    }
-
-    public String getStuSign() {
-        return StuSign;
-    }
-
-    public void setStuSign(String stuSign) {
-        StuSign = stuSign;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setSignature(String signature) {
+        Signature = signature;
     }
 }

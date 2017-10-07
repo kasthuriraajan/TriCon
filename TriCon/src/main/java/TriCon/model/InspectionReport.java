@@ -5,19 +5,19 @@ import org.springframework.data.annotation.Id;
 public class InspectionReport
 
 {  @Id
-    private String InspectId;
+    private String Id;
     private String JournalId;
     private String LectId;
     private String Date;
     private String Review ;
     private String LectSign;
 
-    public String getInspectId() {
-        return InspectId;
+    public String getId() {
+        return Id;
     }
 
-    public void setInspectId(String inspectId) {
-        InspectId = inspectId;
+    public void setId(String id) {
+        Id = id;
     }
 
     public String getJournalId() {
@@ -28,8 +28,6 @@ public class InspectionReport
         JournalId = journalId;
     }
 
-
-
     public String getLectId() {
         return LectId;
     }
@@ -37,7 +35,6 @@ public class InspectionReport
     public void setLectId(String lectId) {
         LectId = lectId;
     }
-
 
     public String getDate() {
         return Date;
@@ -47,8 +44,6 @@ public class InspectionReport
         Date = date;
     }
 
-
-
     public String getReview() {
         return Review;
     }
@@ -57,8 +52,6 @@ public class InspectionReport
         Review = review;
     }
 
-
-
     public String getLectSign() {
         return LectSign;
     }
@@ -66,8 +59,4 @@ public class InspectionReport
     public void setLectSign(String lectSign) {
         LectSign = lectSign;
     }
-
-
-
-
 }

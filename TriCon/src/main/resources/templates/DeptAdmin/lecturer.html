@@ -18,12 +18,12 @@
 
 
 </head>
-<body>
+<body class="bgstyle">
 <div id="wrapper">
-    <div th:replace="fragments/header :: header">
+    <div th:replace="Fragments/header :: deptAdminHeader">
     </div>
     <div class="row">
-        <div th:replace="fragments/sidebar :: DeptAdminsidebar">
+        <div th:replace="Fragments/SideBar :: deptAdminSideBar">
         </div>
         <div class="col-xs-12 col-md-9 col-sm-12">
             <div class="panel panel-default">
@@ -36,40 +36,41 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form id="LecturerRegform" class="form-horizontal" role="form" method="post" action="/DeptAdmin/lecturer">
+                    <form class="form-vertical" method="post" action="/DeptAdmin/lecturer">
                         <table border="1" width="950">
                             <tr>
-                                <th>ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
-                                <th>Lect Id</th>
-                                <th>Dept.Id</th>
-                                <th>DeptName</th>
-                                <th>University</th>
                                 <th>Email</th>
 
                             </tr>
                             <tr>
-                                <td><input id="ID" type="text" class="form-control" name="Id" value=""/></td>
-                                <td><input id="FN" type="text" class="form-control" name="FirstName" value=""/></td>
-                                <td><input id="LN" type="text" class="form-control" name="LastName" value=""/></td>
-                                <td><input id="RegNo" type="text" class="form-control" name="LectId" value=""/></td>
-                                <td><input id="DeptNo" type="text" class="form-control" name="DeptId" value=""/></td>
-                                <td><input id="DN" type="text" class="form-control" name="DeptName" value=""/></td>
-                                <td><input id="Uni" type="text" class="form-control" name="University" value=""/></td>
-                                <td><input id="Email" type="text" class="form-control" name="Email" value=""/></td>
-
+                                <td><input id="FN" type="text" class="form-control" name="FirstName" th:required="required" /></td>
+                                <td><input id="LN" type="text" class="form-control" name="LastName" th:required="required" /></td>
+                                <td><input id="Email" type="text" class="form-control" name="Email" th:required="required" /></td>
                             </tr>
 
                         </table>
                         <button type="submit" id="btn-login" class="btn btn-success">Save</button>
                     </form>
+                    <div class="fileCustom">
+                        <form method="POST" action="/DeptAdmin/lecturerBulk" enctype="multipart/form-data">
+                            <div class="controls">
+                                <label>Select a csv file to add a list of lecturers</label>
+                                <input type="file" name="file" id="file" class="input-large" th:required="required" />
+                            </div>
+                            <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
-<div th:replace="fragments/footer :: footer">
+<div th:replace="Fragments/footer :: footer">
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

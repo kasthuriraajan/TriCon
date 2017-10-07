@@ -1,11 +1,14 @@
 package TriCon.model;
 
 
+import org.springframework.data.annotation.Id;
+
 public class Journal
 {
-    private String JournalId;
+    @Id
+
+    private String Id;
     private String StuId;
-    private String ProgressId;
     private String IndId;
     private String LecId;
     private String Company;
@@ -14,14 +17,13 @@ public class Journal
     private String ContractNo;
     private String From;
     private String To;
-    private String FinalReportId;
 
-    public String getJournalId() {
-        return JournalId;
+    public String getId() {
+        return Id;
     }
 
-    public void setJournalId(String journalId) {
-        JournalId = journalId;
+    public void setId(String id) {
+        Id = id;
     }
 
     public String getStuId() {
@@ -32,12 +34,12 @@ public class Journal
         StuId = stuId;
     }
 
-    public String getProgressId() {
-        return ProgressId;
+    public String getIndId() {
+        return IndId;
     }
 
-    public void setProgressId(String progressId) {
-        ProgressId = progressId;
+    public void setIndId(String indId) {
+        IndId = indId;
     }
 
     public String getLecId() {
@@ -46,14 +48,6 @@ public class Journal
 
     public void setLecId(String lecId) {
         LecId = lecId;
-    }
-
-    public String getIndId() {
-        return IndId;
-    }
-
-    public void setIndId(String indId) {
-        IndId = indId;
     }
 
     public String getCompany() {
@@ -102,13 +96,5 @@ public class Journal
 
     public void setTo(String to) {
         To = to;
-    }
-
-    public String getFinalReportId() {
-        return FinalReportId;
-    }
-
-    public void setFinalReportId(String finalReportId) {
-        FinalReportId = finalReportId;
     }
 }
