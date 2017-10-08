@@ -20,11 +20,11 @@
 </head>
 <body>
 
-<div class="col-xs-12 col-md-3" th:fragment="profile">
+<div class="col-xs-12 col-md-3" th:fragment="profile" th:if="${not #lists.isEmpty(users)}" th:each="users : ${users}">
     <div class="panel panel-default">
         <div class="panel-heading">
             <a href="profile.html">
-                <h3 class="custompanel-title">Romi</h3>
+                <h3 class="custompanel-title" th:text="${users.LastName}"></h3>
                 <img src="../img/1.png" class="img-circle user-image img-responsive"/>
             </a>
         </div>
@@ -37,11 +37,13 @@
                     <a href="profileUpdate.html"><i class="fa fa-edit  fa-stack fa-2x"></i></a>
                 </div>
             </div>
-            <center><b><br>Gnanaseelan Romipraveen</br>
-                <br>Department of Computer Science</br>
-                <br>Faculty of Science</br>
-                <br>University of Jaffna</br>
-                <br>E-mail:-<a href="mailto:romi@gmail.com">romi@gmail.com</a>
+            <center><b><label th:text="${users.FirstName}" > </label>
+                <label th:text="${users.LastName}"></label>
+                <br th:each="department: ${department}" th:if="${department.Id==users.DeptId}"
+                    th:text="${department.DeptName}"> </br>
+                <br th:each="university: ${university}" th:if="${university.Id==users.UniId}"
+                    th:text="${university.UniName}"> </br>
+                <br th:text="${users.Email}">
                 </br></b></center>
         </div>
     </div>

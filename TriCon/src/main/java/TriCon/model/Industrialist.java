@@ -6,7 +6,7 @@ public class Industrialist {
 
 
     @Id
-    private String Id;
+    private String id;
     private String FirstName;
     private String LastName;
     private String Email;
@@ -23,11 +23,11 @@ public class Industrialist {
     private String Signature;
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getFirstName() {

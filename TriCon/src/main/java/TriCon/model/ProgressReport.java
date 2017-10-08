@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 public class ProgressReport {
     @Id
 
-    private String Id;
+    private String id;
     private String IndId;
     private String AuthLeave;
     private String UnAuthLeave;
@@ -15,11 +15,11 @@ public class ProgressReport {
     private String IndSign;
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getIndId() {

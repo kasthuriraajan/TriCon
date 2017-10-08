@@ -7,7 +7,7 @@ public class Journal
 {
     @Id
 
-    private String Id;
+    private String id;
     private String StuId;
     private String IndId;
     private String LecId;
@@ -17,13 +17,14 @@ public class Journal
     private String ContractNo;
     private String From;
     private String To;
+    private String Status;
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getStuId() {
@@ -97,4 +98,13 @@ public class Journal
     public void setTo(String to) {
         To = to;
     }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
 }

@@ -7,17 +7,17 @@ import org.springframework.data.annotation.Id;
 public class User {
 
     @Id
-    private String Id;
+    private String id;
     private String Email;
     private String Password;
     private String Type;
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getEmail() {

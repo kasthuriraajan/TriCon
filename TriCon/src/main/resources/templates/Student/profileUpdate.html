@@ -22,38 +22,39 @@
 <div id="wrapper">
     <div th:replace="fragments/header :: header">
     </div>
-    <div class="row">
+    <div class="row" th:if="${not #lists.isEmpty(student)}" th:each="student : ${student}">
         <div class="col-xs-12 col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a href="profile.html">
-                        <h3 class="custompanel-title">Romi</h3>
+                        <h3 class="custompanel-title" th:text="${student.LastName}"></h3>
                         <img src="../img/1.png" class="img-circle user-image img-responsive"/>
                     </a>
                 </div>
                 <div class="panel-body">
                     <h3>Social Media</h3>
-                    <form action="" method="get">
+                    <form action="/Stu/profileUpdate" method="post">
                         <div class="input-group">
                             <span class="input-group-addon" id="sm1"><i class="fa fa-linkedin"></i> </span>
-                            <input type="text" class="form-control" th:value="Kasr" placeholder="LinkedIn" aria-describedby="sm1"/>
+                            <input type="text" name="LinkedIn" class="form-control" th:value="${student.LinkedIn}" placeholder="LinkedIn" aria-describedby="sm1"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="sm2"><i class="fa fa-twitter"></i> </span>
-                            <input type="text" class="form-control" placeholder="Twitter" aria-describedby="sm1"/>
+                            <input type="text" name="Twitter" class="form-control" th:value="${student.Twitter}" placeholder="Twitter" aria-describedby="sm1"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="sm3"><i class="fa fa-github"></i> </span>
-                            <input type="text" class="form-control" placeholder="Github" aria-describedby="sm1"/>
+                            <input type="text" name="GitHub" class="form-control" th:value="${student.GitHub}" placeholder="GitHub" aria-describedby="sm1"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="sm4"><i class="fa fa-facebook"></i> </span>
-                            <input type="text" class="form-control" placeholder="Facebook" aria-describedby="sm1"/>
+                            <input type="text" name="Facebook" class="form-control" th:value="${student.Facebook}" placeholder="Facebook" aria-describedby="sm1"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="sm5"><i class="fa fa-globe"></i> </span>
-                            <input type="text" class="form-control" placeholder="Blog address" aria-describedby="sm1"/>
+                            <input type="text" name="Blog" class="form-control" th:value="${student.Blog}" placeholder="Blog address" aria-describedby="sm1"/>
                         </div>
+                        <button type="submit" name="save" value="socialMedia" id="btn" class="btn btn-success">Save</button>
                     </form>
                 </div>
             </div>
@@ -63,8 +64,8 @@
                 <div class="panel-heading customheading">
                     Personal Details
                 </div>
-                <div class="panel-body" th:if="${not #lists.isEmpty(student)}">
-                    <form action="/Stu/profileUpdate" method="post"  th:each="student : ${student}">
+                <div class="panel-body" >
+                    <form action="/Stu/profileUpdate" method="post" >
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd1">First Name </span>
                             <input type="text" name="FirstName" class="form-control" th:value="${student.FirstName}" placeholder="Eg: Kannan" aria-describedby="pd1"/>
@@ -80,20 +81,20 @@
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd4">Mobile No </span>
-                            <input type="text" name="Mobile" class="form-control" placeholder="Eg: +94770562348"
+                            <input type="text" name="Mobile" class="form-control"  th:value="${student.MobileNo}" placeholder="Eg: +94770562348"
                                    aria-describedby="pd4"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="pd5">T.P Number</span>
-                            <input type="text" name="TP" class="form-control" placeholder="Eg: 021 456 2365"
+                            <input type="text" name="TP" class="form-control" th:value="${student.TPNo}" placeholder="Eg: 021 456 2365"
                                    aria-describedby="pd5"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd6">Address</span>
-                            <input type="text" name="Addrss" class="form-control" placeholder="Eg: No5,park avenue,Main Street,Jaffna"
+                            <input type="text" name="Addrss" class="form-control" th:value="${student.Address}" placeholder="Eg: No5,park avenue,Main Street,Jaffna"
                                    aria-describedby="pd6"/>
                         </div>
-                        <button type="submit" id="btn-login" class="btn btn-success">Save</button>
+                        <button type="submit" name="save" value="personal" id="btn-login" class="btn btn-success">Save</button>
                     </form>
                 </div>
             </div>
@@ -101,23 +102,20 @@
                 <div class="panel-heading customheading">
                     Educational Details
                 </div>
-                <!--  <div class="panel-body">
-                      <form action="" method="get">
+                  <div class="panel-body">
+                      <form>
                           <div class="input-group">
-                              <span class="input-group-addon" id="prod1">University  </span>
-                              <input type="text" class="form-control" th:value="${student.University}" placeholder="Eg: SenzMate" aria-describedby="prod1"/>
+                              <span class="input-group-addon" id="prod1"><label>University  :</label> </span>
+                              <label class="input-group-addon" th:each="university: ${university}" th:if="${university.Id==student.UniId}"
+                              th:text="${university.UniName}"/>
                           </div>
                           <div class="input-group">
-                              <span class="input-group-addon" id="prod2">Department</span>
-                              <input type="text" class="form-control" th:value="${student.DeptName}" placeholder="Eg: Software Engineer" aria-describedby="prod2"/>
-                          </div>
-                          <div class="input-group">
-                              <span class="input-group-addon" id="prod3">Address</span>
-                              <input type="text" class="form-control"
-                                     placeholder="Eg: 81/5, Gregory's Rd,Colombo 07,SriLanka" aria-describedby="prod3"/>
+                              <span class="input-group-addon" id="prod2"><label>Department :</label></span>
+                              <label  class="input-group-addon" th:each="department: ${department}" th:if="${department.Id==student.DeptId}"
+                                     th:text="${department.DeptName}"/>
                           </div>
                       </form>
-                  </div>-->
+                  </div>
             </div>
         </div>
         <div class="col-xs-12 col-md-3">

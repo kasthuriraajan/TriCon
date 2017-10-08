@@ -2,11 +2,8 @@ package TriCon.controller;
 
 
 import TriCon.mailsender.SmtpMailSender;
-import TriCon.model.Department;
-import TriCon.model.User;
-import TriCon.repo.DepartmentRepository;
-import TriCon.repo.UniversityRepository;
-import TriCon.repo.UserRepository;
+import TriCon.model.*;
+import TriCon.repo.*;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +24,12 @@ public class IndexController {
     @Autowired
     private DepartmentRepository departmentRepository;
     @Autowired
+    private StudentRepository studentRepository;
+    @Autowired
+    private LecturerRepository lecturerRepository;
+    @Autowired
+    private IndustrialistRepository industrialistRepository;
+    @Autowired
     private SmtpMailSender smtpMailSender;
 
     @RequestMapping("/")
@@ -40,21 +43,71 @@ public class IndexController {
     /*user registration*/
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerUser(HttpServletRequest request) throws MessagingException {
-        String UserName = request.getParameter("UserName");
+
+        String Id = "0";
         String Email = request.getParameter("Email");
         String Type = request.getParameter("Type");
+        String Password = "!2QwAsZx";
+        Boolean a = false;
 
         User u1 = new User();
+        List<Student> s1 = studentRepository.findAll();
+        List<Lecturer> L1 = lecturerRepository.findAll();
+        List<Industrialist> Ind = industrialistRepository.findAll();
 
-        u1.setId("S0002");
+        if (Type.equals("Student")) {
+            for (int i = 0; i < s1.size(); i++) {
+                if (s1.get(i).getEmail().equals(Email)) {
+                    Id = s1.get(i).getId();
+                    a = true;
+                }
+            }
+        } else if (Type.equals("Lecturer")) {
+            for (int i = 0; i < L1.size(); i++) {
+                if (L1.get(i).getEmail().equals(Email)) {
+                    Id = L1.get(i).getId();
+                    a = true;
+                }
+            }
+        } else if (Type.equals("Industrialist")) {
+            for (int i = 0; i < Ind.size(); i++) {
+                if (Ind.get(i).getEmail().equals(Email)) {
+                    Id = Ind.get(i).getId();
+                    a = true;
+                }
+            }
+        } else {
+            System.out.println(" User Type is error");
+        }
+
+
+        u1.setId(Id);
         u1.setEmail(Email);
+        u1.setPassword(Password);
         u1.setType(Type);
 
-        userRepository.save(u1);
+        List<User> list2 = userRepository.findAll();
+        Boolean b = true;
+        for (int i = 0; i < list2.size(); i++) {
+            if (list2.get(i).getEmail().equals(Email)) {
+                b = false;
+                break;
+            }
 
-        smtpMailSender.send(Email, "Confirmation of Registration in TriCon",
-                "Hello" + UserName + " Welcome to TriCon .Your user name is :" + UserName +
-                        "Your Password is :!2QwAsZx  . Please change your password before use account");
+        }
+
+        if (a && b) {
+
+            userRepository.save(u1);
+            smtpMailSender.send(Email, "Confirmation of Registration in TriCon",
+                    "Hello  " + studentRepository.findOne(Id) + " Welcome to TriCon .Your user name is :  " + Email +
+                            "Your Password is :  " + Password + ". Please change your password  before use account");
+        } else if (!b) {
+            System.out.println("This Email have been registered already");
+
+        } else {
+            System.out.println("This Email is not recommended");
+        }
         return "index";
     }
 
@@ -87,11 +140,8 @@ public class IndexController {
         List<User> list1 = userRepository.findAll();
         Boolean a = true;
         for (int i = 0; i < list1.size(); i++) {
-            String a1 = "Hi";
-            String as = "Hi";
             if (list1.get(i).getEmail().equals(Email)) {
                 a = false;
-                System.out.println("Hello");
                 break;
             }
             System.out.println("Hi");

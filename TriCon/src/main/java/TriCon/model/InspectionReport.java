@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 public class InspectionReport
 
 {  @Id
-    private String Id;
+    private String id;
     private String JournalId;
     private String LectId;
     private String Date;
@@ -13,11 +13,11 @@ public class InspectionReport
     private String LectSign;
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getJournalId() {

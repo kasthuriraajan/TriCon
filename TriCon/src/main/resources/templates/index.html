@@ -22,7 +22,7 @@
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-header">
-            <a class="navbar-brand"  href="index.html">TriCon</a>
+            <a class="navbar-brand" href="index.html">TriCon</a>
             <form class="navbar-form navbar-left" role="search">
                 <div class="input-group">
                     <input class="customform-control" type="text" placeholder="Search"/>
@@ -30,9 +30,6 @@
                 </div>
             </form>
         </div>
-
-
-
 
 
         <div class="iconsty">
@@ -49,7 +46,8 @@
         </div>
     </nav>
     <!-- Modal -->
-    <div class="modal fade" id="UserRegister" tabindex="-1" role="dialog" aria-labelledby="UserRegisterLabel" aria-hidden="true">
+    <div class="modal fade" id="UserRegister" tabindex="-1" role="dialog" aria-labelledby="UserRegisterLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -62,64 +60,20 @@
                     <form action="/register" method="post">
                         <div class="form-group">
                             <div class="input-group input-group-sm">
-					            <span class="input-group-addon">
-						            <span class="fa fa-user"></span>
-                                </span>
-                                <input type="text" class="form-control" name="UserName"   id="username" placeholder="User name" th:required="required"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group input-group-sm">
                                 <span class="input-group-addon">
 		                            <span class="fa fa-envelope"></span>
                                 </span>
-                                <input type="email" class="form-control" name="Email"  id="email12" placeholder="Email" th:required="required"/>
+                                <input type="email" class="form-control" name="Email" id="email12" placeholder="Email"
+                                       th:required="required"/>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="input-group input-group-sm">
-					            <span class="input-group-addon">
-						            <span class="fa fa-book"></span>
-                                </span>
-                                <input type="text" class="form-control" name="RegNo" id="RegNo"  placeholder="Registration No" th:required="required"/>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <div class="input-group input-group-sm">
-					            <span class="input-group-addon">
-						            <span class="fa fa-home"></span>
-                                </span>
-                                <select class="form-control" name="Uni"  id="Uni" th:required="required">
-                                    <option value="">Select University</option>
-                                    <option value="University of Jaffna">University of Jaffna</option>
-                                    <option value="University of Moratuwa">University of Moratuwa</option>
-                                    <option value="University of Colombo">University of Colombo</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group input-group-sm">
-					            <span class="input-group-addon">
-						            <span class="fa fa-home"></span>
-                                </span>
-                                <select class="form-control" name="Dept"  id="Dept" th:required="required">
-                                    <option value="">Select Department</option>
-                                    <option value="Computer Science">Computer Science</option>
-                                    <option value="Architecture">Architecture</option>
-                                    <option value="Civil Engineering">Civil Engineering</option>
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="input-group input-group-sm">
 					            <span class="input-group-addon">
 						            <span class="fa fa-users"></span>
                                 </span>
-                                <select class="form-control" name="Type"  id="UserType" th:required="required">
-                                    <option value="">Select User</option>
+                                <select class="form-control" name="Type" id="UserType" th:required="required">
+                                    <option value="">Select User Type </option>
                                     <option value="Student">Student</option>
                                     <option value="Lecturer">Lecturer</option>
                                     <option value="Industrialist">Industrialist</option>
@@ -139,7 +93,8 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="DeptRegister" tabindex="-1" role="dialog" aria-labelledby="DeptRegisterLabel" aria-hidden="true">
+    <div class="modal fade" id="DeptRegister" tabindex="-1" role="dialog" aria-labelledby="DeptRegisterLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -157,12 +112,10 @@
 					            <span class="input-group-addon">
 						            <span class="fa fa-home"></span>
                                 </span>
-                                <select class="form-control" name="UniId"  id="Univ" th:required="required">
+                                <select class="form-control" name="UniId" id="Univ" th:required="required">
                                     <option value="">Select University</option>
-                                    <option th:each="university : ${university}" th:value="${university.Id}"  th:text="${university.UniName}"></option>
-                                    <!--<option value="University of Jaffna">University of Jaffna</option>
-                                    <option value="University of Moratuwa">University of Moratuwa</option>
-                                    <option value="University of Colombo">University of Colombo</option>-->
+                                    <option th:each="university : ${university}" th:value="${university.Id}"
+                                            th:text="${university.UniName}"></option>
                                 </select>
                             </div>
                         </div>
@@ -171,7 +124,8 @@
 					            <span class="input-group-addon">
 						            <span class="fa fa-home"></span>
                                 </span>
-                                <input type="text" class="form-control" name="DeptName"  id="Department" placeholder="Department name" th:required="required"/>
+                                <input type="text" class="form-control" name="DeptName" id="Department"
+                                       placeholder="Department name" th:required="required"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -179,7 +133,8 @@
                                 <span class="input-group-addon">
 		                            <span class="fa fa-envelope"></span>
                                 </span>
-                                <input type="email" class="form-control" name="Email"  id="email2" placeholder="Email" th:required="required"/>
+                                <input type="email" class="form-control" name="Email" id="email2" placeholder="Email"
+                                       th:required="required"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -187,7 +142,8 @@
 					            <span class="input-group-addon">
 						            <span class="fa fa-phone"></span>
                                 </span>
-                                <input type="text" class="form-control" name="Phone" id="Phone"  placeholder="Phone number" th:required="required"/>
+                                <input type="text" class="form-control" name="Phone" id="Phone"
+                                       placeholder="Phone number" th:required="required"/>
                             </div>
                         </div>
                         <div class="controls controls-row">
@@ -225,11 +181,13 @@
                             <form id="loginform" class="form-horizontal" role="form" method="post" action="/ind/index">
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="uname" type="text" class="form-control" name="username" value="" placeholder="username or email"/>
+                                    <input id="uname" type="text" class="form-control" name="username" value=""
+                                           placeholder="username or email"/>
                                 </div>
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input id="password" type="password" class="form-control" name="password" placeholder="password"/>
+                                    <input id="password" type="password" class="form-control" name="password"
+                                           placeholder="password"/>
                                 </div>
                                 <div class="input-group">
                                     <div class="checkbox">
@@ -292,7 +250,6 @@
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 <script type="text/javascript"
         src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

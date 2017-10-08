@@ -20,10 +20,10 @@
 </head>
 <body class="bgstyle">
 <div id="wrapper">
-    <div th:replace="fragments/header :: stuheader">
+    <div th:replace="Fragments/header :: stuHeader">
     </div>
     <div class="row">
-        <div th:replace="fragments/sidebar :: stusidebar">
+        <div th:replace="Fragments/sidebar :: stuSideBar">
         </div>
         <div class="col-xs-12 col-md-9 col-sm-12">
             <div class="panel panel-default">
@@ -39,15 +39,28 @@
                         <span class=" glyphicon glyphicon-plus-sign" style="color:black"></span>
                     </a>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" th:if="${not #lists.isEmpty(journal)}">
                     <div class="table-responsive">
                         <table class="table">
                             <tr class="active">
-                                <th>No.</th>
+                                <th>JournalId</th>
                                 <th>From</th>
                                 <th>To</th>
-                                <th>Industry</th>
+                                <th>Company</th>
+                                <th>Field</th>
+                                <th>Category</th>
+                                <th>ContractNo</th>
                                 <th>Status</th>
+                            </tr>
+                            <tr th:each="journal : ${journal}">
+                                <td th:text="${journal.Id}"></td>
+                                <td th:text="${journal.From}"></td>
+                                <td th:text="${journal.To}"></td>
+                                <td th:text="${journal.Company}"></td>
+                                <td th:text="${journal.Field}"></td>
+                                <td th:text="${journal.Category}"></td>
+                                <td th:text="${journal.ContractNo}"></td>
+                                <td th:text="${journal.Status}"></td>
                             </tr>
                         </table>
                     </div>
@@ -56,7 +69,7 @@
         </div>
     </div>
 </div>
-<div th:replace="fragments/footer :: footer">
+<div th:replace="Fragments/footer :: footer">
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

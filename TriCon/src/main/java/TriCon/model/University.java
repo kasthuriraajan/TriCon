@@ -6,16 +6,16 @@ import org.springframework.data.annotation.Id;
 public class University {
     @Id
 
-    private String Id;
+    private String id;
     private String UniName;
     private String ShortCut;
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getUniName() {
