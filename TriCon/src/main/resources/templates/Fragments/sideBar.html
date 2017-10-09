@@ -51,12 +51,6 @@
                 <li>
                     <a href="inspectReport.html"><i class="fa fa-file-text-o fa-2x"></i> Inspection Report</a>
                 </li>
-                <li>
-                    <a href="finalReport.html"><i class="fa fa-folder-o fa-2x"></i>Final Report</a>
-                </li>
-                <li>
-                    <a href="novation.html"><i class="fa fa-table fa-2x"></i> Novation</a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -191,7 +185,7 @@
     </nav>
 </div>
 
-<div class="col-xs-12 col-md-3" th:fragment="lecsidebar">
+<div class="col-xs-12 col-md-3" th:fragment="lecSideBar">
 
     <nav class="custompanel" role="navigation">
 
@@ -212,19 +206,15 @@
                     </div>
                 </li>
                 <li>
-                    <a class="active-menu" href="weeklyReport.html"><i class="fa fa-edit fa-2x"></i> Weekly Report</a>
+                    <button> <a class="active-menu" href="weeklyReport.html"><i class="fa fa-edit fa-2x"></i> Weekly Report</a></button>
                 </li>
                 <li>
                     <a href="progressReport.html"><i class="fa fa-file-o fa-2x"></i> Progress Report</a>
                 </li>
                 <li>
-                    <a href="inspectReport.html"><i class="fa fa-file-text-o fa-2x"></i> Inspection Report</a>
-                </li>
-                <li>
-                    <a href="finalReport.html"><i class="fa fa-folder-o fa-2x"></i>Final Report</a>
-                </li>
-                <li>
-                    <a href="novation.html"><i class="fa fa-table fa-2x"></i> Novation</a>
+                    <form action="/Lec/inspectReport" method="post">
+                    <button name="journal" th:value="${journalId}"><i class="fa fa-file-text-o fa-2x"></i> Inspection Report</button>
+                    </form>
                 </li>
             </ul>
 

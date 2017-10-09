@@ -20,10 +20,10 @@
 </head>
 <body class="bgstyle">
 <div id="wrapper">
-    <div th:replace="fragments/header :: lecheader">
+    <div th:replace="Fragments/header :: lecHeader">
     </div>
     <div class="row">
-        <div th:replace="fragments/sidebar :: lecsidebar">
+        <div th:replace="Fragments/sideBar :: lecSideBar">
         </div>
         <div class="col-xs-12 col-md-9 col-sm-12">
             <div class="panel panel-default">
@@ -31,9 +31,39 @@
                     <h3 class="panel-title">Mr.X journal</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="form-group">
-                        <a class="btn btn-default" href="inspectReportEdit.html" role="button"><b>Create new Inspection Report</b></a>
-                        <div class="dropdown">
+                    <form class="form-horizontal" action="/Lec/inspectReportEdit" method="post">
+                        <div>
+                            Today :<strong th:text="${localDate}"></strong><br/>
+                            <span><label>Select a date to Inspection report </label>
+                            <input type="date" id="date" name="date" th:required="required" />
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <br></br>
+                            <center><h4><b>Inspect No-3</b></h4></center>
+                            <div class="spacer"></div> <div class="col-sm-12"><textarea  name="report" class="form-control" rows="8"  th:required="required"></textarea></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <center> <label>
+                                        <input type="checkbox" th:required="required" /> The above informations are filled by me.
+                                    </label></center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <br></br>
+                            <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-xs-5 col-sm-4 col-md-5">
+
+                                <center> <button name="journal" th:value="${journalId}">Save </button></center>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
                         <br></br><br></br>
                             <button class="btn btn-default  dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 <b>Existing Inspection  Reports</b>
@@ -50,14 +80,12 @@
                         </div>
                     </div>
 
-                </div>
 
-            </div>
-        </div>
+
 
     </div>
 </div>
-<div th:replace="fragments/footer :: footer">
+<div th:replace="Fragments/footer :: footer">
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

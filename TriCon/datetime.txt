@@ -1,0 +1,24 @@
+
+        // Get calendar set to current date and time
+        Calendar c = GregorianCalendar.getInstance();
+
+        System.out.println("Current week = " +c.get(Calendar.DAY_OF_WEEK));
+
+// Set the calendar to monday of the current week
+        //c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        System.out.println("Current week = " +  c.get(Calendar.DAY_OF_WEEK));
+        Calendar calendar = Calendar.getInstance();
+        
+        int i=calendar.get(Calendar.DAY_OF_WEEK);
+        for (DayOfWeek p : DayOfWeek.values())
+            System.out.println(p);
+// Print dates of the current week starting on Monday
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String startDate = "", endDate = "";
+
+        startDate = df.format(c.getTime());
+        c.add(Calendar.DATE, 6);
+        endDate = df.format(c.getTime());
+
+        System.out.println("Start Date = " + startDate);
+        System.out.println("End Date = " + endDate);

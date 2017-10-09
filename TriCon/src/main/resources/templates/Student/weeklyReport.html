@@ -27,59 +27,209 @@
         </div>
         <div class="col-xs-12 col-md-9 col-sm-12">
             <div class="panel panel-default">
-                <form class="regform" action="" method ="get">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6 customheading">
-                            Weekly Report
-                        </div>
-                        <div class="col-xs-12 col-md-3">
-                            <span><label>From</label>
-                            <input type="date"/>
-                            </span>
-                        </div>
-                        <div class="col-xs-12 col-md-3">
-                             <span><label>To</label>
-                                 <input type="date"/>
-                             </span>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6">
-                            <button type="submit" class="custombtn"><a href="weeklyReport.html"> Mon</a></button>
-                            <button type="submit" class="custombtn"><a href="weeklyReport.html"> Tue</a></button>
-                            <button type="submit" class="custombtn"><a href="weeklyReport.html"> Wed</a></button>
-                            <button type="submit" class="custombtn"><a href="weeklyReport.html"> Thur</a></button>
-                            <button type="submit" class="custombtn"><a href="weeklyReport.html"> Fri</a></button>
-                            <button type="submit" class="custombtn"><a href="weeklyReport.html"> Sat</a></button>
-                            <button type="submit" class="custombtn"><a href="weeklyReport.html"> Sun</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-body">
-              <span>
-                <label class="col-xs-6 col-md-2">Day</label>
-                <textarea class="form-control" rows="3"></textarea>
-              </span>
-                    <br></br>
-                    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
-                        <button type="submit" class="btn btn-info">Save</button>
-                    </div>
+                <form class="regform" action="/Stu/weeklyReport" method="post">
+                    <div class="panel-heading">
 
-                    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
-                        <button type="submit" class="btn btn-info"><a href="summary.html">Summary</a></button>
+                            <div class="customheading">
+                                Weekly Report
+                            </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-3">
+                                Today :<strong th:text="${localDate}"></strong>
+                                <span><label>Select a date to record </label>
+                            <input type="date" id="date" name="date" th:required="required" />
+                            </span>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6" th:if="${not #lists.isEmpty(weeklyReport)}">
+                                <h4>Report written days of this week</h4>
+                                <div th:each="weeklyReport:${weeklyReport}"><label
+                                    th:text="${weeklyReport.From }"></label> &nbsp; <label
+                                    th:text="${weeklyReport.To }"></label></div>
+                                <button type="button" class="custombtn" data-toggle="modal" data-target="#Mon"
+                                        th:if="${not #lists.isEmpty(weeklyReport.Monday)}">
+                                         Mon</button>
+                                <button type="button" class="custombtn" data-toggle="modal" data-target="#Tue"
+                                        th:if="${not #lists.isEmpty(weeklyReport.Tuesday)}">Tue</button>
+                                <button type="button" class="custombtn" data-toggle="modal" data-target="#Wed"
+                                        th:if="${not #lists.isEmpty(weeklyReport.Wednesday)}"> Wed</button>
+                                <button type="button" class="custombtn" data-toggle="modal" data-target="#Thu"
+                                        th:if="${not #lists.isEmpty(weeklyReport.Thursday)}"> Thur</button>
+                                <button type="button" class="custombtn" data-toggle="modal" data-target="#Fri"
+                                        th:if="${not #lists.isEmpty(weeklyReport.Friday)}"> Fri</button>
+                                <button type="button" class="custombtn" data-toggle="modal" data-target="#Sat"
+                                        th:if="${not #lists.isEmpty(weeklyReport.Saturday)}"> Sat</button>
+                                <button type="button" class="custombtn" data-toggle="modal" data-target="#Sun"
+                                        th:if="${not #lists.isEmpty(weeklyReport.Sunday)}"> Sun</button>
+                            </div>
+                        </div>
                     </div>
+                    <div class="panel-body">
+              <span>
+                <label class="col-xs-6 col-md-2">Write your report</label>
+                <textarea class="form-control" rows="3" name="report" th:required="required"></textarea>
+              </span>
+                        <br></br>
+                        <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
+                            <button type="submit" name="save" class="btn btn-info">Save</button>
+                        </div>
+                    </div>
+                </form>
+                <form action="/Stu/summaryDisplay" method="post">
+                <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3" th:if="${not #lists.isEmpty(weeklyReport)}">
+                    <button type="submit" name="summary" th:value="${weeklyReport.Id}" class="btn btn-info">Summary</button>
                 </div>
                 </form>
             </div>
+
         </div>
     </div>
 </div>
+
 <div th:replace="Fragments/footer :: footer">
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Mon" tabindex="-1" role="dialog" aria-labelledby="Mon"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" >MONDAY</h3>
+            </div><center>
+            <div class="modal-body" th:each="weeklyReport:${weeklyReport}" th:text="${weeklyReport.Monday }">
+
+            </div></center>
+                    <div class="controls controls-row">
+                        <div class="controls controls-group">
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </div></div>
+            </div>
+        </div>
+</div>
+<div class="modal fade" id="Tue" tabindex="-1" role="dialog" aria-labelledby="Tue"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" >TUESDAY</h3>
+            </div><center>
+            <div class="modal-body" th:each="weeklyReport:${weeklyReport}" th:text="${weeklyReport.Tuesday }">
+
+            </div></center>
+            <div class="controls controls-row">
+                <div class="controls controls-group">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Wed" tabindex="-1" role="dialog" aria-labelledby="Wed"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" >WEDNESDAY</h3>
+            </div><center>
+            <div class="modal-body" th:each="weeklyReport:${weeklyReport}" th:text="${weeklyReport.Wednesday }">
+
+            </div></center>
+            <div class="controls controls-row">
+                <div class="controls controls-group">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Thu" tabindex="-1" role="dialog" aria-labelledby="Thu"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" >THURSDAY</h3>
+            </div><center>
+            <div class="modal-body" th:each="weeklyReport:${weeklyReport}" th:text="${weeklyReport.Thursday }">
+
+            </div></center>
+            <div class="controls controls-row">
+                <div class="controls controls-group">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Fri" tabindex="-1" role="dialog" aria-labelledby="Fri"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" >FRIDAY</h3>
+            </div><center>
+            <div class="modal-body" th:each="weeklyReport:${weeklyReport}" th:text="${weeklyReport.Friday }">
+
+            </div></center>
+            <div class="controls controls-row">
+                <div class="controls controls-group">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div></div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Sat" tabindex="-1" role="dialog" aria-labelledby="Sat"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" >SATURDAY</h3>
+            </div><center>
+            <div class="modal-body" th:each="weeklyReport:${weeklyReport}" th:text="${weeklyReport.Saturday }">
+
+            </div></center>
+            <div class="controls controls-row">
+                <div class="controls controls-group">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Sun" tabindex="-1" role="dialog" aria-labelledby="Sun"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" >SUNDAY</h3>
+            </div><center>
+            <div class="modal-body" th:each="weeklyReport:${weeklyReport}" th:text="${weeklyReport.Sunday }">
+
+            </div></center>
+            <div class="controls controls-row">
+                <div class="controls controls-group">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </div></div>
+        </div>
+    </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script type="text/javascript"
         src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script type="text/javascript"
+        src="../../js/bootstrap.min.js"></script>
 </body>
 </html>
