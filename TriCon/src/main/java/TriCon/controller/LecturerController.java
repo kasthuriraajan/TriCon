@@ -2,9 +2,12 @@ package TriCon.controller;
 
 import TriCon.model.InspectionReport;
 import TriCon.model.Journal;
+import TriCon.model.User;
 import TriCon.model.WeeklyReport;
 import TriCon.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +21,17 @@ import java.time.LocalDate;
 import java.util.*;
 
 
+
+
+
 @Controller
 public class LecturerController {
     @Autowired
     private UniversityRepository universityRepository;
     @Autowired
     private DepartmentRepository departmentRepository;
+    @Autowired
+    private  UserRepository userRepository;
     @Autowired
     private LecturerRepository lecturerRepository;
     @Autowired
@@ -38,7 +46,7 @@ public class LecturerController {
 
     @RequestMapping("/Lec/index")
     public String welcome(Model model) {
-
+        System.out.println("id"+getUserId());
         model.addAttribute("department", departmentRepository.findAll());
         model.addAttribute("university", universityRepository.findAll());
         model.addAttribute("industrialist", industrialistRepository.findAll());
@@ -127,4 +135,23 @@ public class LecturerController {
     public String progressReport() {
         return "Lecturer/progressReport";
     }
+
+    public String getUserId()
+    {
+        String type="common";
+        String ip="";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                ip=user.get(i).getId();
+            }
+        }
+        return ip;
+    }
+
+
 }

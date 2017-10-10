@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="shortcut icon" href="../img/logo1.png" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css" />
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css" />
+</head>
+<body>
+
+<div th:replace="Fragments/header :: header1"/>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>403 - Access is denied</h1>
+        <div th:inline="text">Hello '[[${#httpServletRequest.remoteUser}]]', you do not have permission to access this page.</div>
+    </div>
+
+    <div class="panel-body">
+        <form th:action="${kas}">
+            <button type="submit" id="btn-login" class="jumbotron jumbotron-lg"><h1> Permission Denied !</h1> You are not allowed to access this page!</button>
+        </form>
+
+</div>
+<!-- /.container -->
+
+<div th:replace="Fragments/footer :: footer"/>
+</div>
+</body>
+</html>

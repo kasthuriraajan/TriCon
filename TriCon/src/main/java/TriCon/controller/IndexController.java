@@ -6,8 +6,11 @@ import TriCon.model.*;
 import TriCon.repo.*;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,6 +24,7 @@ public class IndexController {
     private UniversityRepository universityRepository;
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private DepartmentRepository departmentRepository;
     @Autowired
@@ -38,8 +42,123 @@ public class IndexController {
         model.addAttribute("university", universityRepository.findAll());
         return "index";
     }
+/*Loginprocess*/
+    @RequestMapping("/homepage")
+    public String homepage(Model model) {
+        String uri="/Stu/index";
+        String type="common";
+        String ip="12";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+            String users1 = auth.getName();
+            List<User> user = userRepository.findAll();
+            for (int i = 0; i < user.size(); i++) {
+                if (user.get(i).getEmail().equals(users1)) {
+                    type = user.get(i).getType();
+                }
+            }
+        System.out.println(type);
+            switch (type){
+                case "Admin":
+                    uri="/Admin/universities";
+                    break;
+                case "DeptAdmin":
+                    uri="/DeptAdmin/student";
+                    break;
+                case "Student":
+                    uri="Stu/index";
+                    break;
+                case "Lecturer":
+                    uri="Lec/index";
+                    break;
+                case "Industrialist":
+                    uri="Ind/index";
+                    break;
+            }
+
+        model.addAttribute("kas",uri);
+        return "home";
+    }
+
+    @GetMapping("/403")
+    public String error403(Model model) {
 
 
+            String uri="/Stu/index";
+            String type="common";
+            Authentication auth
+                    = SecurityContextHolder.getContext().getAuthentication();
+
+            String users1 = auth.getName();
+            List<User> user = userRepository.findAll();
+            for (int i = 0; i < user.size(); i++) {
+                if (user.get(i).getEmail().equals(users1)) {
+                    type = user.get(i).getType();
+
+                }
+            }
+
+            switch (type){
+                case "Admin":
+                    uri="/Admin/universities";
+                    break;
+                case "DeptAdmin":
+                    uri="/DeptAdmin/student";
+                    break;
+                case "Student":
+                    uri="Stu/index";
+                    break;
+                case "Lecturer":
+                    uri="Lec/index";
+                    break;
+                case "Industrialist":
+                    uri="Ind/index";
+                    break;
+            }
+
+            model.addAttribute("kas",uri);
+        return "/error/403";
+    }
+  /*  @GetMapping("/403")
+    public String error403(Model model) {
+
+        String uri="/Stu/index";
+        String type="common";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                type = user.get(i).getType();
+
+            }
+        }
+
+        switch (type){
+            case "Admin":
+                uri="/Admin/universities";
+                break;
+            case "DeptAdmin":
+                uri="/DeptAdmin/student";
+                break;
+            case "Student":
+                uri="Stu/index";
+                break;
+            case "Lecturer":
+                uri="Lec/index";
+                break;
+            case "Industrialist":
+                uri="Ind/index";
+                break;
+        }
+
+        model.addAttribute("kas",uri);
+        return "/403";
+    }
+*/
     /*user registration*/
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerUser(HttpServletRequest request) throws MessagingException {
@@ -176,5 +295,7 @@ public class IndexController {
 
         return Id;
     }
+
+
 }
 

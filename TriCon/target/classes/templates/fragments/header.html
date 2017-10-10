@@ -22,7 +22,7 @@
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" th:fragment="header">
     <div class="row">
-        <div class="navbar-header">
+        <div class="navbar-header col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <a class="navbar-brand" style="color: white; font-size: 32px;" href="index.html">TriCon</a>
             <form class="navbar-form navbar-left" role="search">
                 <div class="input-group">
@@ -31,7 +31,7 @@
                 </div>
             </form>
         </div>
-        <div class="iconsty">
+        <div class="iconsty col-xs-10 col-sm-10 col-md-3 col-lg-3 col-xs-10 col-sm-10 col-md-3 col-lg-3">
             <a style="color: white;" href="index.html">
                 <i class="fa fa-home fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Home"></i></a>
             <a style="color: white;" href="notification.html">
@@ -45,15 +45,19 @@
             <a style="color: white;" href="forum.html">
                 <i class="fa fa-group fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom"
                    title="Forum"></i></a>
-            <a style="color: white;" href="index.html">
-                <i class="fa fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Romi">
-                    <img src="../img/1.png" class="img user-image-top img-responsive"/></i></a>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+            <form th:action="@{/logout}" method="post">
+                <button  type="submit">
+                    <i class="fa fa-lock fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Sign out"></i>
+                </button>
+            </form>
         </div>
     </div>
 </nav>
-<nav class="navbar navbar-default navbar-fixed-top" th:fragment="adminHeader">
+<nav class="navbar navbar-default navbar-fixed-top" th:fragment="header1">
     <div class="row">
-        <div class="navbar-header">
+        <div class="navbar-header col-xs-12 col-sm-12 col-md-11 col-lg-11 ">
             <a class="navbar-brand" style="color: white; font-size: 32px;" href="index.html">TriCon</a>
             <form class="navbar-form navbar-left" role="search">
                 <div class="input-group">
@@ -62,7 +66,29 @@
                 </div>
             </form>
         </div>
-        <div class="iconsty">
+
+        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+            <form th:action="@{/logout}" method="post">
+                <button  type="submit">
+                    <i class="fa fa-lock fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Sign out"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-default navbar-fixed-top" th:fragment="adminHeader">
+    <div class="row">
+        <div class="navbar-header col-xs-12 col-sm-12 col-md-8 col-lg-8" >
+            <a class="navbar-brand" style="color: white; font-size: 32px;" href="index.html">TriCon</a>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="input-group">
+                    <input class="customform-control" type="text" placeholder="Search"/>
+                    <span class="input-group-addon"><i class="fa fa-search  fa-1x"></i></span>
+                </div>
+            </form>
+        </div>
+        <div class="iconsty col-xs-10 col-sm-10 col-md-3 col-lg-3">
             <a style="color: white;" href="index.html">
                 <i class="fa fa-home fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Home"></i></a>
             <a style="color: white;" href="notification.html">
@@ -76,15 +102,19 @@
             <a style="color: white;" href="forum.html">
                 <i class="fa fa-group fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom"
                    title="Forum"></i></a>
-            <a style="color: white;" href="index.html">
-                <i class="fa fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Romi">
-                    <img src="../img/1.png" class="img user-image-top img-responsive"/></i></a>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+            <form th:action="@{/logout}" method="post">
+                <button  type="submit">
+                    <i class="fa fa-lock fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Sign out"></i>
+                </button>
+            </form>
         </div>
     </div>
 </nav>
 <nav class="navbar navbar-default navbar-fixed-top" th:fragment="deptAdminHeader">
     <div class="row">
-        <div class="navbar-header">
+        <div class="navbar-header col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <a class="navbar-brand" style="color: white; font-size: 32px;" href="index.html">TriCon</a>
             <form class="navbar-form navbar-left" role="search">
                 <div class="input-group">
@@ -93,7 +123,7 @@
                 </div>
             </form>
         </div>
-        <div class="iconsty">
+        <div class="iconsty col-xs-10 col-sm-10 col-md-3 col-lg-3">
             <a style="color: white;" href="index.html">
                 <i class="fa fa-home fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Home"></i></a>
             <a style="color: white;" href="notification.html">
@@ -107,16 +137,20 @@
             <a style="color: white;" href="forum.html">
                 <i class="fa fa-group fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom"
                    title="Forum"></i></a>
-            <a style="color: white;" href="index.html">
-                <i class="fa fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Romi">
-                    <img src="../img/1.png" class="img user-image-top img-responsive"/></i></a>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+            <form th:action="@{/logout}" method="post">
+                <button  type="submit">
+                    <i class="fa fa-lock fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Sign out"></i>
+                </button>
+            </form>
         </div>
     </div>
 </nav>
 
 <nav class="navbar navbar-default navbar-fixed-top" th:fragment="stuHeader">
     <div class="row">
-        <div class="navbar-header">
+        <div class="navbar-header col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <a class="navbar-brand" style="color: white; font-size: 32px;" href="index.html">TriCon</a>
             <form class="navbar-form navbar-left" role="search">
                 <div class="input-group">
@@ -125,7 +159,7 @@
                 </div>
             </form>
         </div>
-        <div class="iconsty">
+        <div class="iconsty col-xs-10 col-sm-10 col-md-3 col-lg-3">
             <a style="color: white;" href="index.html">
                 <i class="fa fa-home fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Home"></i></a>
             <a style="color: white;" href="notification.html">
@@ -136,16 +170,21 @@
                 <i class="fa fa-comments fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Chat"></i></a>
             <a style="color: white;" href="forum.html">
                 <i class="fa fa-group fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Forum"></i></a>
-            <a style="color: white;" href="index.html">
-                <i class="fa fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Romi">
-                    <img src="../img/1.png" class="img user-image-top img-responsive"/></i></a>
+
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+            <form th:action="@{/logout}" method="post">
+                <button  type="submit">
+                    <i class="fa fa-lock fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Sign out"></i>
+                </button>
+            </form>
         </div>
     </div>
 </nav>
 
 <nav class="navbar navbar-default navbar-fixed-top" th:fragment="lecHeader">
     <div class="row">
-        <div class="navbar-header">
+        <div class="navbar-header col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <a class="navbar-brand" style="color: white; font-size: 32px;" href="index.html">TriCon</a>
             <form class="navbar-form navbar-left" role="search">
                 <div class="input-group">
@@ -154,7 +193,7 @@
                 </div>
             </form>
         </div>
-        <div class="iconsty">
+        <div class="iconsty col-xs-10 col-sm-10 col-md-3 col-lg-3">
 
             <a style="color: white;" href="index.html">
                 <i class="fa fa-home fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Home"></i></a>
@@ -166,10 +205,13 @@
                 <i class="fa fa-comments fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Chat"></i></a>
             <a style="color: white;" href="forum.html">
                 <i class="fa fa-group fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Forum"></i></a>
-
-            <a style="color: white;" href="index.html">
-                <i class="fa fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Romi">
-                    <img src="../img/1.png" class="img user-image-top img-responsive"/></i></a>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+            <form th:action="@{/logout}" method="post">
+                <button  type="submit">
+                    <i class="fa fa-lock fa-stack fa-2x" data-toggle="tooltip" data-placement="bottom" title="Sign out"></i>
+                </button>
+            </form>
         </div>
     </div>
 </nav>
