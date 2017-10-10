@@ -16,6 +16,12 @@
     <link rel="stylesheet" th:href="@{/css/main.css}"
           href="../../css/main.css" />
 
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key:   [81kspt476z1ny2]
+    onLoad:    [ONLOAD]
+    authorize: [AUTHORIZE]
+    lang:      [LANG_LOCALE]
+</script>
 
 </head>
 <body class="bgstyle">
@@ -29,6 +35,21 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Newsfeed</h3>
+
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D692926427579104%26id%3D684679991737081;width=500" width="500" height="171" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+
+                    <div class="fb-post"
+                         data-href="https://www.facebook.com/Tricon2017-684679991737081/inbox/684687751736305/?notif_t=page_wall;notif_id=1505546375615518;selected_item_id=684687751736305"
+                         data-width="500" data-show-text="true">
+                        <blockquote
+                                cite="https://www.facebook.com/Tricon2017-684679991737081/inbox/684687751736305/?notif_t=page_wall;notif_id=1505546375615518;selected_item_id=684687751736305"
+                                class="fb-xfbml-parse-ignore">Posted by <a href="https://www.facebook.com/facebook/">Facebook</a>
+                            on&nbsp;<a
+                                    href="https://www.facebook.com/Tricon2017-684679991737081/inbox/684687751736305/?notif_t=page_wall;notif_id=1505546375615518;selected_item_id=684687751736305">Thursday,
+                                27 August 2015</a></blockquote>
+                    </div>
+                    <script> type="in/Login"></script>
                 </div>
                 <div class="panel-body">
 
@@ -48,5 +69,58 @@
 <script type="text/javascript"
         src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1;version =v2.10;appId=481825465518983";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script type="text/javascript" src="//platform.linkedin.com/in.js">
+  api_key: 81kspt476z1ny2
+  authorize: true
+  onLoad: onLinkedInLoad
+</script>
+
+<script type="text/javascript">
+
+  // Setup an event listener to make an API call once auth is complete
+    function onLinkedInLoad() {
+      IN.Event.on(IN, "auth", shareContent);
+    }
+
+  // Handle the successful return from the API call
+  function onSuccess(data) {
+    console.log(data);
+  }
+
+  // Handle an error response from the API call
+  function onError(error) {
+    console.log(error);
+  }
+
+  // Use the API call wrapper to share content on LinkedIn
+  function shareContent() {
+
+    // Build the JSON payload containing the content to be shared
+    var payload = {
+      "comment": "Check out developer.linkedin.com! http://linkd.in/1FC2PyG",
+      "visibility": {
+        "code": "anyone"
+      }
+    };
+
+    IN.API.Raw("/people/~/shares?format=json")
+      .method("POST")
+      .body(JSON.stringify(payload))
+      .result(onSuccess)
+      .error(onError);
+  }
+
+</script>
 </body>
 </html>
