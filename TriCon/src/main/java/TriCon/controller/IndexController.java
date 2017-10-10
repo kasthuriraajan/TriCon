@@ -163,7 +163,7 @@ public class IndexController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerUser(HttpServletRequest request) throws MessagingException {
 
-        String Id = "0";
+        String Id = "123";
         String Email = request.getParameter("Email");
         String Type = request.getParameter("Type");
         String Password = "!2QwAsZx";
@@ -174,7 +174,7 @@ public class IndexController {
         List<Lecturer> L1 = lecturerRepository.findAll();
         List<Industrialist> Ind = industrialistRepository.findAll();
 
-        if (Type.equals("Student")) {
+      if (Type.equals("Student")) {
             for (int i = 0; i < s1.size(); i++) {
                 if (s1.get(i).getEmail().equals(Email)) {
                     Id = s1.get(i).getId();
