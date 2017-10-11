@@ -13,7 +13,7 @@ public class Lecturer {
     private String Address;
     private String MobileNo;
     private String TPNo;
-    private String Linkedin;
+    private String LinkedIn;
     private String Twitter;
     private String GitHub;
     private String Facebook;
@@ -92,12 +92,12 @@ public class Lecturer {
         this.TPNo = TPNo;
     }
 
-    public String getLinkedin() {
-        return Linkedin;
+    public String getLinkedIn() {
+        return LinkedIn;
     }
 
-    public void setLinkedin(String linkedin) {
-        Linkedin = linkedin;
+    public void setLinkedIn(String linkedIn) {
+        LinkedIn = linkedIn;
     }
 
     public String getTwitter() {

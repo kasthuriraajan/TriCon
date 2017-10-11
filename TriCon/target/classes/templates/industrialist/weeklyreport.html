@@ -2,28 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>TriCon</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <link rel="shortcut icon" href="../img/logo1.png"/>
+    <link rel="shortcut icon" href="../img/logo1.png" />
     <link rel="stylesheet" type="text/css"
-          href="../../css/custom.css"/>
+          href="../../css/custom.css" />
     <link rel="stylesheet" type="text/css"
-          href="../../css/font-awesome.css"/>
+          href="../../css/font-awesome.css" />
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.min.css"/>
+          href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.css"/>
+          href="../../css/bootstrap.css" />
     <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../../css/main.css"/>
+          href="../../css/main.css" />
 
 
 </head>
 <body class="bgstyle">
 <div id="wrapper">
-    <div th:replace="fragments/header :: header">
+    <div th:replace="Fragments/Header :: indHeader">
     </div>
     <div class="row">
-        <div th:replace="fragments/sidebar :: sidebar">
+        <div th:replace="Fragments/sideBar :: indSideBar">
         </div>
         <div class="col-xs-12 col-md-9 col-sm-12">
             <div class="panel panel-default">
@@ -43,50 +43,47 @@
                     </div>
                 </div>
                 <div class="panel-body">
-              <span>
-                <label class="col-xs-6 col-md-2">Monday</label>
-                <label class="showarea col-xs-6 col-md-9">hii</label>
-              </span>
-                    <span>
-                <label class="col-xs-6 col-md-2">Tuesday</label>
-                <label class="showarea col-xs-6 col-md-9">hii</label>
-              </span>
-                    <span>
-                <label class="col-xs-6 col-md-2">Wednesday</label>
-                <label class="showarea col-xs-6 col-md-9">hii</label>
-              </span>
-                    <span>
-                <label class="col-xs-6 col-md-2">Thursday</label>
-                <label class="showarea col-xs-6 col-md-9">hii</label>
-              </span>
-                    <span>
-                <label class="col-xs-6 col-md-2">Friday</label>
-                <label class="showarea col-xs-6 col-md-9">hii</label>
-              </span>
-                    <span>
-                <label class="col-xs-6 col-md-2">Saturday</label>
-                <label class="showarea col-xs-6 col-md-9">hii</label>
-              </span>
-                    <span>
-                <label class="col-xs-6 col-md-2">Sunday</label>
-                <label class=" showarea col-xs-6 col-md-9">hii</label>
-              </span>
-                    <h3>Summary</h3>
-                    <label class=" showarea col-xs-12 col-md-12">hii</label>
-                    <h3>Remarks</h3>
-                    <textarea class="form-control" rows="3"></textarea>
-                    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
-                        <button type="submit" class="btn btn-info">Save</button>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <button type="submit" class="custombtn"><a href="weeklyReport.html"> Next</a></button>
-                    </div>
+                    <form class="form-horizontal">
+
+                        <br></br>
+                        <br></br>
+                        <div class="form-group">
+                            <center><table class="table table-responsive">
+                                <tr class="active">
+
+                                    <th class="col-xs-1"> <b>Weak day</b></th>
+                                    <th class="col-xs-2"> <b>Date</b></th>
+                                    <th class="col-xs-4"> <b>Status</b></th>
+                                </tr>
+                                <tr class="active" >
+                                    <td><b>1st weak</b></td>
+                                    <td><a class="btn btn-default" href="weeklyReportEdit.html" role="button"> <b>05/08/2017</b></a></td>
+                                    <td><label><b>Checked</b></label></td>
+                                </tr>
+
+                                <tr class="active" >
+                                    <td><b>2nd weak</b></td>
+                                    <td><a class="btn btn-default" href="weeklyReportEdit.html" role="button"> <b>06/08/2017 </b></a></td>
+                                    <td><label><b>Checked</b></label></td>
+                                </tr>
+                                <tr class="active" >
+                                    <td><b>3rd weak</b></td>
+                                    <td><a class="btn btn-default" href="weeklyReportEdit.html" role="button"> <b>06/08/2017 </b></a></td>
+                                    <td><label><b>Checked</b></label></td>
+                                </tr>
+                            </table></center>
+                        </div>
+                    </form>
                 </div>
+
+
+
             </div>
+
         </div>
     </div>
 </div>
-<div th:replace="fragments/footer :: footer">
+<div th:replace="Fragments/footer :: footer">
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

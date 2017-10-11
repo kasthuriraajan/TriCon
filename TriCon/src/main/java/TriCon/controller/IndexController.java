@@ -67,13 +67,13 @@ public class IndexController {
                     uri="/DeptAdmin/student";
                     break;
                 case "Student":
-                    uri="Stu/index";
+                    uri="/Stu/index";
                     break;
                 case "Lecturer":
-                    uri="Lec/index";
+                    uri="/Lec/index";
                     break;
                 case "Industrialist":
-                    uri="Ind/index";
+                    uri="/Ind/index";
                     break;
             }
 
@@ -107,13 +107,13 @@ public class IndexController {
                     uri="/DeptAdmin/student";
                     break;
                 case "Student":
-                    uri="Stu/index";
+                    uri="/Stu/index";
                     break;
                 case "Lecturer":
-                    uri="Lec/index";
+                    uri="/Lec/index";
                     break;
                 case "Industrialist":
-                    uri="Ind/index";
+                    uri="/Ind/index";
                     break;
             }
 

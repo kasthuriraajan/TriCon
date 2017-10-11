@@ -78,6 +78,15 @@ public class KeyUtil {
         return privateKey;
     }
 
+    public static byte [] getStoredSign(String filePath)
+    {
+        //PrivateKey privateKey = null;
+        byte[] keydata = getKeyData(filePath);
+        System.out.println(keydata);
+
+        return keydata;
+    }
+
     /**
      * Gets the stored public key.
      *

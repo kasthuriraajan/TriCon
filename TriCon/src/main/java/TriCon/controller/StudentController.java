@@ -2,9 +2,12 @@ package TriCon.controller;
 
 import TriCon.model.Journal;
 import TriCon.model.Student;
+import TriCon.model.User;
 import TriCon.model.WeeklyReport;
 import TriCon.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,17 +36,28 @@ public class StudentController {
     @Autowired
     private DepartmentRepository departmentRepository;
     @Autowired
+    private  UserRepository userRepository;
+    @Autowired
     private JournalRepository journalRepository;
     @Autowired
     private WeeklyReportRepository weeklyReportRepository;
 
-    private String userId = "S00004";
 
     private static String UPLOADED_FOLDER = "G:\\GP2git\\TriCon\\TriCon\\src\\main\\resources\\static\\imagesample\\";
 
     @RequestMapping("/Stu/index")
     public String welcome(Model model) {
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
 
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
         model.addAttribute("department", departmentRepository.findAll());
         model.addAttribute("university", universityRepository.findAll());
         model.addAttribute("users", studentRepository.findOne(userId));
@@ -72,6 +86,17 @@ public class StudentController {
     @RequestMapping("/Stu/profileUpdate")
     public String profileUpdate(Model model) {
 
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
         Student student1 = studentRepository.findOne(userId);
         model.addAttribute("department", departmentRepository.findAll());
         model.addAttribute("university", universityRepository.findAll());
@@ -81,6 +106,17 @@ public class StudentController {
 
     @RequestMapping(value = "/Stu/profileUpdate", method = RequestMethod.POST)
     public String profileUpdate(HttpServletRequest request, Model model) {
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
         String Id = userId;
         String FirstName = request.getParameter("FirstName");
         String LastName = request.getParameter("LastName");
@@ -130,6 +166,17 @@ public class StudentController {
 
     @RequestMapping(value = "/Stu/weeklyReport", method = RequestMethod.POST)
     public String weeklyReport(HttpServletRequest request, Model model) {
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
 
         String day = request.getParameter("date");
         String report = request.getParameter("report");
@@ -217,7 +264,17 @@ public class StudentController {
 
     @RequestMapping("/Stu/weeklyReport")
     public String weeklyReport(Model model) {
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
 
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
         Calendar c = GregorianCalendar.getInstance();
         c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
@@ -256,6 +313,17 @@ public class StudentController {
                           @RequestParam("file") MultipartFile file,
                           RedirectAttributes redirectAttributes,Model model) {
 
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
         {
             if (file.isEmpty()) {
                 System.out.println("Please select a file to upload");
@@ -313,7 +381,17 @@ public class StudentController {
         String Catergory = request.getParameter("Catergory");
         String Field = request.getParameter("Field");
         String RegNo = request.getParameter("RegNo");
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
 
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
         Journal j1 = new Journal();
         j1.setId(journalId());
         j1.setStuId(userId);
@@ -369,6 +447,17 @@ public class StudentController {
     }
 
     public String journalId() {
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
         String Id = userId;
 
         List<Journal> list1 = journalRepository.findAll();
@@ -384,6 +473,5 @@ public class StudentController {
 
         return Id;
     }
-
 
 }

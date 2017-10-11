@@ -26,10 +26,10 @@
 </head>
 <body class="bgstyle">
 <div id="wrapper">
-    <div th:replace="fragments/header :: header">
+    <div th:replace="Fragments/header :: indHeader">
     </div>
     <div class="row">
-        <div th:replace="fragments/profile :: profile">
+        <div th:replace="Fragments/profile :: indProfile">
         </div>
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
@@ -59,12 +59,13 @@
 
                 </div>
             </div>
+        <div th:replace="Fragments/userList :: userList">
         </div>
-        <div th:replace="fragments/userlist :: userlist">
         </div>
+
     </div>
 
-<div th:replace="fragments/footer :: footer">
+<div th:replace="Fragments/footer :: footer">
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -20,32 +20,43 @@
 </head>
 <body class="bgstyle">
 <div id="wrapper">
-    <div th:replace="fragments/header :: header">
+    <div th:replace="Fragments/header :: indHeader">
     </div>
     <div class="row">
-        <div th:replace="fragments/profile :: profile">
+        <div th:replace="Fragments/profile :: indProfile">
         </div>
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title customheading">Commited students</h3>
+                    <h3 class="panel-title">Committed Students</h3>
                 </div>
-                <div class="panel-body">
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="input-group">
-                            <input class="customform-control" type="text" placeholder="Search"/>
-                            <span class="input-group-addon"><i class="fa fa-search  fa-1x"></i></span>
-                        </div>
-                    </form>
-                </div>
+
+                <span class="panel-body" th:if="${not #lists.isEmpty(journal)}">
+                    <ul class="list-unstyled" th:if="${not #lists.isEmpty(users)}" th:each="users : ${users}">
+                        <li th:each="journal:${journal}">
+                            <form action="/Ind/weeklyReport" method="post" >
+                            <button type="submit" th:each="student:${student}"
+                                    th:if="${journal.IndId==users.Id and journal.StuId==student.Id}"
+                                    name="journal" th:value="${journal.Id}" class="btn btn-info">
+                               <span> <img src="../img/1.png" class="img user-image-top img-responsive"/>
+                                <label th:text="${student.FirstName}"></label>&nbsp;&nbsp;<label
+                                           th:text="${student.LastName}"> </label></span></button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </span>
             </div>
+
         </div>
-        <div th:replace="fragments/userlist :: userlist">
+        <div th:replace="Fragments/userList :: userList">
+
         </div>
     </div>
 </div>
 <div th:replace="fragments/footer :: footer">
 </div>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 

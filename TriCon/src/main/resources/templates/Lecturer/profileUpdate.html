@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="shortcut icon" href="../img/logo1.png"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+
+
+</head>
+<body>
+<div id="wrapper">
+    <div th:replace="Fragments/header :: lecHeader">
+    </div>
+    <div class="row" th:if="${not #lists.isEmpty(lecturer)}" th:each="lecturer : ${lecturer}">
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="profile.html">
+                        <h3 class="custompanel-title" th:text="${lecturer.LastName}"></h3>
+                        <img src="../img/1.png" class="img-circle user-image img-responsive"/>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <h3>Social Media</h3>
+                    <form action="/Lec/profileUpdate" method="post">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm1"><i class="fa fa-linkedin"></i> </span>
+                            <input type="text" name="LinkedIn" class="form-control" th:value="${lecturer.LinkedIn}" placeholder="LinkedIn" aria-describedby="sm1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm2"><i class="fa fa-twitter"></i> </span>
+                            <input type="text" name="Twitter" class="form-control" th:value="${lecturer.Twitter}" placeholder="Twitter" aria-describedby="sm1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm3"><i class="fa fa-github"></i> </span>
+                            <input type="text" name="GitHub" class="form-control" th:value="${lecturer.GitHub}" placeholder="GitHub" aria-describedby="sm1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm4"><i class="fa fa-facebook"></i> </span>
+                            <input type="text" name="Facebook" class="form-control" th:value="${lecturer.Facebook}" placeholder="Facebook" aria-describedby="sm1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sm5"><i class="fa fa-globe"></i> </span>
+                            <input type="text" name="Blog" class="form-control" th:value="${lecturer.Blog}" placeholder="Blog address" aria-describedby="sm1"/>
+                        </div>
+                        <button type="submit" name="save" value="socialMedia" id="btn" class="btn btn-success">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading customheading">
+                    Personal Details
+                    <form id="signatureform" class="form-horizontal" role="form" method="post" action="/Lec/generate">
+                        <div style="margin-top:10px" class="form-group">
+                            <div class="col-sm-12 controls">
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#CreateSign">Create Signature</button>
+                            </div>
+
+                            <div class="modal fade" id="CreateSign" tabindex="-1" role="dialog" aria-labelledby="CreateSignLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="CreateSignLabel">Create Your Digital Signature!</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <!--<span th:text="'Message: ' + ${message}"></span>-->
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- <form action="/generate" method="post">-->
+                                            <div class="form-group">
+                                                <div class="input-group input-group-sm">
+					                                    <span class="input-group-addon">
+						                                    <span class="fa fa-envelope"></span>
+                                                        </span>
+                                                    <input type="password" class="form-control" name="SecreteCode"   id="secretecode" placeholder="Secrete Code" th:required="required"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-envelope"></span>
+                                                        </span>
+                                                    <input type="password" class="form-control" name="ConfirmCode"  id="code123" placeholder="Confirm your secrete code" th:required="required"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-book"></span>
+                                                        </span>
+                                                    <input type="password" class="form-control" name="KeyPassword" id="keypassword"  placeholder="Password to protect your code" th:required="required"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-book"></span>
+                                                        </span>
+                                                    <input type="password" class="form-control" name="ConfirmKeyPassword" id="confirmpassword"  placeholder="Confirm your password" th:required="required"/>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="controls controls-row">
+                                                <div class="controls controls-group">
+                                                </div>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Generate</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-body" >
+                    <form action="/Lec/profileUpdate" method="post" >
+                        <div class="input-group">
+                            <span class="input-group-addon"  id="pd1">First Name </span>
+                            <input type="text" name="FirstName" class="form-control" th:value="${lecturer.FirstName}" placeholder="Eg: Kannan" aria-describedby="pd1"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"  id="pd2">Last Name </span>
+                            <input type="text" name="LastName" class="form-control" th:value="${lecturer.LastName}" placeholder="Eg: Ravi" aria-describedby="pd2"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"  id="pd3">E-Mail ID</span>
+                            <input type="text" name="Email" class="form-control" th:value="${lecturer.Email}" placeholder="Eg: ravi@gmail.com"
+                                   aria-describedby="pd3"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"  id="pd4">Mobile No </span>
+                            <input type="text" name="Mobile" class="form-control"  th:value="${lecturer.MobileNo}" placeholder="Eg: +94770562348"
+                                   aria-describedby="pd4"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="pd5">T.P Number</span>
+                            <input type="text" name="TP" class="form-control" th:value="${lecturer.TPNo}" placeholder="Eg: 021 456 2365"
+                                   aria-describedby="pd5"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"  id="pd6">Address</span>
+                            <input type="text" name="Address" class="form-control" th:value="${lecturer.Address}" placeholder="Eg: No5,park avenue,Main Street,Jaffna"
+                                   aria-describedby="pd6"/>
+                        </div>
+                        <button type="submit" name="save" value="personal" id="btn-login" class="btn btn-success">Save</button>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading customheading">
+                    Educational Details
+                </div>
+                  <div class="panel-body">
+                      <form>
+                          <div class="input-group">
+                              <span class="input-group-addon" id="prod1"><label>University  :</label> </span>
+                              <label class="input-group-addon" th:each="university: ${university}" th:if="${university.Id==lecturer.UniId}"
+                              th:text="${university.UniName}"/>
+                          </div>
+                          <div class="input-group">
+                              <span class="input-group-addon" id="prod2"><label>Department :</label></span>
+                              <label  class="input-group-addon" th:each="department: ${department}" th:if="${department.Id==lecturer.DeptId}"
+                                     th:text="${department.DeptName}"/>
+                          </div>
+                      </form>
+                  </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading customheading">
+                    Skills
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="../../js/bootstrap.min.js"></script>
+</body>
+</html>

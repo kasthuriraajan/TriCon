@@ -45,6 +45,39 @@
                     th:text="${university.UniName}"> </br>
                 <br th:text="${users.Email}">
                 </br></b></center>
+            <div th:if="${not #lists.isEmpty(users)}" th:text="${message}">
+
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 col-md-3" th:fragment="indProfile" th:if="${not #lists.isEmpty(users)}" th:each="users : ${users}">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="profile.html">
+                <h3 class="custompanel-title" th:text="${users.LastName}"></h3>
+                <img src="../img/1.png" class="img-circle user-image img-responsive"/>
+            </a>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-offset-3 col-sm-offset-4 col-md-offset-2 col-xs-4 col-sm-3 col-md-5"><a
+                        href="settings.html"><i class="fa fa-gear fa-stack fa-2x"></i></a>
+                </div>
+                <div class="col-xs-4 col-sm-3 col-md-5">
+                    <a href="profileUpdate.html"><i class="fa fa-edit  fa-stack fa-2x"></i></a>
+                </div>
+            </div>
+            <center><b><label th:text="${users.FirstName}" > </label>
+                <label th:text="${users.LastName}"></label>
+                <br th:text="${users.Company}"></br>
+                <br th:text="${users.Designation}"> </br>
+                <br th:text="${users.Email}">
+                </br></b></center>
+            <div th:if="${not #lists.isEmpty(users)}" th:text="${message}">
+
+            </div>
         </div>
     </div>
 </div>

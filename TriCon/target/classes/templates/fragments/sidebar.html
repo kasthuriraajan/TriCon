@@ -206,14 +206,62 @@
                     </div>
                 </li>
                 <li>
-                    <button> <a class="active-menu" href="weeklyReport.html"><i class="fa fa-edit fa-2x"></i> Weekly Report</a></button>
+                    <form action="/Lec/weeklyReport" method="post">
+                        <button name="journal" th:value="${journalId}"><i class="fa fa-file-edit fa-2x"></i> Weekly Report</button>
+                    </form>
                 </li>
                 <li>
-                    <a href="progressReport.html"><i class="fa fa-file-o fa-2x"></i> Progress Report</a>
-                </li>
+                <form action="/Lec/progressReport" method="post">
+                    <button name="journal" th:value="${journalId}"><i class="fa fa-file-text fa-2x"></i> Progress Report</button>
+                </form>
+            </li>
+
                 <li>
                     <form action="/Lec/inspectReport" method="post">
                     <button name="journal" th:value="${journalId}"><i class="fa fa-file-text-o fa-2x"></i> Inspection Report</button>
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+</div>
+
+<div class="col-xs-12 col-md-3" th:fragment="indSideBar">
+
+    <nav class="custompanel" role="navigation">
+
+        <div class="sidebar-collapse">
+
+            <ul class="nav" id="main-menuind">
+                <li>
+                    <div class="custompanel row">
+                        <div class="col-xs-16 col-md-6">
+                            <img src="../img/1.png" class="img-responsive img-circle" alt="Responsive image"/></div>
+                        <div class="col-xs-16 col-md-6 usertext">
+                            <ul class="nav">
+                                <li>Name</li>
+                                <li>Reg.No</li>
+                                <li>University</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <form action="/Ind/weeklyReport" method="post">
+                        <button name="journal" th:value="${journalId}"><i class="fa fa-file-edit fa-2x"></i> Weekly Report</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/Ind/progressReport" method="post">
+                        <button name="journal" th:value="${journalId}"><i class="fa fa-file-text fa-2x"></i> Progress Report</button>
+                    </form>
+                </li>
+
+                <li>
+                    <form action="/Ind/inspectReport" method="post">
+                        <button name="journal" th:value="${journalId}"><i class="fa fa-file-text-o fa-2x"></i> Inspection Report</button>
                     </form>
                 </li>
             </ul>

@@ -2,8 +2,6 @@ package TriCon.model;
 
 import org.springframework.data.annotation.Id;
 
-import java.security.Key;
-
 public class KeyTable {
     @Id
 
@@ -11,8 +9,9 @@ public class KeyTable {
 
     private String Id;
     private String UserName;
-    private Key PrivateKey;
-    private Key PublicKey;
+    private String PrivateKeyPath;
+    private String PublicKeyPath;
+    private String KeyWord;
 
     public String getId() {
         return Id;
@@ -30,19 +29,27 @@ public class KeyTable {
         UserName = userName;
     }
 
-    public Key getPrivateKey() {
-        return PrivateKey;
+    public String getPrivateKeyPath() {
+        return PrivateKeyPath;
     }
 
-    public void setPrivateKey(Key privateKey) {
-        PrivateKey = privateKey;
+    public void setPrivateKeyPath(String privateKeyPath) {
+        PrivateKeyPath = privateKeyPath;
     }
 
-    public Key getPublicKey() {
-        return PublicKey;
+    public String getPublicKeyPath() {
+        return PublicKeyPath;
     }
 
-    public void setPublicKey(Key publicKey) {
-        PublicKey = publicKey;
+    public void setPublicKeyPath(String publicKeyPath) {
+        PublicKeyPath = publicKeyPath;
+    }
+
+    public String getKeyWord() {
+        return KeyWord;
+    }
+
+    public void setKeyWord(String keyWord) {
+        KeyWord = keyWord;
     }
 }

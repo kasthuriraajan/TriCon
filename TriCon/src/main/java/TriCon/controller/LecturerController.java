@@ -1,9 +1,6 @@
 package TriCon.controller;
 
-import TriCon.model.InspectionReport;
-import TriCon.model.Journal;
-import TriCon.model.User;
-import TriCon.model.WeeklyReport;
+import TriCon.model.*;
 import TriCon.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -42,17 +39,15 @@ public class LecturerController {
     private IndustrialistRepository industrialistRepository;
     @Autowired
     private InspectionReportRepository inspectionReportRepository;
-    private String userId = "L00001";
-
+   
     @RequestMapping("/Lec/index")
     public String welcome(Model model) {
-        System.out.println("id"+getUserId());
         model.addAttribute("department", departmentRepository.findAll());
         model.addAttribute("university", universityRepository.findAll());
         model.addAttribute("industrialist", industrialistRepository.findAll());
         model.addAttribute("student", studentRepository.findAll());
         model.addAttribute("lecturer", lecturerRepository.findAll());
-        model.addAttribute("users", lecturerRepository.findOne(userId));
+        model.addAttribute("users", lecturerRepository.findOne(getUserId()));
         return "Lecturer/index";
     }
 
@@ -64,7 +59,7 @@ public class LecturerController {
         model.addAttribute("industrialist", industrialistRepository.findAll());
         model.addAttribute("student", studentRepository.findAll());
         model.addAttribute("lecturer", lecturerRepository.findAll());
-        model.addAttribute("users", lecturerRepository.findOne(userId));
+        model.addAttribute("users", lecturerRepository.findOne(getUserId()));
         model.addAttribute("journal", journalRepository.findAll());
         return "Lecturer/committedStudents";
     }
@@ -102,7 +97,7 @@ public class LecturerController {
         InspectionReport Ins=new InspectionReport();
         Ins.setId(Id);
         Ins.setJournalId(action);
-        Ins.setLectId(userId);
+        Ins.setLectId(getUserId());
         Ins.setDate(date);
         Ins.setReview(report);
         inspectionReportRepository.save(Ins);
@@ -135,6 +130,71 @@ public class LecturerController {
     public String progressReport() {
         return "Lecturer/progressReport";
     }
+    @RequestMapping("/Lec/profileUpdate")
+    public String profileUpdate(Model model) {
+
+
+        Lecturer student1 = lecturerRepository.findOne(getUserId());
+        model.addAttribute("department", departmentRepository.findAll());
+        model.addAttribute("university", universityRepository.findAll());
+        model.addAttribute("lecturer", student1);
+        return "Lecturer/profileUpdate";
+    }
+
+    @RequestMapping(value = "/Lec/profileUpdate", method = RequestMethod.POST)
+    public String profileUpdate(HttpServletRequest request, Model model) {
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
+        String Id = userId;
+        String FirstName = request.getParameter("FirstName");
+        String LastName = request.getParameter("LastName");
+        String Email = request.getParameter("Email");
+        String MobileNo = request.getParameter("Mobile");
+        String TPNo = request.getParameter("TP");
+        String Address = request.getParameter("Address");
+        String LinkedIn = request.getParameter("LinkedIn");
+        String Twitter = request.getParameter("Twitter");
+        String GitHub = request.getParameter("GitHub");
+        String Facebook = request.getParameter("Facebook");
+        String Blog = request.getParameter("Blog");
+        String action = request.getParameter("save");
+        Lecturer s1 = lecturerRepository.findOne(Id);
+        if (action.equals("personal")) {
+
+            s1.setId(Id);
+            s1.setFirstName(FirstName);
+            s1.setLastName(LastName);
+            s1.setMobileNo(MobileNo);
+            s1.setEmail(Email);
+            s1.setTPNo(TPNo);
+            s1.setAddress(Address);
+
+            lecturerRepository.save(s1);
+        } else if (action.equals("socialMedia")) {
+
+            Lecturer s2 = lecturerRepository.findOne(Id);
+            s2.setLinkedIn(LinkedIn);
+            s2.setTwitter(Twitter);
+            s2.setGitHub(GitHub);
+            s2.setFacebook(Facebook);
+            s2.setBlog(Blog);
+
+            lecturerRepository.save(s2);
+        }
+
+        model.addAttribute("lecturer", s1);
+        return "Lecturer/profileUpdate";
+    }
+
 
     public String getUserId()
     {

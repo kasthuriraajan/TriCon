@@ -15,7 +15,7 @@ public class Industrialist {
     private String Designation;
     private String MobileNo;
     private String TPNo;
-    private String Linkedin;
+    private String LinkedIn;
     private String Twitter;
     private String GitHub;
     private String Facebook;
@@ -94,12 +94,12 @@ public class Industrialist {
         this.TPNo = TPNo;
     }
 
-    public String getLinkedin() {
-        return Linkedin;
+    public String getLinkedIn() {
+        return LinkedIn;
     }
 
-    public void setLinkedin(String linkedin) {
-        Linkedin = linkedin;
+    public void setLinkedIn(String linkedIn) {
+        LinkedIn = linkedIn;
     }
 
     public String getTwitter() {

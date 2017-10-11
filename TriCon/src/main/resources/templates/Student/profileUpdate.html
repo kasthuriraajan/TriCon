@@ -63,6 +63,71 @@
             <div class="panel panel-default">
                 <div class="panel-heading customheading">
                     Personal Details
+                    <form id="signatureform" class="form-horizontal" role="form" method="post" action="/Stu/generate">
+                        <div style="margin-top:10px" class="form-group">
+                            <div class="col-sm-12 controls">
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#CreateSign">Create Signature</button>
+                            </div>
+
+                            <div class="modal fade" id="CreateSign" tabindex="-1" role="dialog" aria-labelledby="CreateSignLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="CreateSignLabel">Create Your Digital Signature!</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <!--<span th:text="'Message: ' + ${message}"></span>-->
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- <form action="/generate" method="post">-->
+                                            <div class="form-group">
+                                                <div class="input-group input-group-sm">
+					                                    <span class="input-group-addon">
+						                                    <span class="fa fa-envelope"></span>
+                                                        </span>
+                                                    <input type="password" class="form-control" name="SecreteCode"   id="secretecode" placeholder="Secrete Code" th:required="required"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-envelope"></span>
+                                                        </span>
+                                                    <input type="password" class="form-control" name="ConfirmCode"  id="code123" placeholder="Confirm your secrete code" th:required="required"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-book"></span>
+                                                        </span>
+                                                    <input type="password" class="form-control" name="KeyPassword" id="keypassword"  placeholder="Password to protect your code" th:required="required"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-book"></span>
+                                                        </span>
+                                                    <input type="password" class="form-control" name="ConfirmKeyPassword" id="confirmpassword"  placeholder="Confirm your password" th:required="required"/>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="controls controls-row">
+                                                <div class="controls controls-group">
+                                                </div>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Generate</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="panel-body" >
                     <form action="/Stu/profileUpdate" method="post" >
@@ -135,6 +200,7 @@
 
 <script type="text/javascript"
         src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script type="text/javascript"
+        src="../../js/bootstrap.min.js"></script>
 </body>
 </html>

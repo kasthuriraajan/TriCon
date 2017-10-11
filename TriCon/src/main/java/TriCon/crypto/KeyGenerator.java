@@ -1,9 +1,9 @@
 package TriCon.crypto;
 
-import TriCon.model.KeyTable;
-import TriCon.repo.KeyTableRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.security.*;
 
 /**
@@ -19,16 +19,19 @@ public class KeyGenerator {
      *
      * @return the key pair
      */
-
     private KeyPair generateKeyPairs() {
 
         KeyPair keyPair = null;
         KeyPairGenerator keyGen;
-        try {
+        try
+        {
             keyGen = KeyPairGenerator.getInstance("RSA");
             keyGen.initialize(1024);
             keyPair = keyGen.genKeyPair();
-        } catch (NoSuchAlgorithmException e) {
+            System.out.println("meru");
+        }
+        catch (NoSuchAlgorithmException e)
+        {
             e.printStackTrace();
         }
         return keyPair;
@@ -38,28 +41,14 @@ public class KeyGenerator {
      * Store key pairs.
      *
      * @param dirPath
-     * the dir path
+     *            the dir path
      */
-    @Autowired
-    private KeyTableRepository keyTableRepository;
-
-    public void storeKeyPairs() {
-
+    public void storeKeyPairs(String dirPath) {
         KeyPair keyPair = generateKeyPairs();
         PrivateKey privateKey = keyPair.getPrivate();
         PublicKey publicKey = keyPair.getPublic();
-        storeKeys("kk", "12");
-        /*storeKeys(dirPath + File.separator + "publickey.key", publicKey);
-		storeKeys(dirPath + File.separator + "privatekey.key", privateKey);*/
-    }
-
-    private void storeKeys(String UserName, String UserId/*,Key pubkey,Key prikey*/) {
-        KeyTable key1 = new KeyTable();
-        key1.setId(UserId);
-        key1.setUserName(UserName);
-		/*key1.setPublicKey(pubkey);
-		key1.setPrivateKey(prikey);*/
-        keyTableRepository.save(key1);
+        storeKeys(dirPath + File.separator + "publickey.key", publicKey);
+        storeKeys(dirPath + File.separator + "privatekey.key", privateKey);
     }
 
     /**
@@ -70,22 +59,49 @@ public class KeyGenerator {
      * @param key
      *            the key
      */
-/*	private void storeKeys(String filePath, Key key) {
-		byte[] keyBytes = key.getEncoded();
-		OutputStream out = null;
-		try {
-			out = new FileOutputStream(filePath);
-			out.write(keyBytes);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (out != null)
-				try {
-					out.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-		}
-	}*/
+    private void storeKeys(String filePath, Key key) {
+        byte[] keyBytes = key.getEncoded();
+        OutputStream out = null;
+        try {
+            out = new FileOutputStream(filePath);
+            out.write(keyBytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (out != null)
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+        }
+    }
+
+    private void storeKey(String filePath, byte[] keyByte)
+    {
+        byte[] keyBytes = keyByte;
+        OutputStream out = null;
+        try {
+            out = new FileOutputStream(filePath);
+            out.write(keyBytes);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if (out != null)
+                try
+                {
+                    out.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+        }
+    }
+
 
 }
