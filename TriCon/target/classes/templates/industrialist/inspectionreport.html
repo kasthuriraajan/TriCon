@@ -20,60 +20,59 @@
 </head>
 <body class="bgstyle">
 <div id="wrapper">
-    <div th:replace="fragments/header :: header">
+    <div th:replace="Fragments/Header :: indHeader">
     </div>
     <div class="row">
-        <div th:replace="fragments/sidebar :: sidebar">
+        <div th:replace="Fragments/sideBar :: indSideBar">
         </div>
         <div class="col-xs-12 col-md-9 col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-12 col-md-6 customheading">
-                            Inspection Report
+                            Weekly Report
                         </div>
                         <div class="col-xs-12 col-md-3">
-            <span><label>From</label>
-            <input type="date"/></span>
-                        </div>
-                        <div class="col-xs-12 col-md-3">
-             <span><label>To</label>
-            <input type="date"/></span>
+                            <span>
+                             <label>Journal Id</label>
+                         </span>
                         </div>
                     </div>
                 </div>
-                <br></br>
-                <div class="panel-body">
+                <div class="panel-body" th:if="${not #lists.isEmpty(lists)}">
+                    <form class="form-horizontal" action="/Ind/remark" method="post">
+                        <div class="form-group">
+                            <center>
+                                <table class="table table-responsive">
+                                    <tr class="active">
 
-                    <span>
-                            <label class="col-xs-6 col-md-3">Name of Officer</label>
-                            <label class="showarea col-xs-6 col-md-9">Mr.kamal</label>
-                    </span>
-                    <span>
-                            <label class="col-xs-6 col-md-3">Designation of Officer</label>
-                            <label class="showarea col-xs-6 col-md-9">Lecturer</label>
-                    </span>
-                    <span>
-                            <label class="col-xs-6 col-md-3">Remarks</label>
-                            <label class="showarea col-xs-6 col-md-9">Good at work</label>
-                    </span>
-                    <span>
-                            <label class="col-xs-6 col-md-3">Signature</label>
-                            <label class="showarea col-xs-6 col-md-9">kamallllll</label>
-                    </span>
-                    <span>
-                            <label class="col-xs-6 col-md-3">Date</label>
-                            <label class="showarea col-xs-6 col-md-9">29/09/2017</label>
-                    </span>
+                                        <th><b>Report id</b></th>
+                                        <th><b>Date</b></th>
+                                        <th><b>Lecturer Name</b></th>
+                                        <th><b>Review</b></th>
 
-                    <br></br>
+                                    </tr>
 
+                                    <tr class="active" th:each="lists : ${lists}">
+                                        <td th:if="${JournalId==lists.JournalId}" th:text="${lists.id}"></td>
+                                        <td th:if="${JournalId==lists.JournalId}"  th:text="${lists.Date}"></td>
+                                        <td th:each="lecturer:${lecturer}" th:if="${lecturer.id==lists.LectId}"
+                                            th:text="${lecturer.LastName}"></td>
+                                        <td th:if="${JournalId==lists.JournalId}"  th:text="${lists.review}"></td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </div>
+                    </form>
                 </div>
+
+
             </div>
+
         </div>
     </div>
 </div>
-<div th:replace="fragments/footer :: footer">
+<div th:replace="Fragments/footer :: footer">
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

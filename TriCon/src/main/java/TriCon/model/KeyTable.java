@@ -4,22 +4,12 @@ import org.springframework.data.annotation.Id;
 
 public class KeyTable {
     @Id
-
-
-
-    private String Id;
+    private String id;
     private String UserName;
     private String PrivateKeyPath;
     private String PublicKeyPath;
     private String KeyWord;
 
-    public String getId() {
-        return Id;
-    }
-
-    public void setId(String id) {
-        Id = id;
-    }
 
     public String getUserName() {
         return UserName;
@@ -51,5 +41,13 @@ public class KeyTable {
 
     public void setKeyWord(String keyWord) {
         KeyWord = keyWord;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

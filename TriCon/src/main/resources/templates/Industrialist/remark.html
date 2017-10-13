@@ -20,10 +20,10 @@
 </head>
 <body class="bgstyle">
 <div id="wrapper">
-    <div th:replace="Fragments/header :: stuHeader">
+    <div th:replace="Fragments/header :: indHeader">
     </div>
     <div class="row">
-        <div th:replace="Fragments/sideBar :: stuSideBar">
+        <div th:replace="Fragments/sideBar :: indSideBar">
         </div>
         <div class="col-xs-12 col-md-9 col-sm-12" th:if="${not #lists.isEmpty(weeklyReport)}"
              th:each="weeklyReport:${weeklyReport}">
@@ -77,60 +77,48 @@
                             <label class="showarea col-xs-6 col-md-9" th:text="${weeklyReport.Sunday }"></label>
                           </span>
                     <br></br>
-                    <form method="POST" action="/Stu/summary" enctype="multipart/form-data">
-                        <div class="control-group">
-                            <div class="control-label">
-                                       <span>
-                    <a href="novation.pdf" download="novation.pdf"> Click here to download Novation Form</a>
-                    </span>
-                                <br></br>
-                                <br></br>
-                                <label>Scan your novation form and upload with other attachments. If tou have more than
-                                    one file ,put them into a compressed folder and upload it! </label>
-                            </div>
-
-                        </div>
-                        <div class="control-group">
-                            <div class="control-label">
-                                <label>Attachments</label>
-                            </div>
-                            <div class="controls">
-                                <input type="file" name="file" id="file" class="input-large"/>
-                            </div>
-                        </div>
-
-
-                        <h3>Summary</h3>
-                        <textarea class="form-control" th:required="required" name="sum" rows="3"></textarea>
-                        <br></br>
-                        <br></br>
-
-                        <div class="form-group">
-                            <label>Enter your key password to put your digital Signature</label>
-                            <div class="input-group input-group-sm">
+                    <span>
+                            <label class="col-xs-6 col-md-2">Summary</label>
+                            <label class="showarea col-xs-6 col-md-9" th:text="${weeklyReport.Summary }"></label>
+                          </span>
+                   <div class="form-group">
+                       <label>Student Signature : </label>
+                       <label th:text="${verify}"></label>
+                       </div>
+                            <form method="POST" action="/Ind/remark" >
+                                <h3>Remarks</h3>
+                                <textarea class="form-control" th:required="required" name="remark" rows="3"></textarea>
+                                <div class="form-group">
+                                    <label>Enter your key password to put your digital Signature</label>
+                                    <div class="input-group input-group-sm">
                                                         <span class="input-group-addon">
                                                             <span class="fa fa-key"></span>
                                                         </span>
-                                <input type="password" class="form-control" name="KeyPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   id="code123"  placeholder="your key Password!" th:required="required"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Enter your key word  to verify your  digital Signature</label>
-                            <div class="input-group input-group-sm">
+                                        <input type="password" class="form-control" name="KeyPassword"
+                                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="code123"
+                                               placeholder="your key Password!" th:required="required"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Enter your key word to verify your digital Signature</label>
+                                    <div class="input-group input-group-sm">
                                                         <span class="input-group-addon">
                                                             <span class="fa fa-edit"></span>
                                                         </span>
-                                <input type="password" class="form-control" name="KeyWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   id="code13"  placeholder="your key word!" th:required="required"/>
-                            </div>
-                        </div>
-                        <div  th:if="${not #lists.isEmpty(warning)}" th:text="${warning}">
-                        </div>
-                        <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3" >
-                            <button type="submit" name="action" th:value="${weeklyReport.Id}" class="btn btn-info">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
+                                        <input type="password" class="form-control" name="KeyWord"
+                                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="code13"
+                                               placeholder="your key word!" th:required="required"/>
+                                    </div>
+                                </div>
+                                <div th:if="${not #lists.isEmpty(warning)}" th:text="${warning}">
+                                </div>
+                                <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
+                                    <button type="submit" name="action" th:value="${weeklyReport.Id}"
+                                            class="btn btn-info">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
                 </div>
             </div>
         </div>

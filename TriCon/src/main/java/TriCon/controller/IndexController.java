@@ -58,7 +58,7 @@ public class IndexController {
                     type = user.get(i).getType();
                 }
             }
-        System.out.println(type);
+
             switch (type){
                 case "Admin":
                     uri="/Admin/universities";

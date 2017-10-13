@@ -1,9 +1,7 @@
 package TriCon.controller;
 
 
-import TriCon.model.Industrialist;
-import TriCon.model.Lecturer;
-import TriCon.model.User;
+import TriCon.model.*;
 import TriCon.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,7 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
+
+import static TriCon.crypto.SignGenerator.verifyDigitalSignature;
 
 @Controller
 public class IndustrialistController {
@@ -33,6 +37,14 @@ public class IndustrialistController {
     private JournalRepository journalRepository;
     @Autowired
     private IndustrialistRepository industrialistRepository;
+    @Autowired
+    private WeeklyReportRepository weeklyReportRepository;
+    @Autowired
+    private InspectionReportRepository inspectionReportRepository;
+    @Autowired
+    private ProgressReportRepository progressReportRepository;
+    @Autowired
+    private VerifyRepository verifyRepository;
 
 
    /* private String userId ="0123";*/
@@ -138,7 +150,7 @@ public class IndustrialistController {
     @RequestMapping(value = "/Ind/weeklyReport" ,method = RequestMethod.POST)
     public String weeklyReport(HttpServletRequest request, Model model) {
         String action= request.getParameter("journal");
-        System.out.println(action);
+        model.addAttribute("lists",weeklyReportRepository.findAll());
         model.addAttribute("journalId",action);
         return "Industrialist/weeklyReport";
     }
@@ -208,6 +220,24 @@ public class IndustrialistController {
         model.addAttribute("industrialist", s1);
         return "Industrialist/profileUpdate";
     }
+    @RequestMapping(value = "/Ind/progressReport", method = RequestMethod.POST)
+    public String progRep(HttpServletRequest request,Model model)
+    {
+        String action= request.getParameter("journal");
+        model.addAttribute("journalId",action);
+        return"Industrialist/progressReport";
+    }
+    @RequestMapping(value ="/Ind/inspectReport", method = RequestMethod.POST)
+    public String inspectRep(HttpServletRequest request,Model model)
+    {
+        String action= request.getParameter("journal");
+
+        model.addAttribute("JournalId",action);
+        model.addAttribute("lists",inspectionReportRepository.findAll());
+        model.addAttribute("lecturer",lecturerRepository.findOne(journalRepository.findOne(action).getLecId()));
+        return"Industrialist/inspectionReport";
+    }
+
     public String getUserId()
     {
         String type="common";
@@ -223,6 +253,27 @@ public class IndustrialistController {
             }
         }
         return ip;
+    }
+    private static byte[] getKeyData(String filePath) {
+        File file = new File(filePath);
+        byte[] buffer = new byte[(int) file.length()];
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(file);
+            fis.read(buffer);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null)
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+        }
+        return buffer;
     }
 
 }

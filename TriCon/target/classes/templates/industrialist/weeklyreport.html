@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>TriCon</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <link rel="shortcut icon" href="../img/logo1.png" />
+    <link rel="shortcut icon" href="../img/logo1.png"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/custom.css" />
+          href="../../css/custom.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/font-awesome.css" />
+          href="../../css/font-awesome.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.min.css" />
+          href="../../css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.css" />
+          href="../../css/bootstrap.css"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../../css/main.css" />
+          href="../../css/main.css"/>
 
 
 </head>
@@ -33,49 +33,38 @@
                             Weekly Report
                         </div>
                         <div class="col-xs-12 col-md-3">
-            <span><label>From</label>
-            <input type="date"/></span>
-                        </div>
-                        <div class="col-xs-12 col-md-3">
-             <span><label>To</label>
-            <input type="date"/></span>
+                            <span>
+                             <label>Journal Id</label>
+                         </span>
                         </div>
                     </div>
                 </div>
-                <div class="panel-body">
-                    <form class="form-horizontal">
-
-                        <br></br>
-                        <br></br>
+                <div class="panel-body" th:if="${not #lists.isEmpty(lists)}">
+                    <form class="form-horizontal" action="/Ind/remark" method="post">
                         <div class="form-group">
-                            <center><table class="table table-responsive">
-                                <tr class="active">
+                            <center>
+                                <table class="table table-responsive">
+                                    <tr class="active">
 
-                                    <th class="col-xs-1"> <b>Weak day</b></th>
-                                    <th class="col-xs-2"> <b>Date</b></th>
-                                    <th class="col-xs-4"> <b>Status</b></th>
-                                </tr>
-                                <tr class="active" >
-                                    <td><b>1st weak</b></td>
-                                    <td><a class="btn btn-default" href="weeklyReportEdit.html" role="button"> <b>05/08/2017</b></a></td>
-                                    <td><label><b>Checked</b></label></td>
-                                </tr>
+                                        <th><b>Weekly report id</b></th>
+                                        <th><b>Week start date</b></th>
+                                       <!-- <th><b>Week end date</b></th>-->
+                                        <th><b>Status</b></th>
+                                        <th><b>Action</b></th>
+                                    </tr>
 
-                                <tr class="active" >
-                                    <td><b>2nd weak</b></td>
-                                    <td><a class="btn btn-default" href="weeklyReportEdit.html" role="button"> <b>06/08/2017 </b></a></td>
-                                    <td><label><b>Checked</b></label></td>
-                                </tr>
-                                <tr class="active" >
-                                    <td><b>3rd weak</b></td>
-                                    <td><a class="btn btn-default" href="weeklyReportEdit.html" role="button"> <b>06/08/2017 </b></a></td>
-                                    <td><label><b>Checked</b></label></td>
-                                </tr>
-                            </table></center>
+                                    <tr class="active" th:each="lists : ${lists}">
+                                        <td th:text="${lists.id}"></td>
+                                        <td th:text="${lists.From}"></td>
+                                       <!-- <td th:text="${Lists.To}"></td>-->
+                                        <td th:text="${lists.Status}"></td>
+                                        <td><button type="submit" name="action" th:value="${lists.id}" class="btn btn-info">Remark </button></td>
+                                    </tr>
+                                </table>
+                            </center>
                         </div>
                     </form>
                 </div>
-
 
 
             </div>

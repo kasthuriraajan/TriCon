@@ -1,9 +1,7 @@
 package TriCon.controller;
 
-import TriCon.model.Journal;
-import TriCon.model.Student;
-import TriCon.model.User;
-import TriCon.model.WeeklyReport;
+import TriCon.crypto.SignGenerator;
+import TriCon.model.*;
 import TriCon.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,6 +25,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
+
+import static TriCon.crypto.SignGenerator.generateDigitalSignature;
 
 @Controller
 public class StudentController {
@@ -41,6 +42,10 @@ public class StudentController {
     private JournalRepository journalRepository;
     @Autowired
     private WeeklyReportRepository weeklyReportRepository;
+    @Autowired
+    private AccessTableRepository accessTableRepository;
+    @Autowired
+    private KeyTableRepository keyTableRepository;
 
 
     private static String UPLOADED_FOLDER = "G:\\GP2git\\TriCon\\TriCon\\src\\main\\resources\\static\\imagesample\\";
@@ -282,12 +287,12 @@ public class StudentController {
         }
 
         String Id = JournalId + "/" + startDate;
-        System.out.println(Id);
+       /* System.out.println(Id);
         System.out.println(JournalId);
         System.out.println("Start Date = " + startDate);
         System.out.println("End Date = " + endDate);
         System.out.println(Week);
-        System.out.println(report);
+        System.out.println(report);*/
 
         List<WeeklyReport> we1 = weeklyReportRepository.findAll();
         for (int i = 0; i < we1.size(); i++) {
@@ -302,6 +307,10 @@ public class StudentController {
             w1.setJournalId(JournalId);
             w1.setFrom(startDate);
             w1.setTo(endDate);
+            w1.setStuSign("non");
+            w1.setIndSign("non");
+            w1.setLectSign("non");
+            w1.setStatus("Not submitted");
             weeklyReportRepository.save(w1);
         }
         WeeklyReport w2 = weeklyReportRepository.findOne(Id);
@@ -372,71 +381,6 @@ public class StudentController {
         return "Student/weeklyReport";
     }
 
-    @RequestMapping(value = "/Stu/summaryDisplay", method = RequestMethod.POST)
-    public String summaryDisplay(HttpServletRequest request, Model model) {
-
-        String action = request.getParameter("summary");
-        System.out.println(action);
-        model.addAttribute("weeklyReport", weeklyReportRepository.findOne(action));
-        return "Student/summary";
-
-    }
-
-    @RequestMapping(value = "/Stu/summary", method = RequestMethod.POST)
-    public String summary(@RequestParam("sum") String summary,
-                          @RequestParam("action") String action,
-                          @RequestParam("file") MultipartFile file,
-
-                          RedirectAttributes redirectAttributes,Model model) {
-
-        String userId="1";
-        Authentication auth
-                = SecurityContextHolder.getContext().getAuthentication();
-
-        String users1 = auth.getName();
-        List<User> user = userRepository.findAll();
-        for (int i = 0; i < user.size(); i++) {
-            if (user.get(i).getEmail().equals(users1)) {
-                userId=user.get(i).getId();
-            }
-        }
-        {
-            if (!file.isEmpty()) {
-                try {
-
-                    // Get the file and save it somewhere
-                    byte[] bytes = file.getBytes();
-
-                    Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-                    Files.write(path, bytes);
-
-
-                    System.out.println("You successfully uploaded '" + file.getOriginalFilename() + "' at " + UPLOADED_FOLDER +
-                            file.getOriginalFilename());
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
-        String Attachment = UPLOADED_FOLDER + file.getOriginalFilename();
-        WeeklyReport W3 = weeklyReportRepository.findOne(action);
-        W3.setSummary(summary);
-        if(!file.isEmpty())
-        { W3.setAttachment(Attachment);}
-
-        W3.setStatus("Pending");
-
-        weeklyReportRepository.save(W3);
-        model.addAttribute("department", departmentRepository.findAll());
-        model.addAttribute("university", universityRepository.findAll());
-        model.addAttribute("users", studentRepository.findOne(userId));
-        model.addAttribute("student", studentRepository.findAll());
-        model.addAttribute("report", weeklyReportRepository.findOne(action));
-        return "Student/index";
-
-    }
 
     @RequestMapping("/Stu/finalReport")
     public String finalReport() {

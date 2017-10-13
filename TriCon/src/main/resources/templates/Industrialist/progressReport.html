@@ -20,10 +20,10 @@
 </head>
 <body class="bgstyle">
 <div id="wrapper">
-    <div th:replace="fragments/header :: header">
+    <div th:replace="Fragments/header :: indHeader">
     </div>
     <div class="row">
-        <div th:replace="fragments/sidebar :: sidebar">
+        <div th:replace="Fragments/sideBar :: indSideBar">
         </div>
         <div class="col-xs-12 col-md-9 col-sm-12">
             <div class="panel panel-default">
@@ -35,70 +35,74 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal">
+                    <form action="/Ind/prog"  method="post" class="form-horizontal">
                         <center>
                             <font>PROGRESS REPORT OF AN ESTABLISHMENT ON TRAINNING PERFORMANCE</font>
                         </center><br></br>
-                        <div class="row">
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Name of Establishment</label>
-                                <div class="col-sm-10 col-md-8">
-                                    <input type="text"></input>
-                                </div>
+                                <label >Name of Establishment</label>
                             </div>
                             <b>Period of trainning</b><br></br>
 
-                            <div class="col-xs-6 col-md-6">
-                                <button class="btn" type="submit">From  <input type="date"></input></button>
-                            </div>
-                            <div class="col-xs-5 col-md-6">
-                                <button class="btn" type="submit">To <input type="date"></input></button>
-                            </div>
-
-
                             <b>Comments of trainning</b>
+
+                            <div class="form-group">
+                                <label>Attitude to work</label>
+                                <textarea class="form-control" th:required="required" name="attitude" rows="3"></textarea>
+                            </div>
                             <div class="form-group">
                                 <label  class="col-sm-2 control-label">Conduct</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" rows="3"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label  class="col-sm-2 control-label">Attitude to work</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" rows="3"></textarea>
-                                </div>
+                                <textarea class="form-control" th:required="required" name="conduct" rows="3"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label  class="col-sm-2 control-label">Attendance</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" rows="3"></textarea>
-                                </div>
-                            </div>
-                            <div>
-                                <table class="table table-hover table-bordered">
-                                    <thead>
+                                <table  border="1" width="950">
                                     <tr>
-                                        <th>No.Of Days Leave Taken</th>
-                                        <th>Authorized</th>
-                                        <th>Unauthorized</th>
+                                        <th>Type of Leave</th>
+                                        <th>Number of days</th>
                                     </tr>
-                                    </thead>
-                                    <tbody><tr><td>............</td><td>..........</td><td>.................</td></tr></tbody>
+                                    <tr>
+                                        <td><label>Authorised Leave</label></td>
+                                        <td><input type="text" name="auth" class="form-control" th:required="required" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Unauthorised Leave</label></td>
+                                        <td><input type="text" name="unauth" class="form-control" th:required="required" /></td>
+                                    </tr>
                                 </table>
                             </div>
-
-                            <div class="row form-group">
-                                <br></br>
-                                <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-xs-5 col-sm-4 col-md-5">
-
-                                    <center> <a class="btn btn-default" href="inspectSign.html" role="button"><b>Sinature</b> </a></center>
+                            <div class="form-group">
+                                <label>Enter your key password to put your digital Signature</label>
+                                <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-key"></span>
+                                                        </span>
+                                    <input type="password" class="form-control" name="KeyPassword"
+                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="code123"
+                                           placeholder="your key Password!" th:required="required"/>
                                 </div>
-
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label>Enter your key word to verify your digital Signature</label>
+                                <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-edit"></span>
+                                                        </span>
+                                    <input type="password" class="form-control" name="KeyWord"
+                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="code13"
+                                           placeholder="your key word!" th:required="required"/>
+                                </div>
+                            </div>
+                            <div th:if="${not #lists.isEmpty(warning)}" th:text="${warning}">
+                            </div>
+                            <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
+                                <button type="submit" name="action" th:value="${journalId}"
+                                        class="btn btn-info">
+                                    Submit
+                                </button>
+                            </div>
+
                     </form>
                 </div>
             </div>

@@ -5,17 +5,11 @@ import org.springframework.data.annotation.Id;
 public class Verify
 {
     @Id
-    private String Id;
+    private String id;
     private String PublicKeyPath;
     private String KeyWord;
 
-    public String getId() {
-        return Id;
-    }
 
-    public void setId(String id) {
-        Id = id;
-    }
 
     public String getPublicKeyPath() {
         return PublicKeyPath;
@@ -31,5 +25,13 @@ public class Verify
 
     public void setKeyWord(String keyWord) {
         KeyWord = keyWord;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

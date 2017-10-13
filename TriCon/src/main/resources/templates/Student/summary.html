@@ -104,15 +104,30 @@
                         <textarea class="form-control" th:required="required" name="sum" rows="3"></textarea>
                         <br></br>
                         <br></br>
-                        <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
+
+                        <div class="form-group">
+                            <label>Enter your key password to put your digital Signature</label>
+                            <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-key"></span>
+                                                        </span>
+                                <input type="password" class="form-control" name="KeyPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   id="code123"  placeholder="your key Password!" th:required="required"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Enter your key word  to verify your  digital Signature</label>
+                            <div class="input-group input-group-sm">
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-edit"></span>
+                                                        </span>
+                                <input type="password" class="form-control" name="KeyWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   id="code13"  placeholder="your key word!" th:required="required"/>
+                            </div>
+                        </div>
+                        <div  th:if="${not #lists.isEmpty(warning)}" th:text="${warning}">
+                        </div>
+                        <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3" >
                             <button type="submit" name="action" th:value="${weeklyReport.Id}" class="btn btn-info">
                                 Submit
-                            </button>
-                        </div>
-                        <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3"  th:if="${weeklyReport.Status=Pending}">
-                            <label> After you signed the document it will send to the Supervisor</label>
-                            <button type="submit" name="action1" th:value="${weeklyReport.Id}" class="btn btn-info" >
-                               Sign the document!
                             </button>
                         </div>
                     </form>

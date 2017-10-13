@@ -6,16 +6,10 @@ public class AccessTable
 {
     @Id
 
-    private String Id;
+    private String id;
     private String KeyPassword;
 
-    public String getId() {
-        return Id;
-    }
 
-    public void setId(String id) {
-        Id = id;
-    }
 
     public String getKeyPassword() {
         return KeyPassword;
@@ -23,5 +17,13 @@ public class AccessTable
 
     public void setKeyPassword(String keyPassword) {
         KeyPassword = keyPassword;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
