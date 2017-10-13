@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TriCon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="shortcut icon" href="../img/logo1.png"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/custom.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../css/bootstrap.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+
+
+</head>
+<body class="bgstyle">
+<div id="wrapper">
+    <div th:replace="Fragments/header :: deptAdminHeader">
+    </div>
+    <div class="row">
+        <div th:replace="Fragments/sideBar :: deptAdminSideBar">
+        </div>
+        <div class="col-xs-12 col-md-9 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 customheading">
+                            <center> JOURNAL APPROVAL</center>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-body" th:if="${not #lists.isEmpty(journal)}">
+
+                    <table border="1" width="950">
+                        <tr>
+                            <th>ID</th>
+                            <th>Student Id</th>
+                            <th>Lecturer Id</th>
+                            <th>Industrialist Id</th>
+                            <th>Company</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                        <tr th:each="journal : ${journal}">
+                            <form action="DeptAdmin/approve" method="post">
+                            <td ><input type="text" name="id" class="form-control"  th:value="${journal.id}"/></td>
+                            <td ><input type="text" name="StutId" class="form-control"  th:value="${journal.StuId}"/></td>
+                            <td ><input type="text" name="LectId" class="form-control"  th:value="${journal.LecId}"/></td>
+                            <td ><input type="text" name="IndId" class="form-control"  th:value="${journal.IndId}"/></td>
+                            <td ><input type="text" name="company" class="form-control" th:value="${journal.Company}"/></td>
+                            <td><input type="text" name="from" class="form-control"  th:value="${journal.From}"/></td>
+                            <td ><input type="text" name="to" class="form-control"  th:value="${journal.To}"/></td>
+                                <td th:text="${journal.Status}"></td>
+                            <td > <div class="col-sm-12 controls">
+                                <button type="submit" class="btn btn-info btn-lg" name="approve" th:value="${journal.id}">Approve</button>
+                            </div>
+                            </td>
+                            </form>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="../../js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,9 +1,6 @@
 package TriCon.controller;
 
-import TriCon.model.Department;
-import TriCon.model.Industrialist;
-import TriCon.model.Lecturer;
-import TriCon.model.Student;
+import TriCon.model.*;
 import TriCon.repo.*;
 import com.opencsv.CSVReader;
 import com.sun.istack.internal.Nullable;
@@ -40,8 +37,46 @@ public class DeptAdminController {
     private LecturerRepository lecturerRepository;
     @Autowired
     private IndustrialistRepository industrialistRepository;
+    @Autowired
+    private JournalRepository journalRepository;
 
     private static String UPLOADED_FOLDER = "G:\\GP2git\\TriCon\\TriCon\\src\\main\\resources\\static\\dbfiles\\";
+
+    @RequestMapping("/DeptAdmin/approve")
+    public String approve(Model model)
+    {
+
+        model.addAttribute("journal",journalRepository.findAll());
+        return "DeptAdmin/journalApproval";
+    }
+    @RequestMapping(value ="/DeptAdmin/approve",method = RequestMethod.POST)
+    public String approve(HttpServletRequest request, Model model)
+    {
+        String action=request.getParameter("approve");
+        String id=request.getParameter("id");
+        String StuId=request.getParameter("StuId");
+        String LectId=request.getParameter("LectId");
+        String IndId=request.getParameter("IndId");
+        String company=request.getParameter("company");
+        String from=request.getParameter("from");
+        String to=request.getParameter("to");
+
+        Journal j12=journalRepository.findOne(action);
+
+        j12.setId(id);
+        j12.setStuId(StuId);
+        j12.setLecId(LectId);
+        j12.setIndId(IndId);
+        j12.setCompany(company);
+        j12.setFrom(from);
+        j12.setTo(to);
+
+
+        journalRepository.save(j12);
+
+        model.addAttribute("journal",journalRepository.findAll());
+        return "DeptAdmin/journalApproval";
+    }
 
     /*Student*/
     @RequestMapping(value = "/DeptAdmin/student", method = RequestMethod.POST)
