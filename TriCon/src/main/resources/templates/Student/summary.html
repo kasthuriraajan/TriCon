@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>TriCon</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-    <link rel="shortcut icon" href="../img/logo1.png" />
+    <link rel="shortcut icon" href="../img/logo1.png"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/custom.css" />
+          href="../../css/custom.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/font-awesome.css" />
+          href="../../css/font-awesome.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.min.css" />
+          href="../../css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css"
-          href="../../css/bootstrap.css" />
+          href="../../css/bootstrap.css"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../../css/main.css" />
+          href="../../css/main.css"/>
 
 
 </head>
@@ -25,7 +25,8 @@
     <div class="row">
         <div th:replace="Fragments/sideBar :: stuSideBar">
         </div>
-        <div class="col-xs-12 col-md-9 col-sm-12" th:if="${not #lists.isEmpty(weeklyReport)}" th:each="weeklyReport:${weeklyReport}">
+        <div class="col-xs-12 col-md-9 col-sm-12" th:if="${not #lists.isEmpty(weeklyReport)}"
+             th:each="weeklyReport:${weeklyReport}">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
@@ -51,49 +52,70 @@
                             <label class="col-xs-6 col-md-2">Monday</label>
                             <label class="showarea col-xs-6 col-md-9" th:text="${weeklyReport.Monday }"></label>
                           </span>
-                                <span>
+                    <span>
                             <label class="col-xs-6 col-md-2">Tuesday</label>
                             <label class="showarea col-xs-6 col-md-9" th:text="${weeklyReport.Tuesday }"></label>
                           </span>
-                                <span>
+                    <span>
                             <label class="col-xs-6 col-md-2">Wednesday</label>
                             <label class="showarea col-xs-6 col-md-9" th:text="${weeklyReport.Wednesday }"></label>
                           </span>
-                                <span>
+                    <span>
                             <label class="col-xs-6 col-md-2">Thursday</label>
                             <label class="showarea col-xs-6 col-md-9" th:text="${weeklyReport.Thursday }"></label>
                           </span>
-                                <span>
+                    <span>
                             <label class="col-xs-6 col-md-2">Friday</label>
                             <label class="showarea col-xs-6 col-md-9" th:text="${weeklyReport.Friday }"></label>
                           </span>
-                                <span>
+                    <span>
                             <label class="col-xs-6 col-md-2">Saturday</label>
                             <label class="showarea col-xs-6 col-md-9" th:text="${weeklyReport.Saturday }"></label>
                           </span>
-                                <span>
+                    <span>
                             <label class="col-xs-6 col-md-2">Sunday</label>
                             <label class="showarea col-xs-6 col-md-9" th:text="${weeklyReport.Sunday }"></label>
                           </span>
                     <br></br>
-                        <form method="POST" action="/Stu/summary" enctype="multipart/form-data">
-                            <div class="control-group">
-                                <div class="control-label">
-                                    <label>Attachments</label>
-                                </div>
-                                <div class="controls">
-                                    <input type="file" name="file" id="file"  th:required="required" class="input-large" />
-                                </div>
+                    <form method="POST" action="/Stu/summary" enctype="multipart/form-data">
+                        <div class="control-group">
+                            <div class="control-label">
+                                       <span>
+                    <a href="novation.pdf" download="novation.pdf"> Click here to download Novation Form</a>
+                    </span>
+                                <br></br>
+                                <br></br>
+                                <label>Scan your novation form and upload with other attachments. If tou have more than
+                                    one file ,put them into a compressed folder and upload it! </label>
                             </div>
 
-                    <h3>Summary</h3>
-                    <textarea class="form-control"  th:required="required" name="sum" rows="3"></textarea>
-                    <br></br>
-                    <br></br>
-                    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
-                        <button type="submit" name="action" th:value="${weeklyReport.Id}" class="btn btn-info">Submit</button>
-                    </div>
-                        </form>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label>Attachments</label>
+                            </div>
+                            <div class="controls">
+                                <input type="file" name="file" id="file" class="input-large"/>
+                            </div>
+                        </div>
+
+
+                        <h3>Summary</h3>
+                        <textarea class="form-control" th:required="required" name="sum" rows="3"></textarea>
+                        <br></br>
+                        <br></br>
+                        <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3">
+                            <button type="submit" name="action" th:value="${weeklyReport.Id}" class="btn btn-info">
+                                Submit
+                            </button>
+                        </div>
+                        <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-xs-3 col-sm-3 col-md-3"  th:if="${weeklyReport.Status=Pending}">
+                            <label> After you signed the document it will send to the Supervisor</label>
+                            <button type="submit" name="action1" th:value="${weeklyReport.Id}" class="btn btn-info" >
+                               Sign the document!
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

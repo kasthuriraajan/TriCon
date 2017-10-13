@@ -76,7 +76,7 @@ public class IndexController {
                     uri="/Ind/index";
                     break;
             }
-
+        model.addAttribute("users", userRepository.findOne(getUserId()));
         model.addAttribute("kas",uri);
         return "home";
     }
@@ -295,7 +295,22 @@ public class IndexController {
 
         return Id;
     }
+    public String getUserId()
+    {
+        String type="common";
+        String ip="";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
 
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                ip=user.get(i).getId();
+            }
+        }
+        return ip;
+    }
 
 }
 

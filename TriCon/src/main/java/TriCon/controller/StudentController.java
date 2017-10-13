@@ -64,6 +64,81 @@ public class StudentController {
         model.addAttribute("student", studentRepository.findAll());
         return "Student/index";
     }
+        /*Change password*/
+
+    @RequestMapping ("Stu/changePassword")
+    public String changePassword(Model model){
+        String message1="Change your password if you want";
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
+        model.addAttribute("department", departmentRepository.findAll());
+        model.addAttribute("university", universityRepository.findAll());
+        model.addAttribute("users", studentRepository.findOne(userId));
+        model.addAttribute("student", studentRepository.findAll());
+        model.addAttribute("message1",message1);
+        return"Student/changePassword";
+    }
+
+    @RequestMapping (value = "Stu/changePassword",method = RequestMethod.POST)
+    public String changePassword(org.apache.catalina.servlet4preview.http.HttpServletRequest request, Model model){
+        String OP=request.getParameter("oldPassword");
+        String NP=request.getParameter("newPassword");
+        String CP=request.getParameter("confirmPassword");
+        System.out.println(OP);
+        System.out.println(NP);
+        System.out.println(CP);
+        String message1="Change your password if you want";
+        Boolean p=false;
+
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if(user.get(i).getEmail().equals(users1) && user.get(i).getPassword().equals(OP)&&NP.equals(CP))
+            {
+                p=true;
+            }
+
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+
+        }
+        User user2=userRepository.findOne(userId);
+
+
+        if(p)
+        {
+            user2.setPassword(NP);
+            userRepository.save(user2);
+            System.out.println("Password has changed.");
+            message1="Your Password has changed.";
+        }
+        else
+        {
+            System.out.println("Password hasn't changed");
+            message1="Your Password has not changed!";
+        }
+        model.addAttribute("department", departmentRepository.findAll());
+        model.addAttribute("university", universityRepository.findAll());
+        model.addAttribute("users", studentRepository.findOne(userId));
+        model.addAttribute("student", studentRepository.findAll());
+        model.addAttribute("message1",message1);
+        return"Student/changePassword";
+    }
+
 
     @RequestMapping("/Stu/myRecords")
     public String myRecords(Model model) {
@@ -311,6 +386,7 @@ public class StudentController {
     public String summary(@RequestParam("sum") String summary,
                           @RequestParam("action") String action,
                           @RequestParam("file") MultipartFile file,
+
                           RedirectAttributes redirectAttributes,Model model) {
 
         String userId="1";
@@ -325,33 +401,31 @@ public class StudentController {
             }
         }
         {
-            if (file.isEmpty()) {
-                System.out.println("Please select a file to upload");
-                return "Student/summary";
-            }
+            if (!file.isEmpty()) {
+                try {
 
-            try {
+                    // Get the file and save it somewhere
+                    byte[] bytes = file.getBytes();
 
-                // Get the file and save it somewhere
-                byte[] bytes = file.getBytes();
-                Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-                Files.write(path, bytes);
+                    Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+                    Files.write(path, bytes);
 
-                System.out.println("You successfully uploaded '" + file.getOriginalFilename() + "' at " + UPLOADED_FOLDER +
-                        file.getOriginalFilename());
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                    System.out.println("You successfully uploaded '" + file.getOriginalFilename() + "' at " + UPLOADED_FOLDER +
+                            file.getOriginalFilename());
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
         String Attachment = UPLOADED_FOLDER + file.getOriginalFilename();
-        System.out.println(action);
-        System.out.println(summary);
-        System.out.println(Attachment);
         WeeklyReport W3 = weeklyReportRepository.findOne(action);
         W3.setSummary(summary);
-        W3.setAttachment(Attachment);
+        if(!file.isEmpty())
+        { W3.setAttachment(Attachment);}
+
         W3.setStatus("Pending");
 
         weeklyReportRepository.save(W3);
@@ -359,6 +433,7 @@ public class StudentController {
         model.addAttribute("university", universityRepository.findAll());
         model.addAttribute("users", studentRepository.findOne(userId));
         model.addAttribute("student", studentRepository.findAll());
+        model.addAttribute("report", weeklyReportRepository.findOne(action));
         return "Student/index";
 
     }

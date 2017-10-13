@@ -177,4 +177,5 @@ public class WeeklyReport {
     public void setIndSign(String indSign) {
         IndSign = indSign;
     }
+
 }

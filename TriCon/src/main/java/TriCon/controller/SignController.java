@@ -190,8 +190,8 @@ public class SignController {
                 direct=user.get(i).getId();
             }
         }
-        File file1 = new File("G:\\meruja\\DigitSign\\TriCon\\TriCon\\keys\\"+direct);
-        String path = "G:\\meruja\\DigitSign\\TriCon\\TriCon\\keys\\";
+        File file1 = new File("G:\\GP2git\\TriCon\\TriCon\\keys\\"+direct);
+        String path = "G:\\GP2git\\TriCon\\TriCon\\keys\\";
         if (!file1.exists())
         {
             if (file1.mkdir())
@@ -260,8 +260,8 @@ public class SignController {
                 direct=user.get(i).getId();
             }
         }
-        File file1 = new File("G:\\meruja\\DigitSign\\TriCon\\TriCon\\keys\\"+direct);
-        String path = "G:\\meruja\\DigitSign\\TriCon\\TriCon\\keys\\";
+        File file1 = new File("G:\\GP2git\\TriCon\\TriCon\\keys\\"+direct);
+        String path = "G:\\GP2git\\TriCon\\TriCon\\keys\\";
         if (!file1.exists())
         {
             if (file1.mkdir())
@@ -332,8 +332,8 @@ public class SignController {
                 }
             }
 
-        File file1 = new File("G:\\meruja\\DigitSign\\TriCon\\TriCon\\keys\\"+direct);
-        String path = "G:\\meruja\\DigitSign\\TriCon\\TriCon\\keys\\";
+        File file1 = new File("G:\\GP2git\\TriCon\\TriCon\\keys\\"+direct);
+        String path = "G:\\GP2git\\TriCon\\TriCon\\keys\\";
         if (!file1.exists())
         {
             if (file1.mkdir())

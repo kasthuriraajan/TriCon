@@ -50,6 +50,79 @@ public class LecturerController {
         model.addAttribute("users", lecturerRepository.findOne(getUserId()));
         return "Lecturer/index";
     }
+            /*Change password*/
+
+    @RequestMapping ("Lec/changePassword")
+    public String changePassword(Model model){
+        String message1="Change your password if you want";
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+        }
+        model.addAttribute("department", departmentRepository.findAll());
+        model.addAttribute("university", universityRepository.findAll());
+        model.addAttribute("users", lecturerRepository.findOne(userId));
+        model.addAttribute("student", studentRepository.findAll());
+        model.addAttribute("message1",message1);
+        return"Lecturer/changePassword";
+    }
+
+    @RequestMapping (value = "Lec/changePassword",method = RequestMethod.POST)
+    public String changePassword(org.apache.catalina.servlet4preview.http.HttpServletRequest request, Model model){
+        String OP=request.getParameter("oldPassword");
+        String NP=request.getParameter("newPassword");
+        String CP=request.getParameter("confirmPassword");
+        System.out.println(OP);
+        System.out.println(NP);
+        System.out.println(CP);
+        String message1="Change your password if you want";
+        Boolean p=false;
+
+        String userId="1";
+        Authentication auth
+                = SecurityContextHolder.getContext().getAuthentication();
+
+        String users1 = auth.getName();
+        List<User> user = userRepository.findAll();
+        for (int i = 0; i < user.size(); i++) {
+            if(user.get(i).getEmail().equals(users1) && user.get(i).getPassword().equals(OP)&&NP.equals(CP))
+            {
+                p=true;
+            }
+
+            if (user.get(i).getEmail().equals(users1)) {
+                userId=user.get(i).getId();
+            }
+
+        }
+        User user2=userRepository.findOne(userId);
+
+
+        if(p)
+        {
+            user2.setPassword(NP);
+            userRepository.save(user2);
+            message1="Your Password has changed.";
+        }
+        else
+        {
+            message1="Your Password has not changed!";
+        }
+        model.addAttribute("department", departmentRepository.findAll());
+        model.addAttribute("university", universityRepository.findAll());
+        model.addAttribute("users", lecturerRepository.findOne(userId));
+        model.addAttribute("student", studentRepository.findAll());
+        model.addAttribute("message1",message1);
+        return"Lecturer/changePassword";
+    }
+
 
     @RequestMapping("/Lec/committedStudents")
     public String committedStudents(Model model) {

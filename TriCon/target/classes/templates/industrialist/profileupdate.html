@@ -86,7 +86,7 @@
 					                                    <span class="input-group-addon">
 						                                    <span class="fa fa-envelope"></span>
                                                         </span>
-                                                    <input type="password" class="form-control" name="SecreteCode"   id="secretecode" placeholder="Secrete Code" th:required="required"/>
+                                                    <input type="password" class="form-control" name="SecreteCode"   id="secretecode" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Secrete Code" th:required="required"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -102,7 +102,7 @@
                                                         <span class="input-group-addon">
                                                             <span class="fa fa-book"></span>
                                                         </span>
-                                                    <input type="password" class="form-control" name="KeyPassword" id="keypassword"  placeholder="Password to protect your code" th:required="required"/>
+                                                    <input type="password" class="form-control" name="KeyPassword" id="keypassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password to protect your code" th:required="required"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -133,25 +133,25 @@
                     <form action="/Ind/profileUpdate" method="post" >
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd1">First Name </span>
-                            <input type="text" name="FirstName" class="form-control" th:value="${industrialist.FirstName}" placeholder="Eg: Kannan" aria-describedby="pd1"/>
+                            <input type="text" name="FirstName" class="form-control" th:value="${industrialist.FirstName}" placeholder="Eg: Kannan" aria-describedby="pd1" th:required="required"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd2">Last Name </span>
-                            <input type="text" name="LastName" class="form-control" th:value="${industrialist.LastName}" placeholder="Eg: Ravi" aria-describedby="pd2"/>
+                            <input type="text" name="LastName" class="form-control" th:value="${industrialist.LastName}" placeholder="Eg: Ravi" aria-describedby="pd2" th:required="required"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd3">E-Mail ID</span>
-                            <input type="text" name="Email" class="form-control" th:value="${industrialist.Email}" placeholder="Eg: ravi@gmail.com"
+                            <input type="email" name="Email" class="form-control" th:value="${industrialist.Email}" placeholder="Eg: ravi@gmail.com" th:required="required"
                                    aria-describedby="pd3"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd4">Mobile No </span>
-                            <input type="text" name="Mobile" class="form-control"  th:value="${industrialist.MobileNo}" placeholder="Eg: +94770562348"
+                            <input type="text" name="Mobile" class="form-control"  th:value="${industrialist.MobileNo}" pattern="[0-9]{10}" placeholder="Eg: 0770562348"
                                    aria-describedby="pd4"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="pd5">T.P Number</span>
-                            <input type="text" name="TP" class="form-control" th:value="${industrialist.TPNo}" placeholder="Eg: 021 456 2365"
+                            <input type="text" name="TP" class="form-control" th:value="${industrialist.TPNo}"  pattern="[0-9]{10}" placeholder="Eg: 021 456 2365"
                                    aria-describedby="pd5"/>
                         </div>
                         <div class="input-group">
