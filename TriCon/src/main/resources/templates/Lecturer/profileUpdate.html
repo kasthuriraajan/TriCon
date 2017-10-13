@@ -36,23 +36,23 @@
                     <form action="/Lec/profileUpdate" method="post">
                         <div class="input-group">
                             <span class="input-group-addon" id="sm1"><i class="fa fa-linkedin"></i> </span>
-                            <input type="text" name="LinkedIn" class="form-control" th:value="${lecturer.LinkedIn}" placeholder="LinkedIn" aria-describedby="sm1"/>
+                            <input type="text" name="LinkedIn" class="form-control" th:value="${lecturer.LinkedIn}" placeholder="LinkedIn" aria-describedby="sm1"  />
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="sm2"><i class="fa fa-twitter"></i> </span>
-                            <input type="text" name="Twitter" class="form-control" th:value="${lecturer.Twitter}" placeholder="Twitter" aria-describedby="sm1"/>
+                            <input type="text" name="Twitter" class="form-control" th:value="${lecturer.Twitter}" placeholder="Twitter" aria-describedby="sm1" />
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="sm3"><i class="fa fa-github"></i> </span>
-                            <input type="text" name="GitHub" class="form-control" th:value="${lecturer.GitHub}" placeholder="GitHub" aria-describedby="sm1"/>
+                            <input type="text" name="GitHub" class="form-control" th:value="${lecturer.GitHub}" placeholder="GitHub" aria-describedby="sm1" />
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="sm4"><i class="fa fa-facebook"></i> </span>
-                            <input type="text" name="Facebook" class="form-control" th:value="${lecturer.Facebook}" placeholder="Facebook" aria-describedby="sm1"/>
+                            <input type="text" name="Facebook" class="form-control" th:value="${lecturer.Facebook}" placeholder="Facebook" aria-describedby="sm1" />
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="sm5"><i class="fa fa-globe"></i> </span>
-                            <input type="text" name="Blog" class="form-control" th:value="${lecturer.Blog}" placeholder="Blog address" aria-describedby="sm1"/>
+                            <input type="text" name="Blog" class="form-control" th:value="${lecturer.Blog}" placeholder="Blog address" aria-describedby="sm1" />
                         </div>
                         <button type="submit" name="save" value="socialMedia" id="btn" class="btn btn-success">Save</button>
                     </form>
@@ -69,7 +69,7 @@
                                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#CreateSign">Create Signature</button>
                             </div>
 
-                            <div class="modal fade" id="CreateSign" tabindex="-1" role="dialog" aria-labelledby="CreateSignLabel" aria-hidden="true">
+                            <div class="modal fade" id="CreateSign" tabindex="-1" role="dialog" aria-labelledby="CreateSignLabel" aria-hidden="true" >
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -86,7 +86,7 @@
 					                                    <span class="input-group-addon">
 						                                    <span class="fa fa-envelope"></span>
                                                         </span>
-                                                    <input type="password" class="form-control" name="SecreteCode"   id="secretecode" placeholder="Secrete Code" th:required="required"/>
+                                                    <input type="password" class="form-control" name="SecreteCode"   id="secretecode"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Secrete Code" th:required="required"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -94,7 +94,7 @@
                                                         <span class="input-group-addon">
                                                             <span class="fa fa-envelope"></span>
                                                         </span>
-                                                    <input type="password" class="form-control" name="ConfirmCode"  id="code123" placeholder="Confirm your secrete code" th:required="required"/>
+                                                    <input type="password" class="form-control" name="ConfirmCode"  id="code123"  placeholder="Confirm your secrete code" th:required="required"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -102,7 +102,7 @@
                                                         <span class="input-group-addon">
                                                             <span class="fa fa-book"></span>
                                                         </span>
-                                                    <input type="password" class="form-control" name="KeyPassword" id="keypassword"  placeholder="Password to protect your code" th:required="required"/>
+                                                    <input type="password" class="form-control" name="KeyPassword" id="keypassword"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password to protect your code" th:required="required"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -133,31 +133,31 @@
                     <form action="/Lec/profileUpdate" method="post" >
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd1">First Name </span>
-                            <input type="text" name="FirstName" class="form-control" th:value="${lecturer.FirstName}" placeholder="Eg: Kannan" aria-describedby="pd1"/>
+                            <input type="text" name="FirstName" class="form-control" th:value="${lecturer.FirstName}" placeholder="Eg: Kannan" aria-describedby="pd1" th:required="required"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd2">Last Name </span>
-                            <input type="text" name="LastName" class="form-control" th:value="${lecturer.LastName}" placeholder="Eg: Ravi" aria-describedby="pd2"/>
+                            <input type="text" name="LastName" class="form-control" th:value="${lecturer.LastName}" placeholder="Eg: Ravi" aria-describedby="pd2" th:required="required"/>
                         </div>
                         <div class="input-group">
-                            <span class="input-group-addon"  id="pd3">E-Mail ID</span>
-                            <input type="text" name="Email" class="form-control" th:value="${lecturer.Email}" placeholder="Eg: ravi@gmail.com"
-                                   aria-describedby="pd3"/>
+                            <span class="input-group-addon"  id="pd3">e-mail ID</span>
+                            <input type="email" name="Email" class="form-control" th:value="${lecturer.Email}" placeholder="Eg: ravi@gmail.com"
+                                   aria-describedby="pd3" th:required="required"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd4">Mobile No </span>
-                            <input type="text" name="Mobile" class="form-control"  th:value="${lecturer.MobileNo}" placeholder="Eg: +94770562348"
-                                   aria-describedby="pd4"/>
+                            <input type="text" name="Mobile" class="form-control"  th:value="${lecturer.MobileNo}" pattern="[0-9]{10}" placeholder="Eg: 0770562348"
+                                   aria-describedby="pd4"  />
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="pd5">T.P Number</span>
-                            <input type="text" name="TP" class="form-control" th:value="${lecturer.TPNo}" placeholder="Eg: 021 456 2365"
-                                   aria-describedby="pd5"/>
+                            <input type="text" name="TP" class="form-control" th:value="${lecturer.TPNo}" pattern="[0-9]{10}" placeholder="Eg: 0214562365"
+                                   aria-describedby="pd5" />
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"  id="pd6">Address</span>
                             <input type="text" name="Address" class="form-control" th:value="${lecturer.Address}" placeholder="Eg: No5,park avenue,Main Street,Jaffna"
-                                   aria-describedby="pd6"/>
+                                   aria-describedby="pd6" />
                         </div>
                         <button type="submit" name="save" value="personal" id="btn-login" class="btn btn-success">Save</button>
                     </form>
